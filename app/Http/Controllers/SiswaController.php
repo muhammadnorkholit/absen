@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Imports\SiswaImport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
 
 class SiswaController extends Controller
 {
@@ -21,6 +23,16 @@ class SiswaController extends Controller
             ->join('jurusan', 'kelas.id_jurusan', 'jurusan.id')
             ->get();
         return view('dashboard.siswa', compact('siswa', 'kelas'));
+    }
+
+    public function ImportSiswaExcel(Request $request)
+    {
+        $file = $request->file('file');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('DataSiswa', $namaFile);
+
+        Excel::import(new SiswaImport, public_path('DataSiswa'));
+        Return redirect('/siswa');
     }
 
     public function store(Request $request)

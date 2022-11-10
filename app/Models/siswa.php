@@ -10,7 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 class siswa extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    
+
     protected $table = "siswa";
     protected $guard = "siswa";
+
+    protected $fillable = ['nama','nisn','id_kelas','id_jurusan'];
 }

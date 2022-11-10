@@ -9,7 +9,7 @@
                         <a href="#!" class="breadcrumb">Dashboard</a>
                     </div>
                 </div>
-            </div>   
+            </div>
 
             <div class="container-fluid">
                 <div class="card">
@@ -17,6 +17,7 @@
                                 <div class="header d-flex justify-content-between">
                                     <div class="button">
                                     <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
+                                    {{-- <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Import Excel</a> --}}
                                         <!-- Modal Structure -->
                                         <div id="modal1" class="modal">
                                             <div class="modal-content">
@@ -63,8 +64,30 @@
                                                 </form>
                                             </div>
                                         </div>
+                                        <!-- Modal Structure -->
+                                        {{-- <div id="modal2" class="modal">
+                                            <div class="modal-content">
+                                                <form method="POST" enctype="multipart/form-data" action="/siswaimport">
+                                                    @csrf
+                                                    <h3><b>Import</b></h3>
+                                                    <div class="modal-body">
+                                                        <div class="sbp-preview">
+                                                            <div class="sbp-preview-content">
+                                                                <div class="form-group">
+                                                                    <label for="">File Excel</label>
+                                                                    <input type="file" required="required">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-primary" type="submit">Tambah</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div> --}}
 
-                                        
+
                                     <button type="button" class="btn btn-secondary">Import pdf</button>
                                     </div>
                                     <div id="editable-datatable_filter" class="dataTables_filter"><input type="search" class="" placeholder="cari" aria-controls="editable-datatable"></div>
