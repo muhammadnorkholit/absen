@@ -57,7 +57,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button class="btn btn-primary" type="submit">Ubah</button>
+                                                        <button class="btn btn-primary" type="submit">Tambah</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -96,37 +96,62 @@
                                                         <a class="waves-effect waves-light modal-trigger" href="#modal2 {{ $s->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
                                                     </td>
                                                     {{-- edit --}}
-                                                    <div id="modal2 {{ $jur->id }}" class="modal ">
+                                                    <div id="modal2 {{ $s->id }}" class="modal ">
                                                         <div class="modal-content">
-                                                            <form action="/jurusan/{{ $jur->id }}" method="POST">
+                                                            <form method="POST" action="/siswa">
                                                                 @csrf
-                                                                @method('PUT')
-                                                                <h3 style="text-align: center"><b>Ubah Data</b></h3>
-                                                            <div class="form-group">
-                                                                <label for="jurusan">Jurusan</label>
-                                                                <input value="{{ old('jurusan', $jur->jurusan) }}" class="form-control" name="jurusan"
-                                                                    id="jurusan" type="text" placeholder="Nama Jurusan" />
-                                                                @error('jurusan')
-                                                                    <small class="text-danger">{{ $message }}</small>
-                                                                @enderror
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-secondary">Ubah</button>
-                                                            </div>
+                                                                @method('PUT');
+                                                                <div class="modal-body">
+                                                                    <div class="sbp-preview">
+                                                                        <div class="sbp-preview-content">
+                                                                            <div class="form-group">
+                                                                                <label class="d-block" for="nama">Nama</label>
+                                                                                <input name="nama" value="{{ old('nama') }}" class="form-control"
+                                                                                    id="nama" type="text" placeholder="Nama" />
+                                                                                @error('nama')
+                                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                                @enderror
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="d-block" for="nisn">Nisn</label>
+                                                                                <input name="nisn" value="{{ old('nisn') }}" class="form-control"
+                                                                                    id="nisn" type="number" placeholder="Masukkan nisn" />
+                                                                                @error('nisn')
+                                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                                @enderror
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="d-block" for="kelas">Pilih kelas</label>
+                                                                                <select class="form-control" id="kelas" name="kelas">
+                                                                                    @foreach ($kelas as $ks)
+                                                                                        <option value="{{ $ks->id }}">{{ $ks->kelas }}
+                                                                                            {{ $ks->jurusan }} {{ $ks->no_kelas }}</option>
+                                                                                    @endforeach
+                                                                                </select>
+                                                                                @error('kelas')
+                                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-primary" type="submit">ubah</button>
+                                                                </div>
                                                             </form>
                                                         </div>
                                                     </div>
                                                     {{-- edit --}}
 
                                                     {{-- delete --}}
-                                                    <div id="#modal3 {{ $jur->id }}" class="modal ">
+                                                    <div id="#modal3 {{ $s->id }}" class="modal ">
                                                         <div class="modal-content">
-                                                            <form action="/jurusan/{{ $jur->id }}" method="POST">
+                                                            <form action="/jurusan/{{ $s->id }}" method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
                                                             <div class="form-group">
                                                                 <p class="font-weight-bold mb-3">Apakah anda yakin menghapus
-                                                                    jurusan {{ $jur->jurusan }} ?
+                                                                    jurusan {{ $s->jurusan }} ?
                                                                 </p>
                                                             </div>
                                                                 <div class="modal-footer">
