@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
-    public function landing()
+    public function index()
     {
-        
+        return view('landing.landing');
     }
 }

@@ -22,6 +22,7 @@
                                             <div class="modal-content">
                                                 <form method="POST" action="/siswa">
                                                     @csrf
+                                                    <h3><b>Tambah data</b></h3>
                                                     <div class="modal-body">
                                                         <div class="sbp-preview">
                                                             <div class="sbp-preview-content">
@@ -43,7 +44,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label class="d-block" for="kelas">Pilih kelas</label>
-                                                                    <select class="form-control" id="kelas" name="kelas">
+                                                                    <select class="form-control" id="kelas" name="jurusan">
                                                                         @foreach ($kelas as $ks)
                                                                             <option value="{{ $ks->id }}">{{ $ks->kelas }}
                                                                                 {{ $ks->jurusan }} {{ $ks->no_kelas }}</option>
@@ -100,7 +101,8 @@
                                                         <div class="modal-content">
                                                             <form method="POST" action="/siswa">
                                                                 @csrf
-                                                                @method('PUT');
+                                                                <h3><b>Ubah Data</b></h3>
+                                                                @method('PUT')
                                                                 <div class="modal-body">
                                                                     <div class="sbp-preview">
                                                                         <div class="sbp-preview-content">
@@ -112,6 +114,7 @@
                                                                                     <small class="text-danger">{{ $message }}</small>
                                                                                 @enderror
                                                                             </div>
+
                                                                             <div class="form-group">
                                                                                 <label class="d-block" for="nisn">Nisn</label>
                                                                                 <input name="nisn" value="{{ old('nisn') }}" class="form-control"
@@ -120,6 +123,7 @@
                                                                                     <small class="text-danger">{{ $message }}</small>
                                                                                 @enderror
                                                                             </div>
+
                                                                             <div class="form-group">
                                                                                 <label class="d-block" for="kelas">Pilih kelas</label>
                                                                                 <select class="form-control" id="kelas" name="kelas">

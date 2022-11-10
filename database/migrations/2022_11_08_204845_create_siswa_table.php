@@ -17,11 +17,13 @@ class CreateSiswaTable extends Migration
             $table->id();
             $table->string('nama', 50);
             $table->integer('nisn')->unique();
-            $table->bigInteger('id_kelas')->unsigned();
+            $table->enum('kelas', ['X', 'XI', 'XII']);
+            $table->enum('no_kelas', ['1', '2', '3', '4', '5']);
+            $table->bigInteger('id_jurusan')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable()->useCurrentUpdate();
 
-            $table->foreign('id_kelas')->references('id')->on('kelas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_jurusan')->references('id')->on('jurusan')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

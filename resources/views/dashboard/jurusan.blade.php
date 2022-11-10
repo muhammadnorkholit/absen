@@ -39,8 +39,8 @@
                                         </div>
 
                                         
-                                    <button type="button" class="btn btn-secondary">Import pdf</button>
-                                    </div>
+                                    <button type="button" class="btn btn-secondary">Export pdf</button>
+                                    </div>          
                                     <div id="editable-datatable_filter" class="dataTables_filter"><input type="search" class="" placeholder="cari" aria-controls="editable-datatable"></div>
                                 </div>
                                 <div class="table-responsive">

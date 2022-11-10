@@ -24,7 +24,7 @@
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
-        <form action="/" method="POST" >
+        <form action="/masuk" method="POST" >
             @csrf
          <!-- Email input -->
          <h2 class="text-center"><b>Login</b></h2>
