@@ -46,8 +46,12 @@ Route::post('/masuk', [AuthController::class, 'loginAuth']);
 
 Route::resource('/dashboard', DashboardController::class);
 Route::resource('/siswa', SiswaController::class);
+<<<<<<< HEAD
 Route::get('/siswaexport', [SiswaController::class, 'Export']);
 Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
+=======
+Route::post('/siswa/import', [SiswaController::class, 'ImportSiswaExcel']);
+>>>>>>> 303780d1be9acee297c379b30c8be609ee5e2b61
 Route::resource('/jurusan', JurusanController::class);
 Route::resource('/printpdf', PrintpdfController::class);
 Route::resource('/landing', LandingController::class);

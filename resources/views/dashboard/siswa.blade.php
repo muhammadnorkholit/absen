@@ -127,64 +127,60 @@
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
 
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-secondary">Tambah data</button>
-                                    </div>
-                                </form>
-                            </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-secondary">Tambah data</button>
+                                                </div>
+                                                </form>
+                                            </div>
 
-                        </div>
-                        <!-- Modal Structure -->
-                        <div id="modal2" class="modal">
-                            <div class="modal-content">
-                                <form action="/siswaimport" enctype="multipart/form-data" method="POST">
-                                    @csrf
-                                    <h3 style="text-align: center"><b>Import Excel</b></h3>
-                                    <div class="form-group">
-                                        <input type="file" required="required">
+                                        </div>
+                                        <!-- Modal Structure -->
+                                        <div id="modal2" class="modal">
+                                            <div class="modal-content">
+                                                <form action="/siswaimport" enctype="multipart/form-data" method="POST">
+                                                    @csrf
+                                                    <h3 style="text-align: center"><b>Import Excel</b></h3>
+                                                    <div class="form-group">
+                                                    <input type="file" required="required">
+                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-secondary">import</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-secondary">import</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="editable-datatable_filter" class="dataTables_filter"><input type="search" class=""
-                            placeholder="cari" aria-controls="editable-datatable"></div>
-                </div>
-                <div class="table-responsive">
-                    <table class="table striped m-b-20" id="editable-datatable">
-                        <thead>
-                            <tr>
-                                <th>id</th>
-                                <th>Nama</th>
-                                <th>Nisn</th>
-                                <th>Kelas</th>
-                                <th>No Kelas</th>
-                                <th>Jurusan</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no = 1; ?>
-                            @foreach ($siswa as $s)
-                                <tr>
-                                    <td>{{ $no++ }}</td>
-                                    <td>{{ $s->nama }}</td>
-                                    <td>{{ $s->nisn }}</td>
-                                    <td>{{ $s->kelas }}</td>
-                                    <td>{{ $s->no_kelas }}</td>
-                                    <td>{{ $s->jurusan }}</td>
-                                    <td class="d-flex justify-content-evenly">
-                                        <a class="waves-effect waves-light modal-trigger" style="color: red"><i
-                                                class="fa-solid fa-trash" href="#modal3 {{ $s->id }}"></i></a>
-                                        <a class="waves-effect waves-light modal-trigger"
-                                            href="#modal2 {{ $s->id }}" style="color:rgb(56, 72, 124)"><i
-                                                class="fa-solid fa-pen"></i></a>
-                                    </td>
-                                    {{-- edit --}}
-                                    <div id="modal2 {{ $s->id }}" class="modal ">
+                                    <div id="editable-datatable_filter" class="dataTables_filter"><input type="search" class="" placeholder="cari" aria-controls="editable-datatable"></div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table striped m-b-20" id="editable-datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>id</th>
+                                                <th>Nama</th>
+                                                <th>Nisn</th>
+                                                <th>Kelas</th>
+                                                <th>No Kelas</th>
+                                                <th>Jurusan</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no=1 ?>
+                                            @foreach ($siswa as $s)
+                                                <tr>
+                                                    <td>{{$no++}}</td>
+                                                    <td>{{$s->nama}}</td>
+                                                    <td>{{$s->nisn}}</td>
+                                                    <td>{{$s->kelas}}</td>
+                                                    <td>{{$s->no_kelas}}</td>
+                                                    <td>{{$s->jurusan}}</td>
+                                                    <td class="d-flex justify-content-evenly">
+                                                        <a class="waves-effect waves-light modal-trigger" style="color: red"><i class="fa-solid fa-trash" href="#modal3 {{ $s->id }}"></i></a>
+                                                        <a class="waves-effect waves-light modal-trigger" href="#modal2 {{ $s->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
+                                                    </td>
+                                                    {{-- edit --}}
+                                                    <div id="modal2 {{ $s->id }}" class="modal ">
 
                                         <div class="modal-content">
                                             <form action="/siswa" method="POST">
