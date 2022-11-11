@@ -9,6 +9,8 @@ use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\PrintController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,3 +50,5 @@ Route::resource('/jurusan', JurusanController::class);
 Route::resource('/printpdf', PrintpdfController::class);
 Route::resource('/landing', LandingController::class);
 Route::resource('/absen', AbsenController::class);
+
+// Route::get('/print', [PrintController::class, 'print']);
