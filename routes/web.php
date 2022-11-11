@@ -25,6 +25,7 @@ use App\Http\Controllers\PrintController;
 // login siswa
 Route::get('/', [AuthController::class, 'loginUi']);
 Route::post('/masuk', [AuthController::class, 'loginAuth']);
+Route::resource('/landing', LandingController::class);
 
 
 // // login admin
@@ -48,7 +49,6 @@ Route::resource('/siswa', SiswaController::class);
 Route::post('/siswa/import', [SiswaController::class, 'ImportSiswaExcel']);
 Route::resource('/jurusan', JurusanController::class);
 Route::resource('/printpdf', PrintpdfController::class);
-Route::resource('/landing', LandingController::class);
 Route::resource('/absen', AbsenController::class);
 
 // Route::get('/print', [PrintController::class, 'print']);

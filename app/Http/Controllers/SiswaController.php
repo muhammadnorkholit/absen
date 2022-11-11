@@ -24,12 +24,19 @@ class SiswaController extends Controller
 
     public function ImportSiswaExcel(Request $request)
     {
-        $file = $request->file('file');
-        $namaFile = $file->getClientOriginalName();
-        $file->move('DataSiswa', $namaFile);
+        request()->validate([
+            'file' => 'required|mimes:xls,xlsx',
+        ], [
+            'file.required' => 'Harap di isi',
+            'file.mimes' => 'Tidak support',
+        ]);
 
-        Excel::import(new SiswaImport, public_path('DataSiswa'));
-        return redirect('/siswa');
+        $file = $request->file('file');
+        $nama_file = Rand(1, 30) . $file->getClientOriginalName();
+        $file->move(public_path('Excel'), $nama_file);
+
+        Excel::import(new SiswaImport, public_path('Excel/' . $nama_file));
+        return redirect()->back();
     }
 
     public function store(Request $request)
