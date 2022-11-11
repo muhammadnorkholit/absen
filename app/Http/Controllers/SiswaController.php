@@ -11,16 +11,11 @@ class SiswaController extends Controller
 {
     public function index()
     {
-        $kelas = DB::table('kelas')
-            ->select('kelas.*', 'jurusan')
-            ->join('jurusan', 'kelas.id_jurusan', 'jurusan.id')
-            ->get();
         $siswa = DB::table('siswa')
-            ->select('siswa.*', 'jurusan', 'kelas', 'no_kelas')
-            ->join('kelas', 'siswa.id_kelas', 'kelas.id')
-            ->join('jurusan', 'kelas.id_jurusan', 'jurusan.id')
+            ->select('jurusan.*')
+            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->get();
-        return view('dashboard.siswa', compact('siswa', 'kelas'));
+        return view('dashboard.siswa', compact('siswa',));
     }
 
     public function store(Request $request)
@@ -28,23 +23,23 @@ class SiswaController extends Controller
         $request->validate([
             'nama' => 'required',
             'nisn' => 'required|unique:siswa,nisn|max:10',
-            'kelas' => 'required',
+            'jurusan' => 'required',
         ], [
             'nama.required' => 'nama tidak boleh kosong',
             'nisn.required' => 'nisn tidak boleh kosong',
             'nisn.max:10' => 'nisn harus pas 10',
             'nisn.unique' => 'nisn sudah terdaftar',
-            'kelas.required' => 'kelas tidak boleh kosong',
+            'jurusan.required' => 'jurusan tidak boleh kosong',
         ]);
 
         $nama = Str::upper($request->nama);
         $nisn = $request->nisn;
-        $kelas = $request->kelas;
+        $jurusan = $request->jurusan;
 
         DB::table('siswa')->insert([
             'nama' => $nama,
             'nisn' => $nisn,
-            'id_kelas' => $kelas
+            'id_jurusan' => $jurusan
         ]);
         return redirect()->back()->with('success', 'siswa berhasil ditambahkan');
     }

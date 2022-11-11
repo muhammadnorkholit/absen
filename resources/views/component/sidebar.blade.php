@@ -10,6 +10,9 @@
                             <a href="/printpdf" class="collapsible-header"><i class="material-icons">move_to_inbox</i><span class="hide-menu"> Print Pdf </span></a>                
                         </li>
                         <li>
+                            <a href="/absen" class="collapsible-header"><i class="material-icons">move_to_inbox</i><span class="hide-menu"> Absen </span></a>                
+                        </li>
+                        <li>
                             <a href="/jurusan" class="collapsible-header"><i class="material-icons">move_to_inbox</i><span class="hide-menu"> Jurusan </span></a>                
                         </li>
                         <li>
