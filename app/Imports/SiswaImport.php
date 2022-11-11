@@ -16,11 +16,11 @@ class SiswaImport implements ToModel,WithHeadingRow
     public function model(array $row)
     {
         return new siswa([
-            'nama' => $row[1],
-            'nisn' => $row[2],
-            'kelas' => $row[3],
-            'no_kelas' => $row[4],
-            'id_jurusan' => $row[5]
+            'nama' => $row['nama'],
+            'nisn' => $row['nisn'],
+            'kelas' => $row['kelas'],
+            'no_kelas' => $row['no_kelas'],
+            'id_jurusan' => $row['id_jurusan']
         ]);
     }
 }

@@ -131,11 +131,11 @@
                                         <!-- Modal Structure -->
                                         <div id="modal2" class="modal">
                                             <div class="modal-content">
-                                                <form action="/siswaimport" enctype="multipart/form-data" method="POST">
-                                                    @csrf
+                                                <form action="/siswa/import" enctype="multipart/form-data" method="POST">
+                                                    {{ csrf_field() }}
                                                     <h3 style="text-align: center"><b>Import Excel</b></h3>
                                                     <div class="form-group">
-                                                    <input type="file" required="required">
+                                                    <input type="file" name="file" required="required">
                                                     </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-secondary">import</button>
