@@ -10,6 +10,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\PrintController;
+use Illuminate\Routing\RouteGroup;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,21 +35,14 @@ Route::resource('/landing', LandingController::class);
 // Route::get('/logout', [AuthController::class, 'logout']);
 
 
-// Route::middleware(['auth',])->group(function () {
-//     Route::resource('/dashboard', DashboardController::class);
-//     Route::resource('/siswa', SiswaController::class);
-//     Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
-//     Route::resource('/jurusan', JurusanController::class);
-//     Route::resource('/printpdf', PrintpdfController::class);
-//     Route::resource('/landing', LandingController::class);
-//     Route::resource('/absen', AbsenController::class);
-// });
+Route::middleware(['web'])->group(function () {
+    Route::resource('/dashboard', DashboardController::class);
+    Route::resource('/siswa', SiswaController::class);
+    Route::post('/siswa/import', [SiswaController::class, 'ImportSiswaExcel']);
+    Route::resource('/jurusan', JurusanController::class);
+    Route::resource('/printpdf', PrintpdfController::class);
+    Route::resource('/absen', AbsenController::class);
+});
 
-Route::resource('/dashboard', DashboardController::class);
-Route::resource('/siswa', SiswaController::class);
-Route::post('/siswa/import', [SiswaController::class, 'ImportSiswaExcel']);
-Route::resource('/jurusan', JurusanController::class);
-Route::resource('/printpdf', PrintpdfController::class);
-Route::resource('/absen', AbsenController::class);
 
 // Route::get('/print', [PrintController::class, 'print']);
