@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Imports\SiswaImport;
+use App\Exports\SiswaExport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +22,11 @@ class SiswaController extends Controller
             ->get();
         $jurusan = DB::table('jurusan')->get();
         return view('dashboard.siswa', compact('siswa', 'jurusan'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new SiswaExport, 'siswa.xlsx');
     }
 
     public function ImportSiswaExcel(Request $request)
