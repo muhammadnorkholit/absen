@@ -16,7 +16,7 @@
                             <div class="card-content">
                                 <div class="header d-flex justify-content-between">
                                     <div class="button">
-                                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
+                                        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
                                         <!-- Modal Structure -->
                                         <div id="modal1" class="modal">
                                             <div class="modal-content">
@@ -37,9 +37,6 @@
                                                 </form>
                                             </div>
                                         </div>
-
-                                        
-                                    <button type="button" class="btn btn-secondary">Export pdf</button>
                                     </div>          
                                     <div id="editable-datatable_filter" class="dataTables_filter"><input type="search" class="" placeholder="cari" aria-controls="editable-datatable"></div>
                                 </div>

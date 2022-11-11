@@ -14,5 +14,5 @@ class siswa extends Authenticatable
     protected $table = "siswa";
     protected $guard = "siswa";
 
-    protected $fillable = ['nama','nisn','id_kelas','id_jurusan'];
+    protected $fillable = ['nama', 'nisn', 'kelas', 'no_kelas', 'id_jurusan'];
 }

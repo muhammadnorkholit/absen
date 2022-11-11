@@ -24,14 +24,27 @@ use App\Http\Controllers\JurusanController;
 Route::get('/', [AuthController::class, 'loginUi']);
 Route::post('/masuk', [AuthController::class, 'loginAuth']);
 
+
 // // login admin
 // Route::get('/', [AuthController::class, 'loginAdmin']);
 // Route::post('/masuk', [AuthController::class, 'loginAuth3']);
 // Route::get('/logout', [AuthController::class, 'logout']);
 
 
+// Route::middleware(['auth',])->group(function () {
+//     Route::resource('/dashboard', DashboardController::class);
+//     Route::resource('/siswa', SiswaController::class);
+//     Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
+//     Route::resource('/jurusan', JurusanController::class);
+//     Route::resource('/printpdf', PrintpdfController::class);
+//     Route::resource('/landing', LandingController::class);
+//     Route::resource('/absen', AbsenController::class);
+// });
+
 Route::resource('/dashboard', DashboardController::class);
-Route::resource('/jurusan', JurusanController::class);
+Route::resource('/siswa', SiswaController::class);
 Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
+Route::resource('/jurusan', JurusanController::class);
 Route::resource('/printpdf', PrintpdfController::class);
 Route::resource('/landing', LandingController::class);
+Route::resource('/absen', AbsenController::class);

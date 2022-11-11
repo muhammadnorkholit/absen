@@ -29,7 +29,8 @@ class AuthController extends Controller
 
             // dd(Auth::id());
             DB::table('absen')->insert([
-                'id_siswa' => Auth::id()
+                'id_siswa' => Auth::id(),
+                "status" => "hadir"
             ]);
             return redirect()->intended('/landing');
         } else {
