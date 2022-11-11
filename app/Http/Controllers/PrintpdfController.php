@@ -11,4 +11,9 @@ class PrintpdfController extends Controller
     {
         return view('dashboard.print');
     }
+
+    public function print()
+    {
+        return view('dashboard.printpdf');
+    }
 }
