@@ -1,5 +1,6 @@
 <?php
 
+use App\Exports\SiswaExport;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
@@ -45,10 +46,12 @@ Route::post('/masuk', [AuthController::class, 'loginAuth']);
 
 Route::resource('/dashboard', DashboardController::class);
 Route::resource('/siswa', SiswaController::class);
+Route::get('/siswaexport', [SiswaController::class, 'Export']);
 Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
 Route::resource('/jurusan', JurusanController::class);
 Route::resource('/printpdf', PrintpdfController::class);
 Route::resource('/landing', LandingController::class);
 Route::resource('/absen', AbsenController::class);
 
-// Route::get('/print', [PrintController::class, 'print']);
+// Route::post('/print', [PrintController::class, 'print']);
+Route::get('/print', [PrintpdfController::class, 'print']);
