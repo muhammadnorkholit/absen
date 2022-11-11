@@ -32,7 +32,6 @@ Route::post('/masuk', [AuthController::class, 'loginAuth']);
 
 Route::resource('/dashboard', DashboardController::class);
 Route::resource('/jurusan', JurusanController::class);
-Route::resource('/siswa', SiswaController::class);
+Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
 Route::resource('/printpdf', PrintpdfController::class);
-Route::resource('/absen', AbsenController::class);
 Route::resource('/landing', LandingController::class);
