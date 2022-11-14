@@ -23,16 +23,17 @@ class AuthController extends Controller
 
         $data = siswa::where('nisn', $request->nisn)->first();
 
-
-        Auth::login($data);
         if ($data) {
+
+            Auth::login($data);
 
             // dd(Auth::id());
             DB::table('absen')->insert([
                 'id_siswa' => Auth::id(),
                 "status" => "hadir"
             ]);
-            return redirect()->intended('/landing');
+
+            return redirect('https://www.youtube.com/watch?v=kgx4WGK0oNU&ab_channel=%E9%98%BF%E9%B2%8DAbao');
         } else {
             return redirect()->back();
         }
