@@ -17,7 +17,6 @@
                 <div class="header d-flex justify-content-between">
                     <div class="button">
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Import Excel</a>
-                        <a href="/siswaexport"><button type="submit" class="btn btn_primary">Export Excel</button></a>
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">
@@ -175,9 +174,9 @@
                                                     <td>{{$s->kelas}}</td>
                                                     <td>{{$s->no_kelas}}</td>
                                                     <td>{{$s->jurusan}}</td>
-                                                    <td class="d-flex justify-content-evenly">
-                                                        <a class="waves-effect waves-light modal-trigger" style="color: red"><i class="fa-solid fa-trash" href="#modal3 {{ $s->id }}"></i></a>
-                                                        <a class="waves-effect waves-light modal-trigger" href="#modal2 {{ $s->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
+                                                    <td class="d-flex justify-content-evenly m-2">
+                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red"><i class="fa-solid fa-trash" href="#modal3 {{ $s->id }}"></i></a>
+                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue"href="#modal2 {{ $s->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
                                                     </td>
                                                     {{-- edit --}}
                                                     <div id="modal2 {{ $s->id }}" class="modal ">

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\siswa;
+use Illuminate\Support\Str;
+
 
 class AuthController extends Controller
 {
@@ -27,15 +29,33 @@ class AuthController extends Controller
 
             Auth::login($data);
 
+
             // dd(Auth::id());
             DB::table('absen')->insert([
                 'id_siswa' => Auth::id(),
-                "status" => "hadir"
+                "status" => "hadir",
+                "sesi" => "1"
             ]);
 
-            return redirect('https://www.youtube.com/watch?v=kgx4WGK0oNU&ab_channel=%E9%98%BF%E9%B2%8DAbao');
+            return redirect('/ujian');
         } else {
             return redirect()->back();
         }
+    }
+
+    public function absenUi()
+    {
+        return view('landing.absen');
+    }
+
+    public function absen(Request $request, $id)
+    {
+        $sesi = $request->sesi;
+        DB::table('kategori')->where('id', $id)->update(
+            [
+                'sesi' => $sesi
+            ]
+        );
+        return redirect()->back()->with('success', 'kategori berhasil diedit');
     }
 }

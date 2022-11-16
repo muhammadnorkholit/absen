@@ -17,7 +17,8 @@ class CreateAbsenTable extends Migration
             $table->id();
             $table->bigInteger('id_siswa')->unsigned();
             $table->enum('status', ['hadir', 'sakit', 'ijin', 'tanpa keterangan']);
-            $table->timestamp('tanggal')->useCurrent();
+            $table->timestamp('waktu')->useCurrent();
+            $table->enum('sesi', ['1', '2', '3', '4'])->useCurrent()->nullable();
             $table->timestamp('updated_at')->nullable()->useCurrentUpdate();
             $table->foreign('id_siswa')->references('id')->on('siswa')->onUpdate('cascade');
         });

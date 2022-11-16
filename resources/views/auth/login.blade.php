@@ -27,8 +27,8 @@
         <form action="/masuk" method="POST" >
             @csrf
          <!-- Email input -->
-         <h2 class="text-center"><b>Login</b></h2>
-            <label class="form-label" for="form3Example3">Masukkan NISN</label>
+         <h4 class="text-center"><b>Login</b></h4>
+            <label class="form-label" for="form3Example3">Masukkan NISN : </label>
           <div class="form-outline mb-4">
             <input type="number" id="form3Example3" name="nisn" class="form-control form-control-lg"
               placeholder="Masukkan NISN anda" />

@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
         <a href="/print"><button class="btn buttons-print btn-sm btn-default" tabindex="0"
-                aria-controls="datatable-buttons" type="button"><span>Print</span></button>
+                aria-controls="datatable-buttons" type="button"><span>Print Berita Acara</span></button>
         </a>
     </div>
 @endsection

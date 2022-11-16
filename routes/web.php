@@ -27,7 +27,8 @@ use Illuminate\Routing\RouteGroup;
 // login siswa
 Route::get('/', [AuthController::class, 'loginUi'])->name('login');
 Route::post('/masuk', [AuthController::class, 'loginAuth']);
-Route::resource('/landing', LandingController::class);
+Route::get('/ujian', [AuthController::class, 'absenUi']);
+Route::post('/ujian', [AuthController::class, 'absen']);
 
 
 // login admin
@@ -55,3 +56,5 @@ Route::resource('/printpdf', PrintpdfController::class);
 Route::resource('/absen', AbsenController::class);
 // Route::post('/print', [PrintController::class, 'print']);
 Route::get('/print', [PrintpdfController::class, 'print']);
+Route::get('/printSiswaUi', [PrintpdfController::class, 'printSiswaUi']);
+Route::post('/printSiswaUi', [PrintpdfController::class, 'filter']);

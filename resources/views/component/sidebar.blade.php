@@ -7,7 +7,13 @@
                             <a href="/dashboard" class="collapsible-header"><i class="material-icons">dashboard</i><span class="hide-menu"> Dashboard</span></a>
                         </li>
                         <li>
-                            <a href="/printpdf" class="collapsible-header"><i class="material-icons">move_to_inbox</i><span class="hide-menu"> Print Pdf </span></a>                
+                            <a href="javascript: void(0);" class="collapsible-header has-arrow"><i class="material-icons">dashboard</i><span class="hide-menu"> Print</span></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="/print"><i class="material-icons">adjust</i><span class="hide-menu">Berita Acara</span></a></li>
+                                    <li><a href="/printSiswaUi"><i class="material-icons">adjust</i><span class="hide-menu">Data Siswa</span></a></li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <a href="/absen" class="collapsible-header"><i class="material-icons">move_to_inbox</i><span class="hide-menu"> Absen </span></a>                

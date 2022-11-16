@@ -29,8 +29,8 @@
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>          
-                                    <div id="editable-datatable_filter" class="dataTables_filter"><input type="search" class="" placeholder="cari" aria-controls="editable-datatable"></div>
+                                    </div>   
+                                    <div id="zero_config_filter" class="dataTables_filter"><label><input type="search" class="form-control form-control-sm" placeholder="cari" aria-controls="zero_config"></label></div>    
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table striped m-b-20" id="editable-datatable">
@@ -40,8 +40,8 @@
                                                 <th>Nama </th>
                                                 <th>Nisn </th>
                                                 <th>Kelas </th>
-                                                <th>jurusan </th>
-                                                <th>No kelas </th>
+                                                <th>Waktu </th>
+                                                <th>Sesi </th>
                                                 <th>Status </th>
                                                 <th>Action</th>
                                             </tr>
@@ -53,11 +53,10 @@
                                                     <td>{{$no++}}</td>
                                                     <td>{{$ab->nama}}</td>
                                                     <td>{{$ab->nisn}}</td>
-                                                    <td>{{$ab->kelas}}</td>
-                                                    <td>{{$ab->jurusan}}</td>
-                                                    <td>{{$ab->no_kelas}}</td>
+                                                    <td>{{$ab->kelas}} {{$ab->jurusan}} {{$ab->no_kelas}}</td>
+                                                    <td>{{$ab->waktu}}</td>
                                                     <td>
-                                                        <button class="btn btn-succesd">{{$ab->status}}</button>
+                                                        <a class="btn btn-succesd">{{$ab->status}}</a>
                                                     </td>
                                                     <td class="d-flex justify-content-evenly">
                                                         <a class="waves-effect waves-light modal-trigger" style="color: red"><i class="fa-solid fa-trash" href="#modal3 {{ $ab->id }}"></i></a>
@@ -69,7 +68,9 @@
                                                             <form action="/jurusan/{{ $ab->id }}" method="POST">
                                                                 @csrf
                                                                 @method('PUT')
-                                                                
+                                                                <button class="btn" style="background-color:red ;"> alpha </button>
+                                                                <button class="btn" style="background-color:gray ;"> ijin </button>
+                                                                <button class="btn" style="background-color: yellowgreen ;"> sakit </button>
                                                             <div class="modal-footer">
                                                                 <button type="submit" class="btn btn-secondary">Ubah</button>
                                                             </div>
