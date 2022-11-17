@@ -16,12 +16,12 @@ class SiswaController extends Controller
 {
     public function index()
     {
-        $siswa = DB::table('siswa')
-            ->select('jurusan', 'siswa.*')
-            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-            ->get();
-        $jurusan = DB::table('jurusan')->get();
-        return view('dashboard.siswa', compact('siswa', 'jurusan'));
+            $siswa = DB::table('siswa')
+                ->select('jurusan', 'siswa.*')
+                ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+                ->get();
+            $jurusan = DB::table('jurusan')->get();
+            return view('dashboard.siswa', compact('siswa', 'jurusan'));
     }
 
     public function export()

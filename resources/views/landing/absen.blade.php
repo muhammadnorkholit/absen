@@ -15,18 +15,43 @@
   <body style="background-color: skyblue"><br><br><br>  
     <div class="jumbotron m-auto mt-5 jumbotron-fluid" style="width:300px; background-color: white; border-radius: 20px; padding:50px;" >
         <div class="container">
-            <h3 ><b>Halo,</b> </h3><br>
-            {{-- <h2><b>{{$absen->nama}}</b></h2> --}}
+            <h4 >Halo, <span style="font-weight: 500"><b>{{$data->nama}}</b></span></h4>
+            <h2></h2>
             {{-- <h1><b>{{$nama}}</b></h1> --}}
             <h5>Pilih sesi anda : </h5>
-            <form action="/ujian" method="POST">
+            {{-- @dd(Auth::id()) --}}
+            <form action="/ujian/{{Auth::id()}}" method="POST">
               @csrf
               @method('put')
-              <div class="buttons d-flex p-2" style="justify-content: space-evenly">
-                  <button name="sesi" type="submit" class="btn btn-warning">1</button>
-                  <button name="sesi" type="submit" class="btn btn-primary">2</button>
-                  <button name="sesi" type="submit" class="btn btn-secondary">3</button>
-              </div>
+              <br>
+              <div class="form-group d-flex" style="gap:20px">
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->sesi == '1' ? 'checked' : '' }}
+                                                                class="with-gap" name="sesi" id="no1"
+                                                                value="1" type="radio" checked />
+                                                            <span for="no1">1</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->sesi == '2' ? 'checked' : '' }}
+                                                                class="with-gap" name="sesi" id="no2"
+                                                                value="2" type="radio" />
+                                                            <span for="no2">2</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->sesi == '3' ? 'checked' : '' }}
+                                                                class="with-gap" name="sesi" id="no3"
+                                                                value="3" type="radio" />
+                                                            <span for="no3">3</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <br>  
+              <button class="btn btn-primary" type="submit">submit</button>
             </form>
         </div>
     </div>

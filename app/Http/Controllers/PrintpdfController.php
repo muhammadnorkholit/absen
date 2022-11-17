@@ -35,24 +35,50 @@ class PrintpdfController extends Controller
 
     public function printSiswaUi()
     {
-        return view('dashboard.printSiswa');
+        $jurusan = DB::table('jurusan')->get();
+        $print  = DB::table('absen')->get();
+        return view('dashboard.printSiswa', compact(['jurusan', 'print']));
     }
 
-    public function filter()
+    public function filter(Request $request)
     {
-        $kls = request()->kelas;
-        $jrsn = request()->jurusan;
-        $nkls = request()->no_kelas;
+        $absen = printsiswaModel::all();
 
-        return view('pemilihan.printSiswa', [
-            'pemilih' => printsiswaModel::join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+        $data = DB::table('absen')
+            ->join('siswa', 'absen.id_siswa', 'siswa.id')
+            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+            ->select('absen.*', 'nisn', 'no_kelas', 'kelas', 'jurusan')
+            ->where('absen.id', '=', $request->filter)
+            ->get();
+        
+            if ($request->filter == "all"){
+                 $datas = DB::table('absen')
                 ->join('siswa', 'absen.id_siswa', 'siswa.id')
-                ->where('kelas', $kls)
-                ->where('jurusan', $jrsn)
-                ->where('no_kelas', $nkls)
-                ->get(),
-            'jurusan' => DB::table('pemilihan')->get(),
-        ]);
+                ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+                ->select('absen.*', 'nisn', 'no_kelas', 'kelas', 'jurusan')
+                ->get();
+            }
+            return view ('pemilihan.printSiswa', [
+                "datas" => $data,
+                "absen" => $absen,
+                "no" => $no = 1
+            ]);
+
+        // $kls = request()->kelas;
+        // $jrsn = request()->jurusan;
+        // $nkls = request()->no_kelas;
+
+        // $print = DB::table('absen')->get();
+
+        // return view('pemilihan.printSiswa', [
+        //     'absen' => printsiswaModel::join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+        //         ->join('siswa', 'absen.id_siswa', 'siswa.id')
+        //         ->where('kelas', $kls)
+        //         ->where('jurusan', $jrsn)
+        //         ->where('no_kelas', $nkls)
+        //         ->get(),
+        //     'jurusan' => DB::table('pemilihan')->get(),
+
+        // ]);
     }
 }
- 

@@ -16,8 +16,8 @@ class CreateSiswaTable extends Migration
         Schema::create('siswa', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 50);
-            $table->integer('nisn')->unique();
-            $table->enum('kelas', ['X', 'XI', 'XII']);
+            $table->bigInteger('nisn')->unique();
+            $table->enum('kelass', ['X', 'XI', 'XII']);
             $table->enum('no_kelas', ['1', '2', '3', '4', '5']);
             $table->bigInteger('id_jurusan')->unsigned();
             $table->timestamp('created_at')->useCurrent();

@@ -63,20 +63,20 @@
                                                     <div id="modal2 {{ $jur->id }}" class="modal ">
                                                         <div class="modal-content">
                                                             <form action="/jurusan/{{ $jur->id }}" method="POST">
-                                                                @csrf
-                                                                @method('PUT')
-                                                                <h3 style="text-align: center"><b>Ubah Data</b></h3>
-                                                            <div class="form-group">
-                                                                <label for="jurusan">Jurusan</label>
-                                                                <input value="{{ old('jurusan', $jur->jurusan) }}" class="form-control" name="jurusan"
-                                                                    id="jurusan" type="text" placeholder="Nama Jurusan" />
-                                                                @error('jurusan')
-                                                                    <small class="text-danger">{{ $message }}</small>
-                                                                @enderror
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-secondary">Ubah</button>
-                                                            </div>
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <h3 style="text-align: center"><b>Ubah Data</b></h3>
+                                                                <div class="form-group">
+                                                                    <label for="jurusan">Jurusan</label>
+                                                                    <input value="{{ old('jurusan', $jur->jurusan) }}" class="form-control" name="jurusan"
+                                                                        id="jurusan" type="text" placeholder="Nama Jurusan" />
+                                                                    @error('jurusan')
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-secondary">Ubah</button>
+                                                                </div>
                                                             </form>
                                                         </div>
                                                     </div>

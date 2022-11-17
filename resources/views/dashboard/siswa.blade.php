@@ -17,6 +17,7 @@
                 <div class="header d-flex justify-content-between">
                     <div class="button">
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Import Excel</a>
+                        <a class="waves-effect waves-light btn modal-trigger" href="/siswaexport">Export Excel</a>
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">
@@ -131,7 +132,6 @@
                                                 </div>
                                                 </form>
                                             </div>
-
                                         </div>
                                         <!-- Modal Structure -->
                                         <div id="modal2" class="modal">
@@ -140,7 +140,7 @@
                                                     @csrf
                                                     <h3 style="text-align: center"><b>Import Excel</b></h3>
                                                     <div class="form-group">
-                                                    <input type="file" required="required">
+                                                    <input type="file" name="file" required="required">
                                                     </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-secondary">import</button>

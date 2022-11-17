@@ -55,6 +55,7 @@
                                                     <td>{{$ab->nisn}}</td>
                                                     <td>{{$ab->kelas}} {{$ab->jurusan}} {{$ab->no_kelas}}</td>
                                                     <td>{{$ab->waktu}}</td>
+                                                    <td>{{$ab->sesi}}</td>
                                                     <td>
                                                         <a class="btn btn-succesd">{{$ab->status}}</a>
                                                     </td>

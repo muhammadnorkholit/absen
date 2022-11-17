@@ -29,8 +29,6 @@ class AuthController extends Controller
 
             Auth::login($data);
 
-
-            // dd(Auth::id());
             DB::table('absen')->insert([
                 'id_siswa' => Auth::id(),
                 "status" => "hadir",
@@ -45,17 +43,20 @@ class AuthController extends Controller
 
     public function absenUi()
     {
-        return view('landing.absen');
+        $id = Auth::id();
+        $data = siswa::where('id', $id)->first();
+        return view('landing.absen', compact(('data')));
     }
 
     public function absen(Request $request, $id)
     {
         $sesi = $request->sesi;
-        DB::table('kategori')->where('id', $id)->update(
+
+        DB::table('absen')->where('id', $id)->update(
             [
                 'sesi' => $sesi
             ]
         );
-        return redirect()->back()->with('success', 'kategori berhasil diedit');
+        return redirect('https://www.youtube.com/');
     }
 }

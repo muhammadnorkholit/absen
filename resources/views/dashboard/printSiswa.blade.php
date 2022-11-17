@@ -20,17 +20,6 @@
                                     @csrf
                                     <div class="col-12">
                                         <div class="row">
-                                            <div class="col s2">
-                                                <div class="form-group">
-                                                    <label>Tipe</label>
-                                                    <select class="form-control" name="tipe">
-                                                        <option value="">Pilih disini</option>
-                                                        <option value="Siswa">Siswa</option>
-                                                        <option value="Guru">Guru</option>
-                                                        <option value="Karyawan">Karyawan</option>
-                                                    </select>
-                                                </div>
-                                            </div>
                                             <div class="col s1">
                                                 <div class="form-group">
                                                     <label>kelas</label>
@@ -60,32 +49,88 @@
                                                     <label>Jurusan</label>
                                                     <select class="form-control" name="jurusan">
                                                         <option value="">Pilih Disini</option>
-                                                        @foreach($absen as $item)
-                                                        <option value="{{ $item->nama_jurusan }}">
-                                                            {{ $item->nama_jurusan }}
-                                                        </option>
+                                                       @foreach ($jurusan as $j)
+                                                            <option value="{{ $j->jurusan }}">
+                                                                {{ $j->jurusan }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col s1 m-t-30">
                                                 <div class="form-group">
-                                                    <input type="submit" class="btn btn-md col-12 indigo" value="Filter">
+                                                    <input type="submit" class="btn btn-md col-12 indigo" name="action" value="Filter">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                                 <div class="row m-t-40" style="text-align: left;">
-                                    <div class="col s12">                        
-                                        <a href="/filsemua" class="btn teal mb-3">Semua</a>
-                                        <a href="/filaktif" class="btn teal mb-3">Aktif</a>
-                                        <a href="/filnonaktif" class="btn teal mb-3">Nonaktif</a>                        
+                                    <div class="col ">                        
+                                        <a href="/filsemua" class="btn teal mb-3">Semua</a>                      
+                                    </div>
+                                    <div class="col ">                        
+                                        <a href="/" class="btn teal mb-3">Export Peserta</a>                      
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {{-- @if(count() > 0) --}}
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="card-content">
+                                <h5 class="card-title">Data Siswa</h5><br>
+                                    <div class="row m-b-20">
+                                        <div class="col ">                        
+                                            <a href="/" class="btn teal mb-3">Pdf</a>                      
+                                        </div>
+                                        <div class="col ">                        
+                                            <a href="/" class="btn teal mb-3">Excel</a>                      
+                                        </div>
+                                    </div>
+                                    <div class="row" style="text-align: left;">
+                                        <div class="table-responsive">
+                                        <table class="table striped m-b-20" id="editable-datatable">
+                                            <thead>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>Nama</th>
+                                                    <th>Kelas</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $no = 1 ?>
+                                                 @foreach($print as $data)
+                                                    <tr>
+                                                        <td>{{ $no}}</td>
+                                                        <td>{{ $data->kelas }} {{ $data->jurusan }} {{ $data->no_kelas }}</td>     
+                                                        <td>{{ $data->status }}</td>
+                                                        @if(($data->status) == "hadir")                                            
+                                                        <td>
+                                                            <a href="/{{$data->id}}"><button class="btn btn-primary btn-sm">Hadir</button></a>
+                                                        </td>                                            
+                                                        @endif
+                                                         @if(($data->status) == "null")                                            
+                                                        <td>
+                                                            <a href="/{{$data->id}}"><button class="btn btn-danger btn-sm">Alpha</button></a>
+                                                            <a href="/{{$data->id}}"><button class="btn btn-sm" style="background-color: greenyellow;" >Ijin</button></a>
+                                                            <a href="/{{$data->id}}"><button class="btn btn-sm" style="background-color: darkcyan" >Sakit</button></a>
+                                                        </td>                                            
+                                                        @endif                                 
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- @endif --}}
             </div>
 @endsection
