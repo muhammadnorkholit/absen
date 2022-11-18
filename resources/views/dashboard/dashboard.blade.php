@@ -24,7 +24,7 @@
                                 <div class="d-flex no-block align-items-center">
                                     <div>
                                         <h2 class="white-text m-b-5">250</h2>
-                                        <h6 class="white-text op-5 light-blue-text">Total Guru</h6>
+                                        <h6 class="white-text op-5 light-blue-text">Total Siswa</h6>
                                     </div>
                                     <div class="ml-auto">
                                         <span class="white-text display-6"><i class="material-icons">assignment</i></span>
@@ -56,7 +56,7 @@
                                 <div class="d-flex no-block align-items-center">
                                     <div>
                                         <h2 class="white-text m-b-5">100</h2>
-                                        <h6 class="white-text op-5 text-darken-2">Total siswa</h6>
+                                        <h6 class="white-text op-5 text-darken-2">Total Sesi</h6>
                                     </div>
                                     <div class="ml-auto">
                                         <span class="white-text display-6"><i class="material-icons">equalizer</i></span>

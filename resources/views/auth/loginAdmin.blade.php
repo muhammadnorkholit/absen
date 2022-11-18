@@ -28,7 +28,7 @@
             @csrf
          <!-- Email input -->
          <h2 class="text-center"><b>Login</b></h2>
-            <label class="form-label" for="form3Example3">Masukkan NISN</label>
+            <label class="form-label" for="form3Example3">Masukkan Username</label>
           <div class="form-outline mb-4">
             <input type="number" id="form3Example3" name="nisn" class="form-control form-control-lg"
               placeholder="Masukkan NISN anda" />

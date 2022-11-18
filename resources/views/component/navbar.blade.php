@@ -61,19 +61,10 @@
                                     <div class="dw-user-box">
                                         <div class="u-img"><img src="{{asset('assets')}}/images/users/2.jpg" alt="user"></div>
                                         <div class="u-text">
-                                            <h4>Steve Harvey</h4>
-                                            <p>steve@gmail.com</p>
-                                            <a class="waves-effect waves-light btn-small red white-text">View Profile</a>
+                                            <h4>Halo, <b>Admin</b></h4>
                                         </div>
                                     </div>
                                 </li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#"><i class="material-icons">account_circle</i> My Profile</a></li>
-                                <li><a href="#"><i class="material-icons">account_balance_wallet</i> My Balance</a></li>
-                                <li><a href="#"><i class="material-icons">inbox</i> Inbox</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#"><i class="material-icons">settings</i> Account Setting</a></li>
-                                <li role="separator" class="divider"></li>
                                 <li><a href="#"><i class="material-icons">power_settings_new</i> Logout</a></li>
                             </ul>
                         </li>

@@ -11,7 +11,7 @@
                             <div class="collapsible-body">
                                 <ul>
                                     <li><a href="/print"><i class="material-icons">adjust</i><span class="hide-menu">Berita Acara</span></a></li>
-                                    <li><a href="/printSiswaUi"><i class="material-icons">adjust</i><span class="hide-menu">Data Siswa</span></a></li>
+                                    <li><a href="/exportAbsen   "><i class="material-icons">adjust</i><span class="hide-menu">Data Siswa</span></a></li>
                                 </ul>
                             </div>
                         </li>

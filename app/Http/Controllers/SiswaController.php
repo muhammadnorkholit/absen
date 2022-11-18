@@ -16,12 +16,12 @@ class SiswaController extends Controller
 {
     public function index()
     {
-            $siswa = DB::table('siswa')
-                ->select('jurusan', 'siswa.*')
-                ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-                ->get();
-            $jurusan = DB::table('jurusan')->get();
-            return view('dashboard.siswa', compact('siswa', 'jurusan'));
+        $siswa = DB::table('siswa')
+            ->select('jurusan', 'siswa.*')
+            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+            ->get();
+        $jurusan = DB::table('jurusan')->get();
+        return view('dashboard.siswa', compact('siswa', 'jurusan'));
     }
 
     public function export()
@@ -54,6 +54,7 @@ class SiswaController extends Controller
             'kelas' => 'required',
             'no_kelas' => 'required',
             'jurusan' => 'required',
+            'gender' => 'required'
         ], [
             'nama.required' => 'nama tidak boleh kosong',
             'nisn.required' => 'nisn tidak boleh kosong',
@@ -62,6 +63,7 @@ class SiswaController extends Controller
             'jurusan.required' => 'jurusan tidak boleh kosong',
             'kelas.required' => 'kelas tidak boleh kosong',
             'no_kelas.required' => 'no_kelas tidak boleh kosong',
+            'gender.required' => 'jenis kelamin tidak boleh kosong',
         ]);
 
         $nama = Str::upper($request->nama);
@@ -69,6 +71,7 @@ class SiswaController extends Controller
         $kelas = $request->kelas;
         $no_kelas = $request->no_kelas;
         $jurusan = $request->jurusan;
+        $gender = $request->gender;
 
 
         DB::table('siswa')->insert([
@@ -76,6 +79,7 @@ class SiswaController extends Controller
             'nisn' => $nisn,
             'kelas' => $kelas,
             'no_kelas' => $no_kelas,
+            'gender' => $gender,
             'id_jurusan' => $jurusan
         ]);
 
@@ -90,6 +94,7 @@ class SiswaController extends Controller
             'kelas' => 'required',
             'no_kelas' => 'required',
             'jurusan' => 'required',
+            'gender' => 'required'
         ], [
             'nama.required' => 'nama tidak boleh kosong',
             'nisn.required' => 'nisn tidak boleh kosong',
@@ -98,6 +103,7 @@ class SiswaController extends Controller
             'jurusan.required' => 'jurusan tidak boleh kosong',
             'kelas.required' => 'kelas tidak boleh kosong',
             'no_kelas.required' => 'no_kelas tidak boleh kosong',
+            'gender.required' => 'jenis kelamin tidak boleh kosong'
         ]);
 
         $nama = Str::upper($request->nama);
@@ -105,6 +111,7 @@ class SiswaController extends Controller
         $kelas = $request->kelas;
         $no_kelas = $request->no_kelas;
         $jurusan = $request->jurusan;
+        $gender = $request->gender;
 
 
         DB::table('siswa')->where('id', $id)->update([
@@ -112,9 +119,16 @@ class SiswaController extends Controller
             'nisn' => $nisn,
             'kelas' => $kelas,
             'no_kelas' => $no_kelas,
+            'gender' => $gender,
             'id_jurusan' => $jurusan
         ]);
 
         return redirect()->back()->with('success', 'siswa berhasil diubah');
+    }
+
+    public function destroy($id)
+    {
+        DB::table('siswa')->where('id', $id)->delete();
+        return redirect()->back()->with('success', 'jurusan berhasil di hapus');
     }
 }

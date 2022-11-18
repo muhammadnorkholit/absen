@@ -15,7 +15,7 @@ class AbsenController extends Controller
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->get();
         $absen = DB::table('absen')
-            ->select('absen.*', 'nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
+            ->select('absen.*', 'nama', 'nisn', 'no_kelas', 'kelas', 'jurusan', 'gender')
             ->join('siswa', 'absen.id_siswa', 'siswa.id')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->get();

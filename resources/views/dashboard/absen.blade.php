@@ -60,8 +60,8 @@
                                                         <a class="btn btn-succesd">{{$ab->status}}</a>
                                                     </td>
                                                     <td class="d-flex justify-content-evenly">
-                                                        <a class="waves-effect waves-light modal-trigger" style="color: red"><i class="fa-solid fa-trash" href="#modal3 {{ $ab->id }}"></i></a>
-                                                        <a class="waves-effect waves-light modal-trigger" href="#modal2 {{ $ab->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
+                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red"><i class="fa-solid fa-trash" href="#modal3 {{ $ab->id }}"></i></a>
+                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $ab->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
                                                     </td>
                                                     {{-- edit --}}
                                                     <div id="modal2 {{ $ab->id }}" class="modal ">

@@ -16,8 +16,8 @@
             <div class="card-content">
                 <div class="header d-flex justify-content-between">
                     <div class="button">
-                        <a class="waves-effect waves-light btn modal-trigger" href="#modal2" style="background-color: greenyellow; color:black;">Import Excel</a>
-                        <a class="waves-effect waves-light btn modal-trigger" href="/siswaexport" style="background-color: red">Export Excel</a>
+                        <a class="waves-effect waves-light btn modal-trigger" href="#modal2" style="background-color: grey; color:white;">Import Excel</a>
+                        <a class="waves-effect waves-light btn modal-trigger" href="/siswaexport" style="background-color: grey; color:white;">Export Excel</a>
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">
@@ -30,7 +30,7 @@
                                         <label class="d-block" for="password">nama</label>
                                         <input name="nama" value="{{ old('nama') }}" class="form-control"
                                             id="password" type="text" placeholder="Masukkan nama" />
-                                        @error('password')
+                                        @error('')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -39,7 +39,7 @@
                                         <label class="d-block" for="password">nisn</label>
                                         <input name="nisn" value="{{ old('nisn') }}" class="form-control"
                                             id="password" type="number" placeholder="Masukkan nisn" />
-                                        @error('password')
+                                        @error('')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -68,7 +68,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    @error('kelas')
+                                    @error('')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
 
@@ -80,7 +80,7 @@
                                                     {{ $j->jurusan }}</option>
                                             @endforeach
                                         </select>
-                                        @error('kelas')
+                                        @error('')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -123,9 +123,26 @@
                                             </label>
                                         </div>
                                     </div>
-                                    @error('kelas')
+                                    @error('')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
+                                    <label class="d-block" for="gender">Gender</label>
+                                    <div class="form-group d-flex" style="gap:20px">
+                                        <div class="custom-control custom-radio">
+                                            <label>
+                                                <input class="with-gap" name="gender" id="l" value="l"
+                                                    type="radio" checked />
+                                                <span for="L">Laki Laki</span>
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <label>
+                                                <input class="with-gap" name="gender" id="p" value="p"
+                                                    type="radio" />
+                                                <span for="p">Perempuan</span>
+                                            </label>
+                                        </div>
+                                    </div>
 
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-secondary">Tambah data</button>
@@ -177,7 +194,7 @@
                                                     <td>{{$s->jurusan}}</td>
                                                     <td>{{$s->gender}}</td>
                                                     <td class="d-flex justify-content-evenly m-2">
-                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red"><i class="fa-solid fa-trash" href="#modal3 {{ $s->id }}"></i></a>
+                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red" href="#modal3 {{ $s->id }}"><i class="fa-solid fa-trash" "></i></a>
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue"href="#modal2 {{ $s->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
                                                     </td>
                                                     {{-- edit --}}
@@ -294,7 +311,24 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                @error('kelas')
+                                                    <label class="d-block" for="gender">Gender</label>
+                                                    <div class="form-group d-flex" style="gap:20px">
+                                                        <div class="custom-control custom-radio">
+                                                            <label>
+                                                                <input {{ $s->gender == 'l' ? 'checked' : ''}} class="with-gap" name="gender" id="l" value="l"
+                                                                    type="radio" checked />
+                                                                <span for="L">Laki Laki</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <label>
+                                                                <input {{ $s->gender == 'p' ? 'checked' : ''}} class="with-gap" name="gender" id="p" value="p"
+                                                                    type="radio" />
+                                                                <span for="p">Perempuan</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                @error('')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
 
@@ -307,15 +341,15 @@
                                     {{-- edit --}}
 
                                     {{-- delete --}}
-                                    <div id="#modal3 {{ $s->id }}" class="modal ">
+                                    <div id="modal3 {{ $s->id }}" class="modal ">
                                         <div class="modal-content">
                                             <form action="/siswa/{{ $s->id }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <div class="form-group">
-                                                    <p class="font-weight-bold mb-3">Apakah anda yakin menghapus
-                                                        siswa {{ $s->nama }} ?
-                                                    </p>
+                                                    <h4 class="font-weight-bold mb-3">Apakah anda yakin menghapus
+                                                        siswa <b>{{ $s->nama }}</b> ?
+                                                    </h4>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-secondary">Hapus</button>

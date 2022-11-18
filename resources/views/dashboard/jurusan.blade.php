@@ -56,7 +56,7 @@
                                                     <td>{{$no++}}</td>
                                                     <td>{{$jur->jurusan}}</td>
                                                     <td class="d-flex justify-content-evenly">
-                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red"><i class="fa-solid fa-trash" href="#modal3 {{ $jur->id }}"></i></a>
+                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red" href="#modal3 {{ $jur->id }}"><i class="fa-solid fa-trash"{{ $jur->id }}"></i></a>
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $jur->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
                                                     </td>
                                                     {{-- edit --}}
@@ -83,15 +83,15 @@
                                                     {{-- edit --}}
 
                                                     {{-- delete --}}
-                                                    <div id="#modal3 {{ $jur->id }}" class="modal ">
+                                                    <div id="modal3 {{ $jur->id }}" class="modal ">
                                                         <div class="modal-content">
                                                             <form action="/jurusan/{{ $jur->id }}" method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
                                                             <div class="form-group">
-                                                                <p class="font-weight-bold mb-3">Apakah anda yakin menghapus
-                                                                    jurusan {{ $jur->jurusan }} ?
-                                                                </p>
+                                                                <h5 class="font-weight-bold mb-3">Apakah anda yakin menghapus
+                                                                    jurusan <b>{{ $jur->jurusan }}</b> ?
+                                                                </h5>
                                                             </div>
                                                                 <div class="modal-footer">
                                                                     <button type="submit" class="btn btn-secondary">Hapus</button>

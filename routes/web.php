@@ -63,5 +63,5 @@ Route::resource('/absen', AbsenController::class);
 
 // Route::post('/print', [PrintController::class, 'print']);
 Route::get('/print', [PrintpdfController::class, 'print']);
-Route::get('/printSiswaUi', [PrintpdfController::class, 'printSiswaUi']);
+// Route::get('/printSiswaUi', [PrintpdfController::class, 'printSiswaUi']);
 Route::post('/printSiswa', [PrintpdfController::class, 'filter']);

@@ -1,0 +1,25 @@
+@foreach($data as $d)
+<table>
+    <thead>
+        <tr>
+            <th>sesi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>nama</td>
+            <td>nisn</td>
+            <td>kelas</td>
+            <td>jurusan</td>
+            <td>status</td>
+        </tr> 
+        <tr>
+            <td>{{nama}}</td>
+            <td>{{nisn}}</td>
+            <td>{{kelas}}</td>
+            <td>{{jurusan}}</td>
+            <td>{{status}}</td>
+        </tr> 
+    </tbody>
+</table>
+@endforeach
