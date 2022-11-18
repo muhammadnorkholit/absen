@@ -16,8 +16,8 @@
             <div class="card-content">
                 <div class="header d-flex justify-content-between">
                     <div class="button">
-                        <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Import Excel</a>
-                        <a class="waves-effect waves-light btn modal-trigger" href="/siswaexport">Export Excel</a>
+                        <a class="waves-effect waves-light btn modal-trigger" href="#modal2" style="background-color: greenyellow; color:black;">Import Excel</a>
+                        <a class="waves-effect waves-light btn modal-trigger" href="/siswaexport" style="background-color: red">Export Excel</a>
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">
@@ -161,6 +161,7 @@
                                                 <th>Kelas</th>
                                                 <th>No Kelas</th>
                                                 <th>Jurusan</th>
+                                                <th>Gender</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -174,6 +175,7 @@
                                                     <td>{{$s->kelas}}</td>
                                                     <td>{{$s->no_kelas}}</td>
                                                     <td>{{$s->jurusan}}</td>
+                                                    <td>{{$s->gender}}</td>
                                                     <td class="d-flex justify-content-evenly m-2">
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red"><i class="fa-solid fa-trash" href="#modal3 {{ $s->id }}"></i></a>
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue"href="#modal2 {{ $s->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>

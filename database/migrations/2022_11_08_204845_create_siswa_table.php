@@ -17,8 +17,9 @@ class CreateSiswaTable extends Migration
             $table->id();
             $table->string('nama', 50);
             $table->bigInteger('nisn')->unique();
-            $table->enum('kelass', ['X', 'XI', 'XII']);
+            $table->enum('kelas', ['X', 'XI', 'XII']);
             $table->enum('no_kelas', ['1', '2', '3', '4', '5']);
+            $table->enum('gender', ['L', 'P']);
             $table->bigInteger('id_jurusan')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable()->useCurrentUpdate();

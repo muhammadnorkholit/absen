@@ -45,7 +45,7 @@
 <body>
     <div class="header">
         <img src="logobu.png" width="80px">
-        <h5>PEMERINTAH PROVINSI JAWA TIMUR br <br>
+        <h5>PEMERINTAH PROVINSI JAWA TIMUR<br>
             DINAS PENDIDIKAN</h5>
         <h4>SEKOLAH MENENGAH KEJURUAN NEGERI 1 <br>
             BONDOWOSO
@@ -59,13 +59,13 @@
             TAHUN PELAJARAN 2022/2023
         </h4>
         <div class="content">
-            <p>Pada hari ini {{ date('d-m-y') }}.</p>
-            <p>Telah diselenggarakan UJIAN AKHIR SEMESTER GANJIL (UAS GANJIL) dari pukul $ s/d pukul $</p>
+            <p>Pada hari ini, pada tanggal {{ date('d-m-y') }}.</p>
+            <p>Telah diselenggarakan UJIAN AKHIR SEMESTER GANJIL (UAS GANJIL) dari pukul ...... s/d pukul .......</p>
             <br>
             <p>Di sekolah : SMK NEGERI 1 BONDOWOSO </p>
             <p>Alamat : Jalan HOS. Cokroaminoto No.110 Bondowoso</p>
-            <p>Ruang : $ </p>
-            <p>Mata Ujian : $ </p>
+            <p>Ruang : .... </p>
+            <p>Mata Ujian : ............. </p>
             <p>Jumlah Peserta : $ </p>
             <p>Seharusnya : $ Orang</p>
             <p>Yang Hadir : $ Orang</p>
@@ -85,12 +85,13 @@
 
             <div style="display: flex;justify-content: space-between">
                 <div class="tanda" style="text-align: center">
-                    <p> pengawas,</p><br><br><br><br>
+                    <p> pengawas,</p><br><br>
                     _____________________ <br>
                     NIP.
                 </div>
+                <br>
                 <div class="tanda" style="text-align: center">
-                    <p> Teknisi,</p><br><br><br><br>
+                    <p> Teknisi,</p><br><br>
                     _____________________ <br>
                     NIP.
                 </div>

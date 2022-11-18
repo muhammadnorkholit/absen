@@ -69,7 +69,7 @@
                                         <a href="/filsemua" class="btn teal mb-3">Semua</a>                      
                                     </div>
                                     <div class="col ">                        
-                                        <a href="/" class="btn teal mb-3">Export Peserta</a>                      
+                                        <a href="/exportAbsen" class="btn teal mb-3">Export Siswa</a>                      
                                     </div>
                                 </div>
                             </div>
@@ -104,21 +104,22 @@
                                             </thead>
                                             <tbody>
                                                 <?php $no = 1 ?>
-                                                 @foreach($print as $data)
+                                                 @foreach($data as $d)
                                                     <tr>
-                                                        <td>{{ $no}}</td>
-                                                        <td>{{ $data->kelas }} {{ $data->jurusan }} {{ $data->no_kelas }}</td>     
-                                                        <td>{{ $data->status }}</td>
-                                                        @if(($data->status) == "hadir")                                            
+                                                        <td>{{ $no++}}</td>
+                                                        <td>{{ $d->nama}}</td>
+                                                        <td>{{ $d->kelas }} {{ $d->jurusan }} {{ $d->no_kelas }}</td>     
+                                                        <td>{{ $d->status }}</td>
+                                                            @if(($d->status) == "hadir")                                            
                                                         <td>
-                                                            <a href="/{{$data->id}}"><button class="btn btn-primary btn-sm">Hadir</button></a>
+                                                            <a href="/{{$d->id}}"><button class="btn btn-primary btn-sm">Hadir</button></a>
                                                         </td>                                            
                                                         @endif
-                                                         @if(($data->status) == "null")                                            
+                                                            @if(($d->status) == "null")                                            
                                                         <td>
-                                                            <a href="/{{$data->id}}"><button class="btn btn-danger btn-sm">Alpha</button></a>
-                                                            <a href="/{{$data->id}}"><button class="btn btn-sm" style="background-color: greenyellow;" >Ijin</button></a>
-                                                            <a href="/{{$data->id}}"><button class="btn btn-sm" style="background-color: darkcyan" >Sakit</button></a>
+                                                            <a href="/{{$d->id}}"><button class="btn btn-danger btn-sm">Alpha</button></a>
+                                                            <a href="/{{$d->id}}"><button class="btn btn-sm" style="background-color: greenyellow;" >Ijin</button></a>
+                                                            <a href="/{{$d->id}}"><button class="btn btn-sm" style="background-color: darkcyan" >Sakit</button></a>
                                                         </td>                                            
                                                         @endif                                 
                                                     </tr>

@@ -57,6 +57,7 @@ Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
 Route::resource('/jurusan', JurusanController::class);
 
 Route::resource('/printpdf', PrintpdfController::class);
+Route::get('/exportAbsen', [PrintpdfController::class, 'export']);
 
 Route::resource('/absen', AbsenController::class);
 
