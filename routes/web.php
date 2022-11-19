@@ -10,6 +10,7 @@ use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\LainnyaController;
 use App\Http\Controllers\PrintController;
 use Illuminate\Routing\RouteGroup;
 
@@ -53,6 +54,7 @@ Route::resource('/dashboard', DashboardController::class);
 Route::resource('/siswa', SiswaController::class);
 Route::get('/siswaexport', [SiswaController::class, 'export']);
 Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
+Route::post('/jurusanimport', [jurusanController::class, 'ImportJurusanExcel']);
 
 Route::resource('/jurusan', JurusanController::class);
 
@@ -65,3 +67,6 @@ Route::resource('/absen', AbsenController::class);
 Route::get('/print', [PrintpdfController::class, 'print']);
 // Route::get('/printSiswaUi', [PrintpdfController::class, 'printSiswaUi']);
 Route::post('/printSiswa', [PrintpdfController::class, 'filter']);
+
+Route::resource('/lainnya', LainnyaController::class);
+

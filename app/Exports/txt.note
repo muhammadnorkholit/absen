@@ -1,0 +1,57 @@
+namespace App\Exports;
+
+use App\Models\absen;
+use Illuminate\Contracts\Support\Responsable;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithColumnWidths;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+
+class absenExport implements FromCollection, WithMapping, WithColumnWidths, WithHeadings
+{
+    private $number = 1;
+    public function collection()
+    {
+        return $check = absen::join('siswa', 'absen.id_siswa', 'siswa.id')
+            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+            ->get();
+    }
+
+    public function map($row): array
+    {
+        return [
+            $this->number++,
+            $row->nisn,
+            $row->nama,
+            $row->kelas . ' ' . $row->jurusan . ' ' . $row->no_kelas,
+            $row->gender,
+            $row->status,
+            date('d F y', strtotime($row->waktu)),
+        ];
+    }
+
+    public function columnWidths(): array
+    {
+        return [
+            'A' => 5,
+            'B' => 14,
+            'C' => 26,
+            'D' => 42,
+            'E' => 8,
+            'F' => 7,
+            'G' => 17
+        ];
+    }
+    public function headings(): array
+    {
+        return [
+            'no',
+            'nisn',
+            'nama',
+            'jurusan',
+            'gender',
+            'status',
+            'tanggal',
+        ];
+    }
+}

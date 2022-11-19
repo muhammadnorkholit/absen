@@ -16,6 +16,7 @@
                             <div class="card-content">
                                 <div class="header d-flex justify-content-between">
                                     <div class="button">
+                                        <a class="waves-effect waves-light btn modal-trigger" href="#modal2" style="background-color: grey; color:white;">Import Excel</a>
                                         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
                                         <!-- Modal Structure -->
                                         <div id="modal1" class="modal">
@@ -33,6 +34,20 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-secondary">Tambah data</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div id="modal2" class="modal">
+                                            <div class="modal-content">
+                                                <form action="/jurusanimport" enctype="multipart/form-data" method="POST">
+                                                    @csrf
+                                                    <h3 style="text-align: center"><b>Import Excel</b></h3>
+                                                    <div class="form-group">
+                                                    <input type="file" name="file" required="required">
+                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-secondary">import</button>
                                                 </div>
                                                 </form>
                                             </div>

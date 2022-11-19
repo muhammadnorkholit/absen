@@ -32,7 +32,8 @@ class AuthController extends Controller
             DB::table('absen')->insert([
                 'id_siswa' => Auth::id(),
                 "status" => "hadir",
-                "sesi" => "1"
+                "sesi" => "1",
+                "ruang" => "1"
             ]);
 
             return redirect('/ujian');
@@ -45,16 +46,21 @@ class AuthController extends Controller
     {
         $id = Auth::id();
         $data = siswa::where('id', $id)->first();
-        return view('landing.absen', compact(('data')));
+
+        $ruang = DB::table('ruang')->get();
+
+        return view('landing.absen', compact('data', 'absen'));
     }
 
     public function absen(Request $request, $id)
     {
         $sesi = $request->sesi;
+        $ruang = $request->ruang;
 
         DB::table('absen')->where('id', $id)->update(
             [
-                'sesi' => $sesi
+                'sesi' => $sesi,
+                'ruang' => $ruang
             ]
         );
         return redirect('https://www.youtube.com/');

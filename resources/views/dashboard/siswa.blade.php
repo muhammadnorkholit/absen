@@ -142,7 +142,7 @@
                                                 <span for="p">Perempuan</span>
                                             </label>
                                         </div>
-                                    </div>
+                                        </div>
 
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-secondary">Tambah data</button>

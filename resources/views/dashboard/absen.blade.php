@@ -41,7 +41,8 @@
                                                 <th>Nisn </th>
                                                 <th>Kelas </th>
                                                 <th>Waktu </th>
-                                                <th>Sesi </th>
+                                                <th>Sesi</th>
+                                                <th>Ruang</th>
                                                 <th>Status </th>
                                                 <th>Action</th>
                                             </tr>
@@ -56,11 +57,12 @@
                                                     <td>{{$ab->kelas}} {{$ab->jurusan}} {{$ab->no_kelas}}</td>
                                                     <td>{{$ab->waktu}}</td>
                                                     <td>{{$ab->sesi}}</td>
+                                                    <td>{{$ab->ruang}}</td>
                                                     <td>
                                                         <a class="btn btn-succesd">{{$ab->status}}</a>
                                                     </td>
                                                     <td class="d-flex justify-content-evenly">
-                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red"><i class="fa-solid fa-trash" href="#modal3 {{ $ab->id }}"></i></a>
+                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red" href="#modal3 {{ $ab->id }}"><i class="fa-solid fa-trash" ></i></a>
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $ab->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
                                                     </td>
                                                     {{-- edit --}}

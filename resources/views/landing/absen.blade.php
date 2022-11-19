@@ -49,7 +49,87 @@
                                                             <span for="no3">3</span>
                                                         </label>
                                                     </div>
-                                                </div>
+              </div>
+              {{-- ruang --}}
+                                                <div class="form-group d-flex" style="gap:20px">
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->ruang  == '1' ? 'checked' : '' }}
+                                                                class="with-gap" name="ruang" id="no1"
+                                                                value="1" type="radio" checked />
+                                                            <span for="no1">4</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->ruang == '2' ? 'checked' : '' }}
+                                                                class="with-gap" name="ruang" id="no2"
+                                                                value="2" type="radio" />
+                                                            <span for="no2">5</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->ruang == '3' ? 'checked' : '' }}
+                                                                class="with-gap" name="ruang" id="no3"
+                                                                value="3" type="radio" />
+                                                            <span for="no3">6</span>
+                                                        </label>
+                                                    </div>
+                                                    <br>
+                                                <div class="form-group d-flex" style="gap:20px">
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->ruang  == '1' ? 'checked' : '' }}
+                                                                class="with-gap" name="ruang" id="no1"
+                                                                value="1" type="radio" checked />
+                                                            <span for="no1">7</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->ruang == '2' ? 'checked' : '' }}
+                                                                class="with-gap" name="ruang" id="no2"
+                                                                value="2" type="radio" />
+                                                            <span for="no2">8</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->ruang == '3' ? 'checked' : '' }}
+                                                                class="with-gap" name="ruang" id="no3"
+                                                                value="3" type="radio" />
+                                                            <span for="no3">9</span>
+                                                        </label>
+                                                    </div>
+                                                    <br>
+                                                <div class="form-group d-flex" style="gap:20px">
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->ruang  == '1' ? 'checked' : '' }}
+                                                                class="with-gap" name="ruang" id="no1"
+                                                                value="1" type="radio" checked />
+                                                            <span for="no1">10</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->ruang == '2' ? 'checked' : '' }}
+                                                                class="with-gap" name="ruang" id="no2"
+                                                                value="2" type="radio" />
+                                                            <span for="no2">11</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <label>
+                                                            <input {{ $data->ruang == '3' ? 'checked' : '' }}
+                                                                class="with-gap" name="ruang" id="no3"
+                                                                value="3" type="radio" />
+                                                            <span for="no3">12</span>
+                                                        </label>
+                                                    </div>
+                                                    <br>
+              </div>
                                                 <br>  
               <button class="btn btn-primary" type="submit">submit</button>
             </form>

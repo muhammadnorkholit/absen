@@ -2,18 +2,19 @@
 
 namespace App\Exports;
 
+use App\Invoice;
 use App\Models\absen;
-use Illuminate\Contracts\Support\Responsable;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class absenExport implements FromCollection
+class AbsenExport implements FromView
 {
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function collection()
+    public function view(): View
     {
-        return absen::all();
+        return view('export.absenExport', [
+            'data' => absen::join('siswa', 'absen.id_siswa', 'siswa.id')
+                ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+                ->get(),
+        ]);
     }
 }

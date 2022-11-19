@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\JurusanImport;
+
 
 class JurusanController extends Controller
 {
@@ -60,5 +63,22 @@ class JurusanController extends Controller
     {
         DB::table('jurusan')->where('id', $id)->delete();
         return redirect()->back()->with('success', 'jurusan berhasil di hapus');
+    }
+
+    public function ImportSiswaExcel(Request $request)
+    {
+        request()->validate([
+            'file' => 'required|mimes:xls,xlsx',
+        ], [
+            'file.required' => 'Harap di isi',
+            'file.mimes' => 'Tidak support',
+        ]);
+
+        $file = $request->file('file');
+        $nama_file = Rand(1, 30) . $file->getClientOriginalName();
+        $file->move(public_path('Excel'), $nama_file);
+
+        Excel::import(new JurusanImport, public_path('Excel/' . $nama_file));
+        return redirect()->back();
     }
 }
