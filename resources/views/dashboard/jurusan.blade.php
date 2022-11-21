@@ -19,6 +19,7 @@
                                         <a class="waves-effect waves-light btn modal-trigger" href="#modal2" style="background-color: grey; color:white;">Import Excel</a>
                                         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
                                         <!-- Modal Structure -->
+
                                         <div id="modal1" class="modal">
                                             <div class="modal-content">
                                                 <form action="/jurusan" method="POST">
@@ -38,6 +39,7 @@
                                                 </form>
                                             </div>
                                         </div>
+
                                         <div id="modal2" class="modal">
                                             <div class="modal-content">
                                                 <form action="/jurusanimport" enctype="multipart/form-data" method="POST">
@@ -74,6 +76,7 @@
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red" href="#modal3 {{ $jur->id }}"><i class="fa-solid fa-trash"{{ $jur->id }}"></i></a>
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $jur->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
                                                     </td>
+                                                    
                                                     {{-- edit --}}
                                                     <div id="modal2 {{ $jur->id }}" class="modal ">
                                                         <div class="modal-content">

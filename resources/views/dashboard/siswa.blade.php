@@ -24,6 +24,7 @@
                             <div class="modal-content">
                                 <form action="/siswa" method="POST">
                                     @csrf
+                                    
                                     <h3 style="text-align: center"><b>Tambah Data</b></h3>
 
                                     <div class="form-group">
@@ -176,8 +177,6 @@
                                                 <th>Nama</th>
                                                 <th>Nisn</th>
                                                 <th>Kelas</th>
-                                                <th>No Kelas</th>
-                                                <th>Jurusan</th>
                                                 <th>Gender</th>
                                                 <th>Action</th>
                                             </tr>
@@ -189,9 +188,7 @@
                                                     <td>{{$no++}}</td>
                                                     <td>{{$s->nama}}</td>
                                                     <td>{{$s->nisn}}</td>
-                                                    <td>{{$s->kelas}}</td>
-                                                    <td>{{$s->no_kelas}}</td>
-                                                    <td>{{$s->jurusan}}</td>
+                                                    <td>{{$s->kelas}} {{$s->jurusan}} {{$s->no_kelas}}</td>
                                                     <td>{{$s->gender}}</td>
                                                     <td class="d-flex justify-content-evenly m-2">
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red" href="#modal3 {{ $s->id }}"><i class="fa-solid fa-trash" "></i></a>
@@ -362,6 +359,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{$siswa->links()}}
                 </div>
             </div>
         </div>

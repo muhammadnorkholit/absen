@@ -11,24 +11,29 @@ class SiswaImport implements ToModel, WithHeadingRow
 {
     public function model(array $row)
     {
-        $jrsn = strtoupper($row['jurusan ']);
+        $jrsn = strtoupper(str_replace(' ', '', $row['jurusan']));
+        $id = 0;
+        $jurusan = DB::table('jurusan')->get();
+        for ($i = 0; $i < count($jurusan); $i++) {
+            $jr = strtoupper(str_replace(' ', '', $jurusan[$i]->jurusan));
 
-        $id_jurusan = DB::table('jurusan')->where('jurusan', $jrsn)->first('id');
 
-        if ($id_jurusan == null) {
-            $id = 0;
-        } else {
-            $id = $id_jurusan->id;
+            if ($jr == $jrsn) {
+                $id = $jurusan[$i]->id;
+
+                DB::table('siswa')->insert([
+                    'nama' => $row['nama'],
+                    'nisn' => ($row['nisn']),
+                    'kelas' => $row['kelas'],
+                    'no_kelas' => $row['no_kelas'],
+                    'gender' => $row['gender'],
+                    'id_jurusan' => $id
+                ]);
+                echo /
+            } else {
+                // return;
+                // echo " jurusan " . $jr . " \n " . $jrsn;
+            }
         }
-
-
-        DB::table('siswa')->insert([
-            'nama' => $row['nama'],
-            'nisn' => $row['nisn'],
-            'kelas' => $row['kelas'],
-            'no_kelas' => $row['no_kelas'],
-            'gender' => $row['gender'],
-            'id_jurusan' => intval($id),
-        ]);
     }
 }

@@ -1,7 +1,10 @@
 
 <table>
-        <tr colspan="6">
-            <th align="center" style="font-size: 15px;font-weight: bold" >Ruang 1</th>
+      @foreach ($ruang as $r)
+            <tr colspan="6">
+            <tr colspan="6">
+            <tr colspan="6">
+            <th align="center" style="font-size: 15px;font-weight: bold; width:800px" >                  Ruang {{$r->no_ruangan}} di {{$r->nama_ruangan}}</th>
         </tr>
         <tr colspan="6"></tr>
         <tr>
@@ -20,7 +23,7 @@
             $nomer1 = 1;
         @endphp
         @foreach ($data as $row)
-            @if ($row->sesi == 1)
+            @if ($row->sesi == 1 && $r->id == $row->id_ruang)
                 <tr>
                     <td style="border:1px solid #000">{{$nomer1++}}</td>
                     <td style="border:1px solid #000">{{$row->nisn}}</td>
@@ -48,12 +51,12 @@
         </tr> 
         
         @php
-            $nomer3 = 1;
+            $nomer2 = 2;
         @endphp
         @foreach ($data as $row)
-            @if ($row->sesi == 3)
+            @if ($row->sesi == 2 && $r->id == $row->id_ruang)
                 <tr>
-                    <td style="border:1px solid #000">{{$nomer3++}}</td>
+                    <td style="border:1px solid #000">{{$nomer2++}}</td>
                     <td style="border:1px solid #000">{{$row->nisn}}</td>
                     <td style="border:1px solid #000">{{$row->nama}}</td>
                     <td style="border:1px solid #000">{{$row->kelas . ' ' . $row->jurusan . ' ' . $row->no_kelas}}</td>
@@ -79,12 +82,12 @@
         </tr> 
         
         @php
-            $nomer2 = 1;
+            $nomer3 = 3;
         @endphp
         @foreach ($data as $row)
-            @if ($row->sesi == 2)
+            @if ($row->sesi == 3 && $r->id == $row->id_ruang)
                 <tr>
-                    <td style="border:1px solid #000">{{$nomer2++}}</td>
+                    <td style="border:1px solid #000">{{$nomer3++}}</td>
                     <td style="border:1px solid #000">{{$row->nisn}}</td>
                     <td style="border:1px solid #000">{{$row->nama}}</td>
                     <td style="border:1px solid #000">{{$row->kelas . ' ' . $row->jurusan . ' ' . $row->no_kelas}}</td>
@@ -93,4 +96,5 @@
                 </tr>
             @endif
         @endforeach
+      @endforeach
 </table>

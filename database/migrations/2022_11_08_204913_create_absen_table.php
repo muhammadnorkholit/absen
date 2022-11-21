@@ -22,8 +22,8 @@ class CreateAbsenTable extends Migration
             $table->bigInteger('id_ruang')->unsigned();
             $table->timestamp('updated_at')->nullable()->useCurrentUpdate();
 
-            $table->foreign('id_siswa')->references('id')->on('siswa')->onUpdate('cascade');
-            $table->foreign('id_ruang')->references('id')->on('ruangan')->onUpdate('cascade');
+            $table->foreign('id_siswa')->references('id')->on('siswa')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_ruang')->references('id')->on('ruangan')->onUpdate('cascade')->onDelete('cascade');
         });
     }
     /**

@@ -11,15 +11,17 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use Illuminate\Pagination\Paginator;
 
 class SiswaController extends Controller
 {
     public function index()
     {
+        Paginator::useBootstrap();
         $siswa = DB::table('siswa')
             ->select('jurusan', 'siswa.*')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-            ->get();
+            ->simplePaginate(10);
         $jurusan = DB::table('jurusan')->get();
         return view('dashboard.siswa', compact('siswa', 'jurusan'));
     }
@@ -43,7 +45,8 @@ class SiswaController extends Controller
         $file->move(public_path('Excel'), $nama_file);
 
         Excel::import(new SiswaImport, public_path('Excel/' . $nama_file));
-        return redirect()->back();
+
+        // return redirect()->back();
     }
 
     public function store(Request $request)

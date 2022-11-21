@@ -3,35 +3,37 @@
 @section('content')
 <div class="page-titles">
                 <div class="d-flex align-items-center">
-                    <h5 class="font-medium m-b-0">Setting link</h5>
+                    <h5 class="font-medium m-b-0">Ruangan Ujian</h5>
                     <div class="custom-breadcrumb ml-auto">
-                        <a href="#!" class="breadcrumb">Home</a>
-                        <a href="#!" class="breadcrumb">Dashboard</a>
+                        <a href="/dashboard" class="breadcrumb">Home</a>
+                        <a href="/dashboard" class="breadcrumb">Dashboard</a>
                     </div>
                 </div>
-            </div>  
+            </div>
 
             {{-- link --}}
              <div class="container-fluid">
                  <div class="card">
                             <div class="card-content">
-                                <div class="header d-flex justify-content-between">
-                                     <div class="button">
-                                            <!-- Modal Structure -->
-                                            @if(count($link))
-                                            <a  class="disabled waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
-                                            @else
+                                <div class="header d-flex justify-content-between"> 
+                                        <div class="button">
+                                            <a class="waves-effect waves-light btn modal-trigger" href="#modal2" style="background-color: grey; color:white;">Import Excel</a>
                                             <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
-                                            @endif
+                                            <!-- Modal Structure -->
                                             <div id="modal1" class="modal">
                                                 <div class="modal-content">
-                                                    <form action="/lainnya" method="POST">
+                                                    <form action="/ruangan" method="POST">
                                                         @csrf
                                                         <h3 style="text-align: center"><b>Tambah Data</b></h3>
                                                     <div class="form-group">
-                                                        <label for="link">Link :</label>
-                                                        <input value="" class="form-control" name="link"
-                                                            id="link" type="text" placeholder="masukkan link" />
+                                                        <label for="jurusan">Nama Ruangan :</label>
+                                                        <input value="" class="form-control" name="nama_ruangan"
+                                                            id="nama_ruangan" type="text" placeholder="nama ruangan" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="jurusan">No Ruangan :</label>
+                                                        <input value="" class="form-control" name="no_ruangan"
+                                                            id="nama_ruangan" type="number" placeholder="no ruangan" />
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-secondary">Tambah data</button>
@@ -53,41 +55,47 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                        </div>          
-                                    <div id="editable-datatable_filter" class="dataTables_filter"></div>
+                                        </div>            
+                                    <div id="editable-datatable_filter" class="dataTables_filter"><input type="search" class="" placeholder="cari" aria-controls="editable-datatable"></div>
                                 </div>
-
                                 <div class="table-responsive">
                                     <table class="table striped m-b-20" id="editable-datatable">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Link</th>
+                                                <th>Nama Ruangan</th>
+                                                <th>No Ruangan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $no=1 ?>
-                                            @foreach ($link as $l)
+                                            @foreach ($ruang as $r)
                                                 <tr>
                                                     <td>{{$no++}}</td>
-                                                    <td>{{$l->link}}</td>
+                                                    <td>{{$r->nama_ruangan}}</td>
+                                                    <td>{{$r->no_ruangan}}</td>
                                                     <td class="d-flex justify-content-evenly">
-                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red" href="#modal3 {{ $l->id }}"><i class="fa-solid fa-trash"{{ $l->id }}"></i></a>
-                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $l->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
+                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red" href="#modal3 {{ $r->id }}"><i class="fa-solid fa-trash"{{ $r->id }}"></i></a>
+                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $r->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a> 
                                                     </td>
                                             
                                                     {{-- edit --}}
-                                                    <div id="modal2 {{ $l->id }}" class="modal ">
+                                                    <div id="modal2 {{ $r->id }}" class="modal ">
                                                         <div class="modal-content">
-                                                            <form action="/lainnya/{{ $l->id }}" method="POST">
+                                                            <form action="/ruangan/{{ $r->id }}" method="POST">
                                                                     @csrf
                                                                     @method('PUT')
                                                                     <h3 style="text-align: center"><b>Ubah Data</b></h3>
                                                                 <div class="form-group">
-                                                                    <label for="jurusan">Link</label>
-                                                                    <input value="{{ $l->link }}" class="form-control" name="link"
-                                                                        id="link" type="text" placeholder="" />
+                                                                    <label for="jurusan">Nama Ruangan</label>
+                                                                    <input value="{{ $r->nama_ruangan }}" class="form-control" name="nama_ruangan"
+                                                                        id="nama_ruangan" type="text" placeholder="" />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="jurusan">No Ruangan</label>
+                                                                    <input value="{{ $r->no_ruangan }}" class="form-control" name="no_ruangan"
+                                                                        id="no_ruangan" type="number" placeholder="" />
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="submit" class="btn btn-secondary">Ubah</button>
@@ -98,14 +106,14 @@
                                                     {{-- edit --}}
 
                                                     {{-- delete --}}
-                                                    <div id="modal3 {{ $l->id }}" class="modal ">
+                                                    <div id="modal3 {{ $r->id }}" class="modal ">
                                                         <div class="modal-content">
-                                                            <form action="/lainnya/{{ $l->id }}" method="POST">
+                                                            <form action="/ruangan/{{ $r->id }}" method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
                                                             <div class="form-group">
                                                                 <h5 class="font-weight-bold mb-3">Apakah anda yakin menghapus
-                                                                    link <b>{{ $l->link }}</b> ?
+                                                                    ruangan <b>{{ $r->nama_ruangan }}</b> ?
                                                                 </h5>
                                                             </div>
                                                                 <div class="modal-footer">

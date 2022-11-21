@@ -24,18 +24,20 @@
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
-        <form action="/masuk" method="POST" >
+        <form action="/join" method="POST" >
             @csrf
          <!-- Email input -->
-         <h2 class="text-center"><b>Login</b></h2>
-            <label class="form-label" for="form3Example3">Masukkan Username</label>
+         <h2 class="text-center"><b>Login Admin</b></h2>
+         <br>
+            <label class="form-label" for="form3Example3">Username :</label>
           <div class="form-outline mb-4">
-            <input type="number" id="form3Example3" name="nisn" class="form-control form-control-lg"
+            <input type="text" id="form3Example3" name="username" class="form-control form-control-lg"
               placeholder="Masukkan NISN anda" />
           </div>
+            <label class="form-label" for="form3Example3">passoword :</label>
           <div class="form-outline mb-4">
-            <input type="hidden" name="level" id="form3Example3" class="form-control form-control-lg"
-              placeholder="user" />
+            <input type="password" id="form3Example3" name="password" class="form-control form-control-lg"
+              placeholder="Masukkan NISN anda" />
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">

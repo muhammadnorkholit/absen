@@ -65,7 +65,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="#"><i class="material-icons">power_settings_new</i> Logout</a></li>
+                                <li><a href="/logout"><i class="material-icons">power_settings_new</i> Logout</a></li>
                             </ul>
                         </li>
                     </ul>

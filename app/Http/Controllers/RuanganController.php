@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class LainnyaController extends Controller
+class RuanganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class LainnyaController extends Controller
      */
     public function index()
     {
-        $link = DB::table('link')->get();
-        return view('dashboard.lainnya', compact('link'));
+        $ruang = DB::table('ruangan')->get();
+        return view('dashboard.ruang', compact('ruang'));
     }
 
     /**
@@ -39,17 +39,21 @@ class LainnyaController extends Controller
     {
         $request->validate(
             [
-                'link' => 'required'
+                'nama_ruangan' => 'required',
+                'no_ruangan' => 'required'
             ],
             [
-                'link.required' => 'link wajib di isi',
+                'nama_ruangan.required' => 'nama_ruangan wajib di isi',
+                'no_ruangan.required' => 'no_ruangan wajib di isi'
             ]
         );
 
-        $link = ($request->link);
+        $nama_ruangan = Str::upper($request->nama_ruangan);
+        $no_ruangan = Str::upper($request->no_ruangan);
 
-        DB::table('link')->insert([
-            'link' => $link
+        DB::table('ruangan')->insert([
+            'nama_ruangan' => $nama_ruangan,
+            'no_ruangan' => $no_ruangan
         ]);
 
 
@@ -73,29 +77,41 @@ class LainnyaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
+        //
     }
 
-
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id)
     {
         $request->validate(
             [
-                'link' => 'required'
+                'nama_ruangan' => 'required',
+                'no_ruangan' => 'required'
             ],
             [
-                'link.required' => 'link wajib di isi'
+                'nama_ruangan.required' => 'nama_ruangan wajib di isi',
+                'no_ruangan.required' => 'no_ruangan wajib di isi',
             ]
         );
 
-        $link = Str::upper($request->link);
+        $nama_ruangan = Str::upper($request->nama_ruangan);
+        $no_ruangan = ($request->no_ruangan);
 
-        DB::table('link')->where('id', $id)->update([
-            'link' => $link
+        DB::table('ruangan')->where('id', $id)->update([
+            'nama_ruangan' => $nama_ruangan,
+            'no_ruangan' => $no_ruangan
         ]);
 
-        return redirect()->back()->with('success', 'link berhasil di edit');
+
+        return redirect()->back()->with('success',);
     }
 
     /**
@@ -106,7 +122,7 @@ class LainnyaController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('link')->where('id', $id)->delete();
+        DB::table('ruangan')->where('id', $id)->delete();
         return redirect()->back()->with('success');
     }
 }

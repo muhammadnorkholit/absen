@@ -11,6 +11,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\LainnyaController;
+use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\PrintController;
 use Illuminate\Routing\RouteGroup;
 
@@ -33,40 +34,32 @@ Route::put('/ujian/{id}', [AuthController::class, 'absen']);
 
 
 // login admin
-// Route::get('/', [AuthController::class, 'loginAdmin']);
-// Route::post('/masuk', [AuthController::class, 'loginAuth3']);
-// Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/admin', [AuthController::class, 'loginAdmin']);
+Route::post('/join', [AuthController::class, 'loginAuth2']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
 
-// Route::middleware(['auth:web'])->group(function () {
-//     Route::resource('/dashboard', DashboardController::class);
-//     Route::resource('/siswa', SiswaController::class);
-//     Route::post('/siswa/import', [SiswaController::class, 'ImportSiswaExcel']);
-//     Route::resource('/jurusan', JurusanController::class);
-//     Route::resource('/printpdf', PrintpdfController::class);
-//     Route::resource('/absen', AbsenController::class);
-//     // Route::post('/print', [PrintController::class, 'print']);
-//     Route::get('/print', [PrintpdfController::class, 'print']);
-// });
+Route::middleware(['auth:web'])->group(function () {
 
-Route::resource('/dashboard', DashboardController::class);
+    Route::resource('/dashboard', DashboardController::class);
 
-Route::resource('/siswa', SiswaController::class);
-Route::get('/siswaexport', [SiswaController::class, 'export']);
-Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
-Route::post('/jurusanimport', [jurusanController::class, 'ImportJurusanExcel']);
+    Route::resource('/siswa', SiswaController::class);
+    Route::get('/siswaexport', [SiswaController::class, 'export']);
+    Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
+    Route::post('/jurusanimport', [jurusanController::class, 'ImportJurusanExcel']);
 
-Route::resource('/jurusan', JurusanController::class);
+    Route::resource('/jurusan', JurusanController::class);
 
-Route::resource('/printpdf', PrintpdfController::class);
-Route::get('/exportAbsen', [PrintpdfController::class, 'export']);
+    Route::resource('/printpdf', PrintpdfController::class);
+    Route::get('/exportAbsen', [PrintpdfController::class, 'export']);
 
-Route::resource('/absen', AbsenController::class);
+    Route::resource('/absen', AbsenController::class);
 
-// Route::post('/print', [PrintController::class, 'print']);
-Route::get('/print', [PrintpdfController::class, 'print']);
-// Route::get('/printSiswaUi', [PrintpdfController::class, 'printSiswaUi']);
-Route::post('/printSiswa', [PrintpdfController::class, 'filter']);
+    // Route::post('/print', [PrintController::class, 'print']);
+    Route::get('/print', [PrintpdfController::class, 'print']);
+    Route::get('/printSiswaUi', [PrintpdfController::class, 'printSiswaUi']);
+    Route::post('/printSiswa', [PrintpdfController::class, 'filter']);
 
-Route::resource('/lainnya', LainnyaController::class);
-
+    Route::resource('/lainnya', LainnyaController::class);
+    Route::resource('/ruangan', RuanganController::class);
+});
