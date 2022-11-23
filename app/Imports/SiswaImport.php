@@ -14,13 +14,12 @@ class SiswaImport implements ToModel, WithHeadingRow
         $jrsn = strtoupper(str_replace(' ', '', $row['jurusan']));
         $id = 0;
         $jurusan = DB::table('jurusan')->get();
+
         for ($i = 0; $i < count($jurusan); $i++) {
             $jr = strtoupper(str_replace(' ', '', $jurusan[$i]->jurusan));
 
-
-            if ($jr == $jrsn) {
+            if ($jr === $jrsn) {
                 $id = $jurusan[$i]->id;
-
                 DB::table('siswa')->insert([
                     'nama' => $row['nama'],
                     'nisn' => ($row['nisn']),
@@ -29,10 +28,11 @@ class SiswaImport implements ToModel, WithHeadingRow
                     'gender' => $row['gender'],
                     'id_jurusan' => $id
                 ]);
-                echo /
-            } else {
-                // return;
                 // echo " jurusan " . $jr . " \n " . $jrsn;
+
+            } else {
+                // echo " uraaaaa ";
+                // return;
             }
         }
     }

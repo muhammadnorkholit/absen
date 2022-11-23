@@ -12,6 +12,8 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\LainnyaController;
 use App\Http\Controllers\RuanganController;
+use App\Http\Controllers\GuruController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PrintController;
 use Illuminate\Routing\RouteGroup;
 
@@ -62,4 +64,7 @@ Route::middleware(['auth:web'])->group(function () {
 
     Route::resource('/lainnya', LainnyaController::class);
     Route::resource('/ruangan', RuanganController::class);
+
+    Route::resource('/guru', GuruController::class);
+    Route::resource('/karyawan', KaryawanController::class);
 });
