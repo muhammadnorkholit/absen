@@ -9,6 +9,7 @@ class PrintController extends Controller
 {
     public function print()
     {
+        
         $html =  view('dashboard.printpdf');
 
         $dompdf = new Dompdf();

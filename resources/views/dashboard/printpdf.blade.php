@@ -85,9 +85,9 @@
                 <br>
                 <p>Di sekolah : SMK NEGERI 1 BONDOWOSO </p>
                 <p>Alamat : Jalan HOS. Cokroaminoto No.110 Bondowoso</p>
-                <p>Ruang : ................ </p>
-                <p>Mata Ujian : ............. </p>
-                <p>Jumlah Peserta : ............</p>
+                <p>Ruang : {{$ruang->nama_ruangan}} </p>
+                <p>Mata Ujian : .........................</p>
+                <p>Jumlah Peserta : {{count('$siswa->$jurusan')}}</p>
                 <p>Seharusnya : ....... Orang</p>
                 <p>Yang Hadir : ....... Orang</p>
                 <p>Yang Tidak Hadir : ....... Orang, yakni nomor : <br><br>
@@ -108,13 +108,13 @@
                     <div class="tanda" style="text-align: center">
                         <p> pengawas,</p><br><br>
                         _____________________ <br>
-                        NIP.
+                        NIP.{{$guru}}
                     </div>
                     <br>
                     <div class="tanda" style="text-align: center">
                         <p> Teknisi,</p><br><br>
                         _____________________ <br>
-                        NIP.
+                        NIP.{{$ruangan->nama_pengawas}}
                     </div>
                 </div>
             </div>

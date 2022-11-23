@@ -48,7 +48,7 @@ class GuruController extends Controller
 
         $guru = ($request->guru);
 
-        DB::table('teknisi')->insert([
+        DB::table('guru')->insert([
             'guru' => $guru
         ]);
 
@@ -98,7 +98,7 @@ class GuruController extends Controller
 
         $guru = Str::upper($request->guru);
 
-        DB::table('teknisi')->where('id', $id)->update([
+        DB::table('guru')->where('id', $id)->update([
             'guru' => $guru
         ]);
 
@@ -113,7 +113,7 @@ class GuruController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('teknisi')->where('id', $id)->delete();
+        DB::table('guru')->where('id', $id)->delete();
         return redirect()->back()->with('success');//
     }
 }

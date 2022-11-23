@@ -15,6 +15,7 @@ use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PrintController;
+use App\Http\Controllers\BeritaAcaraController;
 use Illuminate\Routing\RouteGroup;
 
 /*
@@ -42,9 +43,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 
 Route::middleware(['auth:web'])->group(function () {
-
     Route::resource('/dashboard', DashboardController::class);
-
     Route::resource('/siswa', SiswaController::class);
     Route::get('/siswaexport', [SiswaController::class, 'export']);
     Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
@@ -57,9 +56,10 @@ Route::middleware(['auth:web'])->group(function () {
 
     Route::resource('/absen', AbsenController::class);
 
-    // Route::post('/print', [PrintController::class, 'print']);
+    Route::post('/print', [PrintController::class, 'print']);
     Route::get('/print', [PrintpdfController::class, 'print']);
     Route::get('/printSiswaUi', [PrintpdfController::class, 'printSiswaUi']);
+    Route::get('/printBeritaAcara', [BeritaAcaraController::class, 'beritaAcara']);
     Route::post('/printSiswa', [PrintpdfController::class, 'filter']);
 
     Route::resource('/lainnya', LainnyaController::class);

@@ -6,6 +6,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+use App\Models\JurusanModel;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -20,64 +22,64 @@ class DatabaseSeeder extends Seeder
             "password" => Hash::make('sungguhben')
         ]);
 
-        // jurusan::create([
-        //     "jurusan" => "REKAYASA PERANGKAT LUNAK"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "REKAYASA PERANGKAT LUNAK"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "AKUNTANSI"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "AKUNTANSI"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "MULTIMEDIA"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "MULTIMEDIA"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "TEKNIK JARINGAN DAN KOMPUTER"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "TEKNIK JARINGAN DAN KOMPUTER"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "BISNIS DARING"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "BISNIS DARING"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "DESAIN KOMUNIKASI VISUAL"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "DESAIN KOMUNIKASI VISUAL"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "LAYANAN PERBANKAN"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "LAYANAN PERBANKAN"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "MANAJEMEN PERKANTORAN"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "MANAJEMEN PERKANTORAN"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "PRODUKSI DAN SIARAN PROGRAM TELEVISIK"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "PRODUKSI DAN SIARAN PROGRAM TELEVISIK"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "AKUNTANSI DAN KEUANGAN LEMBAGA"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "AKUNTANSI DAN KEUANGAN LEMBAGA"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "BISNIS DARING DAN PEMASARAN"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "BISNIS DARING DAN PEMASARAN"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "OTOMATISASI DAN TATA KELOLA PERKANTORAN"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "OTOMATISASI DAN TATA KELOLA PERKANTORAN"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "PERBANKAN DAN KEUANGAN MIKRO"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "PERBANKAN DAN KEUANGAN MIKRO"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "PRODUKSI FILM"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "PRODUKSI FILM"
+        ]);
 
-        // jurusan::create([
-        //     "jurusan" => "DESAIN KOMUNIKASI VISUAL"
-        // ]);
+        JurusanModel::create([
+            "jurusan" => "DESAIN KOMUNIKASI VISUAL"
+        ]);
     }
 }

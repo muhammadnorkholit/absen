@@ -40,20 +40,24 @@ class RuanganController extends Controller
         $request->validate(
             [
                 'nama_ruangan' => 'required',
-                'no_ruangan' => 'required'
+                'no_ruangan' => 'required',
+                'teknisi' => 'required'
             ],
             [
                 'nama_ruangan.required' => 'nama_ruangan wajib di isi',
-                'no_ruangan.required' => 'no_ruangan wajib di isi'
+                'no_ruangan.required' => 'no_ruangan wajib di isi',
+                'teknisi.required' => 'teknisi wajib di isi'
             ]
         );
 
         $nama_ruangan = Str::upper($request->nama_ruangan);
         $no_ruangan = Str::upper($request->no_ruangan);
+        $teknisi = $request->teknisi;
 
         DB::table('ruangan')->insert([
             'nama_ruangan' => $nama_ruangan,
-            'no_ruangan' => $no_ruangan
+            'no_ruangan' => $no_ruangan,
+            'teknisi' => $teknisi
         ]);
 
 
@@ -94,20 +98,24 @@ class RuanganController extends Controller
         $request->validate(
             [
                 'nama_ruangan' => 'required',
-                'no_ruangan' => 'required'
+                'no_ruangan' => 'required',
+                'teknisi' => 'required'
             ],
             [
                 'nama_ruangan.required' => 'nama_ruangan wajib di isi',
                 'no_ruangan.required' => 'no_ruangan wajib di isi',
+                'teknisi.required' => 'teknisi wajib di isi'
             ]
         );
 
         $nama_ruangan = Str::upper($request->nama_ruangan);
         $no_ruangan = ($request->no_ruangan);
+        $teknisi = ($request->teknisi);
 
         DB::table('ruangan')->where('id', $id)->update([
             'nama_ruangan' => $nama_ruangan,
-            'no_ruangan' => $no_ruangan
+            'no_ruangan' => $no_ruangan,
+            'teknisi' => $teknisi,
         ]);
 
 

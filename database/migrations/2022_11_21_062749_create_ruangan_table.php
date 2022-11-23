@@ -17,6 +17,7 @@ class CreateRuanganTable extends Migration
             $table->id();
             $table->string('nama_ruangan');
             $table->integer('no_ruangan');
+            $table->string('teknisi');
             $table->timestamps();
         });
     }

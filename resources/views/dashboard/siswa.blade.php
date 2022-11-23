@@ -17,7 +17,6 @@
                 <div class="header d-flex justify-content-between">
                     <div class="button">
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal2" style="background-color: grey; color:white;">Import Excel</a>
-                        <a class="waves-effect waves-light btn modal-trigger" href="/siswaexport" style="background-color: grey; color:white;">Export Excel</a>
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">

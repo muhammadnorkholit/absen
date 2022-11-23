@@ -17,7 +17,6 @@
                             <div class="card-content">
                                 <div class="header d-flex justify-content-between"> 
                                         <div class="button">
-                                            <a class="waves-effect waves-light btn modal-trigger" href="#modal2" style="background-color: grey; color:white;">Import Excel</a>
                                             <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
                                             <!-- Modal Structure -->
                                             <div id="modal1" class="modal">
@@ -34,6 +33,11 @@
                                                         <label for="jurusan">No Ruangan :</label>
                                                         <input value="" class="form-control" name="no_ruangan"
                                                             id="nama_ruangan" type="number" placeholder="no ruangan" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="jurusan">Teknisi :</label>
+                                                        <input value="" class="form-control" name="teknisi"
+                                                            id="teknisi" type="text" placeholder="nama teknisi" />
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-secondary">Tambah data</button>
@@ -65,6 +69,7 @@
                                                 <th>#</th>
                                                 <th>Nama Ruangan</th>
                                                 <th>No Ruangan</th>
+                                                <th>Teknisi</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -75,6 +80,7 @@
                                                     <td>{{$no++}}</td>
                                                     <td>{{$r->nama_ruangan}}</td>
                                                     <td>{{$r->no_ruangan}}</td>
+                                                    <td>{{$r->teknisi}}</td>
                                                     <td class="d-flex justify-content-evenly">
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red" href="#modal3 {{ $r->id }}"><i class="fa-solid fa-trash"{{ $r->id }}"></i></a>
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $r->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a> 
@@ -96,6 +102,11 @@
                                                                     <label for="jurusan">No Ruangan</label>
                                                                     <input value="{{ $r->no_ruangan }}" class="form-control" name="no_ruangan"
                                                                         id="no_ruangan" type="number" placeholder="" />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="jurusan">Nama Teknisi</label>
+                                                                    <input value="{{ $r->teknisi }}" class="form-control" name="teknisi"
+                                                                        id="no_ruangan" type="text" placeholder="" />
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="submit" class="btn btn-secondary">Ubah</button>

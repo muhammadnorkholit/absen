@@ -18,10 +18,11 @@
                                 <div class="header d-flex justify-content-between">
                                      <div class="button">
                                             <!-- Modal Structure -->
+                                            <a class="waves-effect waves-light btn modal-trigger" href="#modal2" style="background-color: grey; color:white;">Import Excel</a>
                                             <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
                                             <div id="modal1" class="modal">
                                                 <div class="modal-content">
-                                                    <form action="/lainnya" method="POST">
+                                                    <form action="/guru" method="POST">
                                                         @csrf
                                                         <h3 style="text-align: center"><b>Tambah Data</b></h3>
                                                     <div class="form-group">
@@ -81,8 +82,8 @@
                                                                     @method('PUT')
                                                                     <h3 style="text-align: center"><b>Ubah Data</b></h3>
                                                                 <div class="form-group">
-                                                                    <label for="jurusan">Link</label>
-                                                                    <input value="{{ $g->link }}" class="form-control" name="link"
+                                                                    <label for="jurusan">Nama Guru</label>
+                                                                    <input value="{{ $g->guru }}" class="form-control" name="link"
                                                                         id="link" type="text" placeholder="" />
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -101,7 +102,7 @@
                                                                 @method('DELETE')
                                                             <div class="form-group">
                                                                 <h5 class="font-weight-bold mb-3">Apakah anda yakin menghapus
-                                                                    link <b>{{ $g->link }}</b> ?
+                                                                    link <b>{{ $g->guru }}</b> ?
                                                                 </h5>
                                                             </div>
                                                                 <div class="modal-footer">

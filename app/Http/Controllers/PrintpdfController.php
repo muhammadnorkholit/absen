@@ -81,24 +81,23 @@ class PrintpdfController extends Controller
             "no" => $no = 1
         ]));
 
-        // $kls = request()->kelas;
-        // $jrsn = request()->jurusan;
-        // $nkls = request()->no_kelas;
+        $kls = request()->kelas;
+        $jrsn = request()->jurusan;
+        $nkls = request()->no_kelas;
 
-        // $print = DB::table('absen')->get();
+        $print = DB::table('absen')->get();
 
-        // return view('pemilihan.printSiswa', [
-        //     'absen' => printsiswaModel::join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-        //         ->join('siswa', 'absen.id_siswa', 'siswa.id')
-        //         ->where('kelas', $kls)
-        //         ->where('jurusan', $jrsn)
-        //         ->where('no_kelas', $nkls)
-        //         ->get(),
-        //     'jurusan' => DB::table('pemilihan')->get(),
+        return view('pemilihan.printSiswa', [
+            'absen' => printsiswaModel::join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+                ->join('siswa', 'absen.id_siswa', 'siswa.id')
+                ->where('kelas', $kls)
+                ->where('jurusan', $jrsn)
+                ->where('no_kelas', $nkls)
+                ->get(),
+            'jurusan' => DB::table('pemilihan')->get(),
 
-        // ]);
+        ]);
     }
-
 
     // export siswa
     public function export(Request $request)
