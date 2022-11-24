@@ -87,10 +87,10 @@
                 <p>Alamat : Jalan HOS. Cokroaminoto No.110 Bondowoso</p>
                 <p>Ruang : {{$ruang->nama_ruangan}} </p>
                 <p>Mata Ujian : .........................</p>
-                <p>Jumlah Peserta : {{count('$siswa->$jurusan')}}</p>
-                <p>Seharusnya : ....... Orang</p>
-                <p>Yang Hadir : ....... Orang</p>
-                <p>Yang Tidak Hadir : ....... Orang, yakni nomor : <br><br>
+                <p>Jumlah Peserta : {{$all}} Orang</p>
+                <p>Seharusnya : {{$all}} Orang</p>
+                <p>Yang Hadir : {{$hadir}} Orang</p>
+                <p>Yang Tidak Hadir : {{$all - $hadir}} Orang, yakni nomor : <br><br>
                     ………………………………………………………………………………………………………………… <br><br>
                     ………………………………………………………………………………………………………………… <br><br>
                 </p>
@@ -108,13 +108,13 @@
                     <div class="tanda" style="text-align: center">
                         <p> pengawas,</p><br><br>
                         _____________________ <br>
-                        NIP.{{$guru}}
+                        <p>NIP. {{$guru->guru}}</p>
                     </div>
                     <br>
                     <div class="tanda" style="text-align: center">
                         <p> Teknisi,</p><br><br>
                         _____________________ <br>
-                        NIP.{{$ruangan->nama_pengawas}}
+                        <p>NIP. {{$ruang->teknisi}}</p>
                     </div>
                 </div>
             </div>

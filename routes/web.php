@@ -56,10 +56,13 @@ Route::middleware(['auth:web'])->group(function () {
 
     Route::resource('/absen', AbsenController::class);
 
-    Route::post('/print', [PrintController::class, 'print']);
-    Route::get('/print', [PrintpdfController::class, 'print']);
-    Route::get('/printSiswaUi', [PrintpdfController::class, 'printSiswaUi']);
+    // Route::get('/print', [PrintpdfController::class, 'print']);
+    // berita acara
     Route::get('/printBeritaAcara', [BeritaAcaraController::class, 'beritaAcara']);
+    Route::post('/print', [BeritaAcaraController::class, 'printBerita']);
+
+    Route::get('/printSiswaUi', [PrintpdfController::class, 'printSiswaUi']);
+    Route::put('/printSiswa/{id}', [PrintpdfController::class, 'printSiswa']);
     Route::post('/printSiswa', [PrintpdfController::class, 'filter']);
 
     Route::resource('/lainnya', LainnyaController::class);

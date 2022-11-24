@@ -94,7 +94,7 @@
                                                                     @method('PUT')
                                                                     <h3 style="text-align: center"><b>Ubah Data</b></h3>
                                                                 <div class="form-group">
-                                                                    <label for="jurusan">Nama Ruangan</label>
+                                                                    <label for="jurusan">Nama lab</label>
                                                                     <input value="{{ $r->nama_ruangan }}" class="form-control" name="nama_ruangan"
                                                                         id="nama_ruangan" type="text" placeholder="" />
                                                                 </div>

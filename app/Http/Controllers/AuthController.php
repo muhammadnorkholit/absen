@@ -59,7 +59,7 @@ class AuthController extends Controller
 
             Auth::login($data);
 
-            DB::table('absen')->insert([
+            $cek = DB::table('absen')->insert([
                 'id_siswa' => Auth::id(),
                 "status" => "hadir",
                 "sesi" => "1",
@@ -85,7 +85,7 @@ class AuthController extends Controller
 
     public function absen(Request $request, $id)
     {
-        $link = DB::table('link')->get();
+        $link = DB::table('link')->first();
         $sesi = $request->sesi;
         $ruang = $request->ruangan;
         DB::table('absen')->where('id', $id)->update(
@@ -94,6 +94,6 @@ class AuthController extends Controller
                 'id_ruang' => $ruang
             ]
         );
-        return redirect('https://id.search.yahoo.com/search?fr=mcafee&type=E210ID714G0&p=laravel+remove+whitespace');
+        return redirect($link->link);
     }
 }

@@ -39,10 +39,6 @@
                             </a>
                         </li>
                         <li class="search-box">
-                            <a href="javascript: void(0);"><i class="material-icons">search</i></a>
-                            <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="fas fa-times"></i></a>
-                            </form>
                         </li>
                     </ul>
                     <!-- ============================================================== -->

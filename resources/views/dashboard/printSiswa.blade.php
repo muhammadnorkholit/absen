@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-content">
                                 <h5 class="card-title">Filter</h5><br>
-                                <form action="/filpemilihan" method="post">
+                                <form action="/printSiswa" method="post">
                                     @csrf
                                     <div class="col-12">
                                         <div class="row">
@@ -25,15 +25,15 @@
                                                     <label>kelas</label>
                                                     <select class="form-control" name="kelas">
                                                         <option value="">Pilih</option>
-                                                        <option value="10">10</option>
-                                                        <option value="11">11</option>
-                                                        <option value="12">12</option>
+                                                        <option value="X">X</option>
+                                                        <option value="XI">XI</option>
+                                                        <option value="XII">XII</option>
                                                     </select>
                                                 </div>
                                             </div>                            
                                             <div class="col s1">
                                                 <div class="form-group">
-                                                    <label>No</label>
+                                                    <label>No Kelas</label>
                                                     <select class="form-control" name="no_kelas">
                                                         <option value="">Pilih</option>
                                                         <option value="1">1</option>
@@ -50,8 +50,7 @@
                                                     <select class="form-control" name="jurusan">
                                                         <option value="">Pilih Disini</option>
                                                        @foreach ($jurusan as $j)
-                                                            <option value="{{ $j->jurusan }}">
-                                                                {{ $j->jurusan }}</option>
+                                                            <option value="{{ $j->jurusan }}">  {{ $j->jurusan }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -66,9 +65,6 @@
                                 </form>
                                 <div class="row m-t-40" style="text-align: left;">
                                     <div class="col ">                        
-                                        <a href="/filsemua" class="btn teal mb-3">Semua</a>                      
-                                    </div>
-                                    <div class="col ">                        
                                         <a href="/exportAbsen" class="btn teal mb-3">Export Siswa</a>                      
                                     </div>
                                 </div>
@@ -76,19 +72,19 @@
                         </div>
                     </div>
                 </div>
-                {{-- @if(count() > 0) --}}
+
+
+
+                <!-- Button trigger modal -->
+
+
+            @if(count($data) >= 0)
                 <div class="row">
                     <div class="col s12">
                         <div class="card">
                             <div class="card-content">
                                 <h5 class="card-title">Data Siswa</h5><br>
                                     <div class="row m-b-20">
-                                        <div class="col ">                        
-                                            <a href="/" class="btn teal mb-3">Pdf</a>                      
-                                        </div>
-                                        <div class="col ">                        
-                                            <a href="/" class="btn teal mb-3">Excel</a>                      
-                                        </div>
                                     </div>
                                     <div class="row" style="text-align: left;">
                                         <div class="table-responsive">
@@ -108,21 +104,109 @@
                                                     <tr>
                                                         <td>{{ $no++}}</td>
                                                         <td>{{ $d->nama}}</td>
-                                                        <td>{{ $d->kelas }} {{ $d->jurusan }} {{ $d->no_kelas }}</td>     
-                                                        <td>{{ $d->status }}</td>
-                                                            @if(($d->status) == "hadir")                                            
+                                                        <td>{{ $d->kelas }} {{ $d->jurusan }} {{ $d->no_kelas }}</td>
+
                                                         <td>
-                                                            <a href="/{{$d->id}}"><button class="btn btn-primary btn-sm">Hadir</button></a>
-                                                        </td>                                            
-                                                        @endif
-                                                            @if(($d->status) == "null")                                            
-                                                        <td>
-                                                            <a href="/{{$d->id}}"><button class="btn btn-danger btn-sm">Alpha</button></a>
-                                                            <a href="/{{$d->id}}"><button class="btn btn-sm" style="background-color: greenyellow;" >Ijin</button></a>
-                                                            <a href="/{{$d->id}}"><button class="btn btn-sm" style="background-color: darkcyan" >Sakit</button></a>
-                                                        </td>                                            
-                                                        @endif                                 
+                                                                <a href="/{{$d->id}}"><button class="btn  {{$d->status == 'hadir' ? 'btn-primary' : ($d->status == 'ijin'? 'btn-success':'btn-second') }} btn-sm">{{$d->status == 'hadir' ? 'hadir' : ($d->status == 'ijin'? 'ijin':( $d->status == 'alpha'?'alpha':'Belum Hadir'))}}</button></a>
+                                                            </td>     
+                                                        <td class="d-flex justify-content-evenly">
+                                                            <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $d->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
+                                                        </td>     
                                                     </tr>
+
+                                                     {{-- edit --}}
+                                                    {{-- <div id="modal2{{ $d->id }}" class="modal">
+                                                        <div class="modal-content">
+                                                            <form action="/printSiswa/{{ $d->id }}" method="POST">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <h3 style="text-align: center"><b>Ubah Data</b></h3>
+                                                                    <br>
+                                                                <div class="form-group">
+                                                                    <h4>mengubah status <b>{{$d->nama}}</b></h4>
+                                                                        
+                                                                         <label class="d-block" for="kelas">Status</label>
+                                                                            <div class="form-group d-flex" style="gap:20px">
+                                                                                <div class="custom-control custom-radio">
+                                                                                    <label>
+                                                                                        <input class="with-gap" name="status" id="alpha" value="1"
+                                                                                            type="radio" checked />
+                                                                                        <span for="alpha">Alpha</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="custom-control custom-radio">
+                                                                                    <label>
+                                                                                        <input class="with-gap" name="status" id="sakit" value="2"
+                                                                                            type="radio" />
+                                                                                        <span for="sakit">Sakit</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="custom-control custom-radio">
+                                                                                    <label>
+                                                                                        <input class="with-gap" name="status" id="ijin" value="3"
+                                                                                            type="radio" />
+                                                                                        <span for="ijin">Ijin</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                            @error('')
+                                                                                <small class="text-danger">{{ $message }}</small>
+                                                                            @enderror
+                                                                </div>
+                                                                <br>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-secondary">Ubah</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div> --}}
+                                                    <div id="modal2 {{ $d->id }}" class="modal ">
+                                                        <div class="modal-content">
+                                                            <form action="/printSiswa/{{ $d->id }}" method="POST">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <h3 style="text-align: center"><b>Ubah Data</b></h3>
+                                                                    <br>
+                                                                <div class="form-group">
+                                                                    <h4>mengubah status <b>{{$d->nama}}</b></h4>
+                                                                        
+                                                                         <label class="d-block" for="kelas">Status</label>
+                                                                            <div class="form-group d-flex" style="gap:20px">
+                                                                                <div class="custom-control custom-radio">
+                                                                                    <label>
+                                                                                        <input class="with-gap" name="status" id="alpha" value="1"
+                                                                                            type="radio" checked />
+                                                                                        <span for="alpha">Alpha</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="custom-control custom-radio">
+                                                                                    <label>
+                                                                                        <input class="with-gap" name="status" id="sakit" value="2"
+                                                                                            type="radio" />
+                                                                                        <span for="sakit">Sakit</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="custom-control custom-radio">
+                                                                                    <label>
+                                                                                        <input class="with-gap" name="status" id="ijin" value="3"
+                                                                                            type="radio" />
+                                                                                        <span for="ijin">Ijin</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                            @error('')
+                                                                                <small class="text-danger">{{ $message }}</small>
+                                                                            @enderror
+                                                                </div>
+                                                                <br>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-secondary">Ubah</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    {{-- edit --}}
+
                                                 @endforeach
                                             </tbody>
                                         </table>
@@ -131,7 +215,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                {{-- @endif --}}
+                </div>  
+            @endif
+
             </div>
 @endsection

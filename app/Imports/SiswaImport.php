@@ -20,12 +20,15 @@ class SiswaImport implements ToModel, WithHeadingRow
 
             if ($jr === $jrsn) {
                 $id = $jurusan[$i]->id;
+                $nama = $row['nama'];
+                $kelas = $row['kelas'];
+                $gender = $row['gender'];
                 DB::table('siswa')->insert([
-                    'nama' => $row['nama'],
+                    'nama' =>  $nama,
                     'nisn' => ($row['nisn']),
-                    'kelas' => $row['kelas'],
+                    'kelas' => $kelas,
                     'no_kelas' => $row['no_kelas'],
-                    'gender' => $row['gender'],
+                    'gender' => $gender,
                     'id_jurusan' => $id
                 ]);
                 // echo " jurusan " . $jr . " \n " . $jrsn;
