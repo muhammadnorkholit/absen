@@ -67,9 +67,10 @@ class PrintpdfController extends Controller
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
             ->where('siswa.kelas', $request->kelas)
-            ->orWhere('siswa.no_kelas', $request->no_kelas)
-            ->orWhere('jurusan.jurusan', $request->jurusan)
+            ->Where('siswa.no_kelas', $request->no_kelas)
+            ->Where('jurusan.jurusan', $request->jurusan)
             ->get();
+
         $jurusan = DB::table('jurusan')->get();
         $ruang = DB::table('ruangan')->get();
         return view('dashboard.printSiswa', compact('jurusan', 'data','ruang'));
@@ -88,14 +89,14 @@ class PrintpdfController extends Controller
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
             ->where('siswa.kelas', $request->kelas)
-            ->orWhere('siswa.no_kelas', $request->no_kelas)
-            ->orWhere('jurusan.jurusan', $request->jurusan)
+            ->Where('siswa.no_kelas', $request->no_kelas)
+            ->Where('jurusan.jurusan', $request->jurusan)
             ->get();
             
         $jurusan = DB::table('jurusan')->get();
         $ruang = DB::table('ruangan')->get();
         $guru = DB::table('guru')->get();
-        return Excel::download(new absenExport, 'absenSiswa.xlsx', compact('jurusan', 'ruang', 'guru'));
+        return Excel::download(new absenExport, 'absenSiswa.xlsx');
     }
 
     // update status

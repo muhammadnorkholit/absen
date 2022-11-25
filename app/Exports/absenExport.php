@@ -12,11 +12,19 @@ class AbsenExport implements FromView
 {
     public function view(): View
     {
+        $data = DB::table('absen')
+            ->rightJoin('siswa', 'absen.id_siswa', 'siswa.id')
+            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+            ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
+            ->get();
+
         return view('export.absenExport', [
             'ruang'=> DB::table('ruangan')->get(),
-            'data' => absen::join('siswa', 'absen.id_siswa', 'siswa.id')
-                ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-                ->get(),
+            'data' => DB::table('absen')
+            ->rightJoin('siswa', 'absen.id_siswa', 'siswa.id')
+            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+            ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
+            ->get(),
         ]);
     }
 }

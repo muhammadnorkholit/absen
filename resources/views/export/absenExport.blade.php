@@ -4,7 +4,7 @@
             <tr colspan="6">
             <tr colspan="6">
             <tr colspan="6">
-            <th align="center" style="font-size: 15px;font-weight: bold; width:800px" >                  Ruang {{$r->no_ruangan}} di {{$r->nama_ruangan}}</th>
+            <th align="center" style="font-size: 15px;font-weight: bold; width:800px" >{{''}}{{$r->no_ruangan}} di {{$r->nama_ruangan}}</th>
         </tr>
         <tr colspan="6"></tr>
         <tr>
@@ -23,7 +23,7 @@
             $nomer1 = 1;
         @endphp
         @foreach ($data as $row)
-            @if ($row->sesi == 1 && $r->id == $row->id_ruang)
+        {{-- @if ($row->sesi == 1) --}}
                 <tr>
                     <td style="border:1px solid #000">{{$nomer1++}}</td>
                     <td style="border:1px solid #000">{{$row->nisn}}</td>
@@ -32,7 +32,7 @@
                     <td style="border:1px solid #000">{{$row->status}}</td>
                     <td style="border:1px solid #000">{{$row->sesi}}</td>
                 </tr>
-            @endif
+            {{-- @endif --}}
         @endforeach
 
         <tr colspan="6"></tr>
@@ -54,7 +54,7 @@
             $nomer2 = 2;
         @endphp
         @foreach ($data as $row)
-            @if ($row->sesi == 2 && $r->id == $row->id_ruang)
+            @if ($row->sesi == 2)
                 <tr>
                     <td style="border:1px solid #000">{{$nomer2++}}</td>
                     <td style="border:1px solid #000">{{$row->nisn}}</td>
@@ -85,7 +85,7 @@
             $nomer3 = 3;
         @endphp
         @foreach ($data as $row)
-            @if ($row->sesi == 3 && $r->id == $row->id_ruang)
+            @if ($row->sesi == 3)
                 <tr>
                     <td style="border:1px solid #000">{{$nomer3++}}</td>
                     <td style="border:1px solid #000">{{$row->nisn}}</td>
