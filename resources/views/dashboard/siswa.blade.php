@@ -76,8 +76,7 @@
                                         <label class="d-block" for="kelas">Pilih Jurusan</label>
                                         <select class="form-control" id="kelas" name="jurusan">
                                             @foreach ($jurusan as $j)
-                                                <option value="{{ $j->id }}">
-                                                    {{ $j->jurusan }}</option>
+                                                <option value="{{ $j->id }}">   {{ $j->jurusan }}</option>
                                             @endforeach
                                         </select>
                                         @error('')
@@ -126,20 +125,38 @@
                                     @error('')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
-                                    <label class="d-block" for="gender">Gender</label>
+
+                                     <div class="form-group">
+                                        <label class="d-block" for="kelas">Pilih Ruangan</label>
+                                        <select class="form-control" id="kelas" name="ruangan">
+                                            @foreach ($ruangan as $r)
+                                                <option value="{{ $r->id }}">   {{ $r->nama_ruangan }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    
+                                    <label class="d-block" for="sesi">sesi</label>
                                     <div class="form-group d-flex" style="gap:20px">
                                         <div class="custom-control custom-radio">
                                             <label>
-                                                <input class="with-gap" name="gender" id="l" value="l"
+                                                <input class="with-gap" name="sesi" id="1" value="1"
                                                     type="radio" checked />
-                                                <span for="L">Laki Laki</span>
+                                                <span for="1">Satu</span>
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
                                             <label>
-                                                <input class="with-gap" name="gender" id="p" value="p"
-                                                    type="radio" />
-                                                <span for="p">Perempuan</span>
+                                                <input class="with-gap" name="sesi" id="2" value="2"
+                                                    type="radio"  />
+                                                <span for="2">Dua</span>
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <label>
+                                                <input class="with-gap" name="sesi" id="3" value="3"
+                                                    type="radio"  />
+                                                <span for="3">Tiga</span>
                                             </label>
                                         </div>
                                         </div>
@@ -176,7 +193,8 @@
                                                 <th>Nama</th>
                                                 <th>Nisn</th>
                                                 <th>Kelas</th>
-                                                <th>Gender</th>
+                                                <th>sesi</th>
+                                                <th>ruangan</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -188,7 +206,8 @@
                                                     <td>{{$s->nama}}</td>
                                                     <td>{{$s->nisn}}</td>
                                                     <td>{{$s->kelas}} {{$s->jurusan}} {{$s->no_kelas}}</td>
-                                                    <td>{{$s->gender}}</td>
+                                                    <td>{{$s->sesi}}</td>
+                                                    <td>{{$s->nama_ruangan}}</td>
                                                     <td class="d-flex justify-content-evenly m-2">
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red" href="#modal3 {{ $s->id }}"><i class="fa-solid fa-trash" "></i></a>
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue"href="#modal2 {{ $s->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
@@ -307,18 +326,18 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                    <label class="d-block" for="gender">Gender</label>
+                                                    <label class="d-block" for="sesi">sesi</label>
                                                     <div class="form-group d-flex" style="gap:20px">
                                                         <div class="custom-control custom-radio">
                                                             <label>
-                                                                <input {{ $s->gender == 'l' ? 'checked' : ''}} class="with-gap" name="gender" id="l" value="l"
+                                                                <input {{ $s->sesi == 'l' ? 'checked' : ''}} class="with-gap" name="sesi" id="l" value="l"
                                                                     type="radio" checked />
                                                                 <span for="L">Laki Laki</span>
                                                             </label>
                                                         </div>
                                                         <div class="custom-control custom-radio">
                                                             <label>
-                                                                <input {{ $s->gender == 'p' ? 'checked' : ''}} class="with-gap" name="gender" id="p" value="p"
+                                                                <input {{ $s->sesi == 'p' ? 'checked' : ''}} class="with-gap" name="sesi" id="p" value="p"
                                                                     type="radio" />
                                                                 <span for="p">Perempuan</span>
                                                             </label>

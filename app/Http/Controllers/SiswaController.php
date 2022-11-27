@@ -19,11 +19,13 @@ class SiswaController extends Controller
     {
         Paginator::useBootstrap();
         $siswa = DB::table('siswa')
-            ->select('jurusan', 'siswa.*')
+            ->select('jurusan', 'siswa.*', 'nama_ruangan')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+            ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
             ->simplePaginate(10);
         $jurusan = DB::table('jurusan')->get();
-        return view('dashboard.siswa', compact('siswa', 'jurusan'));
+        $ruangan = DB::table('ruangan')->get();
+        return view('dashboard.siswa', compact('siswa', 'jurusan', 'ruangan'));
     }
 
     public function export()
@@ -46,18 +48,20 @@ class SiswaController extends Controller
 
         Excel::import(new SiswaImport, public_path('Excel/' . $nama_file));
 
-        // return redirect()->back();
+        return redirect()->back()->with('success', 'siswa berhasil import');
     }
 
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'nama' => 'required',
             'nisn' => 'required|unique:siswa,nisn|max:10',
             'kelas' => 'required',
             'no_kelas' => 'required',
             'jurusan' => 'required',
-            'gender' => 'required'
+            'sesi' => 'required',
+            'id_ruangan' => 'required'
         ], [
             'nama.required' => 'nama tidak boleh kosong',
             'nisn.required' => 'nisn tidak boleh kosong',
@@ -66,7 +70,8 @@ class SiswaController extends Controller
             'jurusan.required' => 'jurusan tidak boleh kosong',
             'kelas.required' => 'kelas tidak boleh kosong',
             'no_kelas.required' => 'no_kelas tidak boleh kosong',
-            'gender.required' => 'jenis kelamin tidak boleh kosong',
+            'sesi.required' => 'sesi tidak boleh kosong',
+            'id_ruangan.required' => 'ruangan tidak boleh kosong'
         ]);
 
         $nama = Str::upper($request->nama);
@@ -74,7 +79,8 @@ class SiswaController extends Controller
         $kelas = $request->kelas;
         $no_kelas = $request->no_kelas;
         $jurusan = $request->jurusan;
-        $gender = $request->gender;
+        $sesi = $request->sesi;
+        $nama_ruangan = $request->nama_ruangan;
 
 
         DB::table('siswa')->insert([
@@ -82,8 +88,9 @@ class SiswaController extends Controller
             'nisn' => $nisn,
             'kelas' => $kelas,
             'no_kelas' => $no_kelas,
-            'gender' => $gender,
-            'id_jurusan' => $jurusan
+            'sesi' => $sesi,
+            'id_jurusan' => $jurusan,
+            'id_ruangan' => $nama_ruangan
         ]);
 
         return redirect()->back()->with('success', 'siswa berhasil ditambahkan');
@@ -97,7 +104,8 @@ class SiswaController extends Controller
             'kelas' => 'required',
             'no_kelas' => 'required',
             'jurusan' => 'required',
-            'gender' => 'required'
+            'sesi' => 'required',
+            'id_ruangan' => 'required'
         ], [
             'nama.required' => 'nama tidak boleh kosong',
             'nisn.required' => 'nisn tidak boleh kosong',
@@ -106,7 +114,8 @@ class SiswaController extends Controller
             'jurusan.required' => 'jurusan tidak boleh kosong',
             'kelas.required' => 'kelas tidak boleh kosong',
             'no_kelas.required' => 'no_kelas tidak boleh kosong',
-            'gender.required' => 'jenis kelamin tidak boleh kosong'
+            'sesi.required' => 'sesi tidak boleh kosong',
+            'id_ruangan.required' => 'ruangan tidak boleh kosong'
         ]);
 
         $nama = Str::upper($request->nama);
@@ -114,7 +123,8 @@ class SiswaController extends Controller
         $kelas = $request->kelas;
         $no_kelas = $request->no_kelas;
         $jurusan = $request->jurusan;
-        $gender = $request->gender;
+        $sesi = $request->sesi;
+        $id_ruangan = $request->id_ruangan;
 
 
         DB::table('siswa')->where('id', $id)->update([
@@ -122,8 +132,9 @@ class SiswaController extends Controller
             'nisn' => $nisn,
             'kelas' => $kelas,
             'no_kelas' => $no_kelas,
-            'gender' => $gender,
-            'id_jurusan' => $jurusan
+            'sesi' => $sesi,
+            'id_jurusan' => $jurusan,
+            'id_ruangan' => $id_ruangan
         ]);
 
         return redirect()->back()->with('success', 'siswa berhasil diubah');

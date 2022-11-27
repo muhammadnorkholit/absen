@@ -58,13 +58,13 @@ class AuthController extends Controller
         if ($data) {
 
             Auth::login($data);
-
+            $siswa = DB::table('siswa')->get();
+            // dd($siswa);
             $cek = DB::table('absen')->insert([
                 'id_siswa' => Auth::id(),
                 "status" => "hadir",
-                "sesi" => "1",
-                "id_ruang" => "1"
             ]);
+            
 
             return redirect('/ujian');
         } else {
@@ -74,6 +74,8 @@ class AuthController extends Controller
 
     public function absenUi()
     {
+
+
         $id = Auth::id();
         $data = siswa::where('id', $id)->first();
         $link = DB::table('link')->get();
@@ -88,12 +90,6 @@ class AuthController extends Controller
         $link = DB::table('link')->first();
         $sesi = $request->sesi;
         $ruang = $request->ruangan;
-        DB::table('absen')->where('id', $id)->update(
-            [
-                'sesi' => $sesi,
-                'id_ruang' => $ruang
-            ]
-        );
         return redirect($link->link);
     }
 }

@@ -65,7 +65,7 @@
                                 </form>
                                 <div class="row m-t-40" style="text-align: left;">
                                     <div class="col ">                        
-                                        <a href="/exportAbsen" class="btn teal mb-3">Export Siswa</a>                      
+                                        <a href="/exportAbsen" class="btn teal mb-3">Export Data Siswa</a>                      
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +164,6 @@
                                                         <div class="modal-content">
                                                             <form action="/printSiswa/{{ $d->id }}" method="POST">
                                                                     @csrf
-                                                                    @method('PUT')
                                                                     <h3 style="text-align: center"><b>Ubah Data</b></h3>
                                                                     <br>
                                                                 <div class="form-group">
@@ -174,7 +173,7 @@
                                                                             <div class="form-group d-flex" style="gap:20px">
                                                                                 <div class="custom-control custom-radio">
                                                                                     <label>
-                                                                                        <input class="with-gap" name="status" id="alpha" value="1"
+                                                                                        <input class="with-gap" name="status" id="alpha" value="4"
                                                                                             type="radio" checked />
                                                                                         <span for="alpha">Alpha</span>
                                                                                     </label>

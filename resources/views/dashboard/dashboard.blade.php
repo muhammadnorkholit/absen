@@ -72,7 +72,7 @@
                                 <div class="d-flex no-block align-items-center">
                                     <div>
                                         <h2 class="white-text m-b-5">450</h2>
-                                        <h6 class="white-text op-5">totoal ruang</h6>
+                                        <h6 class="white-text op-5">total ruang</h6>
                                     </div>
                                     <div class="ml-auto">
                                         <span class="white-text display-6"><i class="material-icons">attach_money</i></span>

@@ -20,13 +20,13 @@
             
             <br>
             {{-- <h1><b>{{$nama}}</b></h1> --}}
-            <h5>Pilih sesi anda : </h5>
+            <h5>Sudah siap Ujian??</h5>
             {{-- @dd(Auth::id()) --}}
             <form action="/ujian/{{Auth::id()}}" method="POST">
               @csrf
-              @method('put')
               
-              <div class="form-group d-flex" style="gap:20px">
+              
+              {{-- <div class="form-group d-flex" style="gap:20px">
                                                     <div class="custom-control custom-radio">
                                                         <label>
                                                             <input {{ $data->sesi == '1' ? 'checked' : '' }}
@@ -51,9 +51,9 @@
                                                             <span for="no3">3</span>
                                                         </label>
                                                     </div>
-              </div> <br>
+              </div> <br> --}}
                                                 {{-- ruang --}}
-                                                <div class="form-group">
+                                                {{-- <div class="form-group">
                                                     <label class="d-block" for="kelas">Pilih Ruangan</label>
                                                     <select class="form-control" id="kelas" name="ruangan">
                                                         @foreach ($ruang as $r)
@@ -64,11 +64,11 @@
                                                     @error('')
                                                         <small class="text-danger">{{ $message }}</small>
                                                     @enderror
-                                                </div>
+                                                </div> --}}
                                                 {{-- ruang --}}
-              </div>
-                                                <br>  
-              <button class="btn btn-primary" type="submit">submit</button>
+              {{-- </div>
+                                                <br>   --}}
+              <button class="btn btn-primary" type="submit">Lanjut Ujian</button>
             </form>
         </div>
     </div>

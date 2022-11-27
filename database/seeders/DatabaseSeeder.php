@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('users')->insert([
-        //     'username' => "admin1",
-        //     "password" => Hash::make('sungguhben')
-        // ]);
+        DB::table('users')->insert([
+            'username' => "admin1",
+            "password" => Hash::make('sungguhben')
+        ]);
 
         JurusanModel::create([
             "jurusan" => "REKAYASA PERANGKAT LUNAK"

@@ -22,8 +22,9 @@
         @php
             $nomer1 = 1;
         @endphp
+    
         @foreach ($data as $row)
-        {{-- @if ($row->sesi == 1) --}}
+        @if ($row->sesi == 1 && $r->id  == $row->id_ruangan)
                 <tr>
                     <td style="border:1px solid #000">{{$nomer1++}}</td>
                     <td style="border:1px solid #000">{{$row->nisn}}</td>
@@ -32,14 +33,14 @@
                     <td style="border:1px solid #000">{{$row->status}}</td>
                     <td style="border:1px solid #000">{{$row->sesi}}</td>
                 </tr>
-            {{-- @endif --}}
+            @endif
         @endforeach
 
         <tr colspan="6"></tr>
         <tr colspan="6"></tr>
 
         <tr>
-            <td style="background-color: #5F8D4E;border:1px solid #000" colspan="6" align="center">Sesi 1</td>
+            <td style="background-color: #5F8D4E;border:1px solid #000" colspan="6" align="center">Sesi 2</td>
         </tr>
         <tr>
             <td style="background-color: #5F8D4E;border:1px solid #000;width:50px">#</td>
@@ -54,7 +55,9 @@
             $nomer2 = 2;
         @endphp
         @foreach ($data as $row)
-            @if ($row->sesi == 2)
+            @if ($row->sesi == 2 && $r->id  == $row->id_ruangan)
+            @foreach ($jurusan as $j )
+                @if($j->id == $row->id_jurusan)
                 <tr>
                     <td style="border:1px solid #000">{{$nomer2++}}</td>
                     <td style="border:1px solid #000">{{$row->nisn}}</td>
@@ -63,6 +66,9 @@
                     <td style="border:1px solid #000">{{$row->status}}</td>
                     <td style="border:1px solid #000">{{$row->sesi}}</td>
                 </tr>
+                @endif
+            @endforeach
+
             @endif
         @endforeach
         
@@ -70,7 +76,7 @@
         <tr colspan="6"></tr>
 
         <tr>
-            <td style="background-color: #DC3535;border:1px solid #000" colspan="6" align="center">Sesi 1</td>
+            <td style="background-color: #DC3535;border:1px solid #000" colspan="6" align="center">Sesi 3</td>
         </tr>
         <tr>
             <td style="background-color: #DC3535;border:1px solid #000;width:50px">#</td>
@@ -85,7 +91,7 @@
             $nomer3 = 3;
         @endphp
         @foreach ($data as $row)
-            @if ($row->sesi == 3)
+            @if ($row->sesi == 3 && $r->id  == $row->id_ruangan)
                 <tr>
                     <td style="border:1px solid #000">{{$nomer3++}}</td>
                     <td style="border:1px solid #000">{{$row->nisn}}</td>

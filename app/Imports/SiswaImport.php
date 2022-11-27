@@ -9,34 +9,30 @@ use Illuminate\Support\Facades\DB;
 
 class SiswaImport implements ToModel, WithHeadingRow
 {
+    public function __construct(Type $var = null) {
+    $this->no  = 1;
+    }
     public function model(array $row)
     {
-        $jrsn = strtoupper(str_replace(' ', '', $row['jurusan']));
+        $jrsn = strtoupper($row['jurusan']);
         $id = 0;
-        $jurusan = DB::table('jurusan')->get();
 
-        for ($i = 0; $i < count($jurusan); $i++) {
-            $jr = strtoupper(str_replace(' ', '', $jurusan[$i]->jurusan));
+        $id_jurusan = DB::table('jurusan')->where('jurusan',$jrsn)->first();
 
-            if ($jr === $jrsn) {
-                $id = $jurusan[$i]->id;
-                $nama = $row['nama'];
-                $kelas = $row['kelas'];
-                $gender = $row['gender'];
-                DB::table('siswa')->insert([
-                    'nama' =>  $nama,
-                    'nisn' => ($row['nisn']),
-                    'kelas' => $kelas,
-                    'no_kelas' => $row['no_kelas'],
-                    'gender' => $gender,
-                    'id_jurusan' => $id
-                ]);
-                // echo " jurusan " . $jr . " \n " . $jrsn;
-
-            } else {
-                // echo " uraaaaa ";
-                // return;
-            }
+        if($id_jurusan != null){
+            $id = $id_jurusan->id;
+        }else{
+            $id = 0;
         }
+
+        DB::table('siswa')->insert([
+            'nama' =>  $row['nama'],
+            'nisn' => $row['nisn'],
+            'kelas' => $row['kelas'],
+            'no_kelas' => $row['no_kelas'],
+            'id_ruangan' => $row['ruangan'],
+            'sesi' => $row['sesi'],
+            'id_jurusan' => $id
+        ]);
     }
 }

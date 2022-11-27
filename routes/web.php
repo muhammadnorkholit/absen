@@ -33,7 +33,7 @@ use Illuminate\Routing\RouteGroup;
 Route::get('/', [AuthController::class, 'loginUi'])->name('login');
 Route::post('/masuk', [AuthController::class, 'loginAuth']);
 Route::get('/ujian', [AuthController::class, 'absenUi']);
-Route::put('/ujian/{id}', [AuthController::class, 'absen']);
+Route::post('/ujian/{id}', [AuthController::class, 'absen']);
 
 
 // login admin
@@ -44,10 +44,11 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::middleware(['auth:web'])->group(function () {
     Route::resource('/dashboard', DashboardController::class);
-    Route::resource('/siswa', SiswaController::class);
     Route::get('/siswaexport', [SiswaController::class, 'export']);
     Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
+    Route::post('/ruanganimport', [GuruController::class, 'ImportGuruExcel']);
     Route::post('/jurusanimport', [jurusanController::class, 'ImportJurusanExcel']);
+    Route::resource('/siswa', SiswaController::class);
 
     Route::resource('/jurusan', JurusanController::class);
 
@@ -62,7 +63,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::post('/print', [BeritaAcaraController::class, 'printBerita']);
 
     Route::get('/printSiswaUi', [PrintpdfController::class, 'printSiswaUi']);
-    Route::put('/printSiswa/{id}', [PrintpdfController::class, 'printSiswa']);
+    Route::post('/printSiswa/{id}', [PrintpdfController::class, 'printSiswa']);
     Route::post('/printSiswa', [PrintpdfController::class, 'filter']);
 
     Route::resource('/lainnya', LainnyaController::class);

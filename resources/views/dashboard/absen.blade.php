@@ -16,19 +16,8 @@
                             <div class="card-content">
                                 <div class="header d-flex justify-content-between">
                                     <div class="button">
-                                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tambah Data</a>
                                         <!-- Modal Structure -->
-                                        <div id="modal1" class="modal">
-                                            <div class="modal-content">
-                                                <form action="/jurusan" method="POST">
-                                                    @csrf
-                                                    
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-secondary">Tambah data</button>
-                                                </div>
-                                                </form>
-                                            </div>
-                                        </div>
+
                                     </div>   
                                     <div id="zero_config_filter" class="dataTables_filter"><label><input type="search" class="form-control form-control-sm" placeholder="cari" aria-controls="zero_config"></label></div>    
                                 </div>
@@ -44,7 +33,6 @@
                                                 <th>Sesi</th>
                                                 <th>Ruang</th>
                                                 <th>Status </th>
-                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -61,26 +49,8 @@
                                                     <td>
                                                         <a class="btn btn-succesd">{{$ab->status}}</a>
                                                     </td>
-                                                    <td class="d-flex justify-content-evenly">
-                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red" href="#modal3 {{ $ab->id }}"><i class="fa-solid fa-trash" ></i></a>
-                                                        <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $ab->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
-                                                    </td>
-                                                    {{-- edit --}}
-                                                    <div id="modal2 {{ $ab->id }}" class="modal ">
-                                                        <div class="modal-content">
-                                                            <form action="/jurusan/{{ $ab->id }}" method="POST">
-                                                                @csrf
-                                                                @method('PUT')
-                                                                <button class="btn" style="background-color:red ;"> alpha </button>
-                                                                <button class="btn" style="background-color:gray ;"> ijin </button>
-                                                                <button class="btn" style="background-color: yellowgreen ;"> sakit </button>
-                                                            <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-secondary">Ubah</button>
-                                                            </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    {{-- edit --}}
+                                                   
+                                                    
 
                                                     {{-- delete --}}
                                                     <div id="#modal3 {{ $ab->id }}" class="modal ">

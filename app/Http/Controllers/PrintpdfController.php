@@ -85,17 +85,19 @@ class PrintpdfController extends Controller
             ->get();
             // dd($request);
         $data = DB::table('absen')
-            ->Join('siswa', 'absen.id_siswa', 'siswa.id')
+            ->join('siswa', 'absen.id_siswa', 'siswa.id')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-            ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
-            ->where('siswa.kelas', $request->kelas)
-            ->Where('siswa.no_kelas', $request->no_kelas)
-            ->Where('jurusan.jurusan', $request->jurusan)
+            ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan','sesi')
+            // ->where('siswa.kelas', $request->kelas)
+            // ->where('siswa.no_kelas', $request->no_kelas)
+            // ->where('jurusan.jurusan', $request->jurusan)
             ->get();
             
         $jurusan = DB::table('jurusan')->get();
         $ruang = DB::table('ruangan')->get();
         $guru = DB::table('guru')->get();
+        // dd($data);
+        // dd($ruang);
         return Excel::download(new absenExport, 'absenSiswa.xlsx');
     }
 
@@ -111,10 +113,10 @@ class PrintpdfController extends Controller
             ]
         );
 
-        $status = ($request->status);
-                    DB::table('absen')->where('id', $id)->update([
-            'status' =>(int) $status
-        ]);
+                DB::table('absen')->insert([
+                'id_siswa' =>$id,
+                "status" => $status,
+            ]);
      
 
         return redirect()->back()->with('success', 'status berhasil di edit');

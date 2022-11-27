@@ -15,11 +15,11 @@
   <body>
 
     <section class="vh-100">
-      <br><br><br><br>
+      <br>
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+        <img src="{{asset('assets/images/satu.jpg')}}"
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
@@ -32,12 +32,12 @@
             <label class="form-label" for="form3Example3">Username :</label>
           <div class="form-outline mb-4">
             <input type="text" id="form3Example3" name="username" class="form-control form-control-lg"
-              placeholder="Masukkan NISN anda" />
+              placeholder="Masukkan username" />
           </div>
-            <label class="form-label" for="form3Example3">passoword :</label>
+            <label class="form-label" for="form3Example3">password :</label>
           <div class="form-outline mb-4">
             <input type="password" id="form3Example3" name="password" class="form-control form-control-lg"
-              placeholder="Masukkan NISN anda" />
+              placeholder="Masukkan password" />
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">

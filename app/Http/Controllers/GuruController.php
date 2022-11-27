@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Imports\guruimport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -115,5 +117,23 @@ class GuruController extends Controller
     {
         DB::table('guru')->where('id', $id)->delete();
         return redirect()->back()->with('success');//
+    }
+
+    public function ImportGuruExcel(Request $request)
+    {
+        request()->validate([
+            'file' => 'required|mimes:xls,xlsx',
+        ], [
+            'file.required' => 'Harap di isi',
+            'file.mimes' => 'Tidak support',
+        ]);
+
+        $file = $request->file('file');
+        $nama_file = Rand(1, 30) . $file->getClientOriginalName();
+        $file->move(public_path('Excel'), $nama_file);
+
+        Excel::import(new guruimport, public_path('Excel/' . $nama_file));
+
+        // return redirect()->back();
     }
 }
