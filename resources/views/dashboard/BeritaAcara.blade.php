@@ -23,7 +23,7 @@
                                             <div class="col s2">
                                                 <div class="form-group">
                                                     <label>Ruangan</label>
-                                                    <select class="form-control" name="no_kelas">
+                                                    <select class="form-control" name="nama_ruangan">
                                                         <option value="">Pilih Disini</option>
                                                         @foreach ($ruangan as $r)
                                                             <option value="{{ $r->id }}">    {{ $r->nama_ruangan }}</option>
@@ -31,10 +31,11 @@
                                                     </select>
                                                 </div>
                                             </div>
+
                                             <div class="col s3">
                                                 <div class="form-group">
-                                                    <label>Guru</label>
-                                                    <select class="form-control" name="no_kelas">
+                                                    <label>Pengawas Ujian</label>
+                                                    <select class="form-control" name="guru">
                                                         <option value="">Pilih Disini</option>
                                                         @foreach ($guru as $g)
                                                             <option value="{{ $r->id }}">    {{ $g->guru }}</option>
@@ -42,7 +43,21 @@
                                                     </select>
                                                 </div>
                                             </div>
+
                                             <div class="col s1">
+                                                <div class="form-group">
+                                                    <label>sesi</label>
+                                                    <select class="form-control" name="sesi">
+                                                        <option value="">Pilih</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            {{-- <div class="col s1">
                                                 <div class="form-group">
                                                     <label>kelas</label>
                                                     <select class="form-control" name="kelas">
@@ -76,7 +91,8 @@
                                                         <option value="5">5</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> --}}
+
                                             <div class="col s1 m-t-30">
                                                 <div class="form-group">
                                                     <button type="submit" class="btn btn-md col-12 indigo" name="action" value="Print">print</button>

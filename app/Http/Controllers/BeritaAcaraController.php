@@ -34,27 +34,27 @@ class BeritaAcaraController extends Controller
          $siswa = DB::table('siswa')
             ->select('siswa.*', 'jurusan')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+            ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
             ->get();
             // dd($request);
             $all = DB::table('absen')
             ->rightJoin('siswa', 'absen.id_siswa', 'siswa.id')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-            ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
-            ->where('siswa.kelas', $request->kelas)
-            ->orWhere('siswa.no_kelas', $request->no_kelas)
-            ->orWhere('jurusan.jurusan', $request->jurusan)
+            ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
+            ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan', 'nama_ruangan', 'no_ruangan', 'teknisi', 'sesi')
+            ->where('siswa.id_ruangan', $request->nama_ruangan)
+            ->where('siswa.sesi', $request->sesi)
+
             // ->groupBy('siswa.id')
             ->count();
              $hadir = DB::table('absen')
             ->join('siswa', 'absen.id_siswa', 'siswa.id')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
-            ->where('siswa.kelas', $request->kelas)
-            ->orWhere('siswa.no_kelas', $request->no_kelas)
-            ->orWhere('jurusan.jurusan', $request->jurusan)
-            // ->groupBy('siswa.id')
+            ->where('siswa.id_ruangan', $request->nama_ruangan)
+            ->where('siswa.sesi', $request->sesi)
+            // ->groupBy('siswa.id'
             ->count();
-            
 
         $jurusan = DB::table('jurusan')->get();
         $guru = DB::table('guru')->first();
@@ -69,10 +69,10 @@ class BeritaAcaraController extends Controller
         $dompdf->setPaper('A4', 'portrait');
 
         // Render the HTML as PDF
-        $dompdf->render('dashboard.printpdf');
+        $dompdf->render('BeritaAcara.printpdf');
 
         // Output the generated PDF to Browser
-        $dompdf->stream('dashboard.printpdf');
+        $dompdf->stream('BeritaAcara.printpdf');
         // return view('dashboard.printpdf');
     }
 }

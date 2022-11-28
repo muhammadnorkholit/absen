@@ -107,7 +107,8 @@
                                                         <td>{{ $d->kelas }} {{ $d->jurusan }} {{ $d->no_kelas }}</td>
 
                                                         <td>
-                                                                <a href="/{{$d->id}}"><button class="btn  {{$d->status == 'hadir' ? 'btn-primary' : ($d->status == 'ijin'? 'btn-success':'btn-second') }} btn-sm">{{$d->status == 'hadir' ? 'hadir' : ($d->status == 'ijin'? 'ijin':( $d->status == 'alpha'?'alpha':'Belum Hadir'))}}</button></a>
+                                                           
+                                                                <a href="/{{$d->id}}"><button class="btn  {{$d->status == 'hadir' ? 'btn-primary' : ($d->status == 'ijin'? 'btn-success':'btn-second') }} btn-sm"> {{$d->status == 'hadir'?'ini hadir':$d->status == 'ijin'?'ini ijin':$d->status == 'sakit'?'sakit':'belum hadir'}}</button></a>
                                                             </td>     
                                                         <td class="d-flex justify-content-evenly">
                                                             <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $d->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>

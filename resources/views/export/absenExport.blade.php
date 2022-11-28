@@ -4,7 +4,7 @@
             <tr colspan="6">
             <tr colspan="6">
             <tr colspan="6">
-            <th align="center" style="font-size: 15px;font-weight: bold; width:800px" >{{''}}{{$r->no_ruangan}} di {{$r->nama_ruangan}}</th>
+            <th align="center" colspan="6" style="font-size: 15px;font-weight: bold; width:800px" >{{'Ruangan no'}} {{$r->no_ruangan}} di lab {{$r->nama_ruangan}}</th>
         </tr>
         <tr colspan="6"></tr>
         <tr>

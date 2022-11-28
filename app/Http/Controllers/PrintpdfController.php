@@ -42,12 +42,7 @@ class PrintpdfController extends Controller
             ->select('siswa.*', 'jurusan')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->get();
-        $data = DB::table('absen')
-        ->select('siswa.id','nisn','nama','no_kelas','jurusan','kelas','status')
-            ->rightJoin('siswa', 'absen.id_siswa', 'siswa.id')
-            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-            // ->select('absen.*', 'nisn', 'nama', 'no_kelas', 'kelas', 'jurusan')
-            ->get();
+        $data = [];
         // dd($data);
             
         $jurusan = DB::table('jurusan')->get();
@@ -115,7 +110,7 @@ class PrintpdfController extends Controller
 
                 DB::table('absen')->insert([
                 'id_siswa' =>$id,
-                "status" => $status,
+                "status" => $request->status,
             ]);
      
 
