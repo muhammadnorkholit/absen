@@ -13,8 +13,8 @@
         <tr>
             <td style="background-color: #F49D1A;border:1px solid #000;width:50px">#</td>
             <td style="background-color: #F49D1A;border:1px solid #000;width:100px" align="left">NISN</td>
-            <td style="background-color: #F49D1A;border:1px solid #000;width:200px">nama</td>
-            <td style="background-color: #F49D1A;border:1px solid #000;width:250px">kelas</td>
+            <td style="background-color: #F49D1A;border:1px solid #000;width:350px">nama</td>
+            <td style="background-color: #F49D1A;border:1px solid #000;width:400px">kelas</td>
             <td style="background-color: #F49D1A;border:1px solid #000;width:100px">status</td>
             <td style="background-color: #F49D1A;border:1px solid #000;width:100px">sesi</td>
         </tr> 
@@ -45,8 +45,8 @@
         <tr>
             <td style="background-color: #5F8D4E;border:1px solid #000;width:50px">#</td>
             <td style="background-color: #5F8D4E;border:1px solid #000;width:100px" align="left">NISN</td>
-            <td style="background-color: #5F8D4E;border:1px solid #000;width:200px">nama</td>
-            <td style="background-color: #5F8D4E;border:1px solid #000;width:250px">kelas</td>
+            <td style="background-color: #5F8D4E;border:1px solid #000;width:350px">nama</td>
+            <td style="background-color: #5F8D4E;border:1px solid #000;width:400px">kelas</td>
             <td style="background-color: #5F8D4E;border:1px solid #000;width:100px">status</td>
             <td style="background-color: #5F8D4E;border:1px solid #000;width:100px">sesi</td>
         </tr> 
@@ -81,8 +81,8 @@
         <tr>
             <td style="background-color: #DC3535;border:1px solid #000;width:50px">#</td>
             <td style="background-color: #DC3535;border:1px solid #000;width:100px" align="left">NISN</td>
-            <td style="background-color: #DC3535;border:1px solid #000;width:200px">nama</td>
-            <td style="background-color: #DC3535;border:1px solid #000;width:250px">kelas</td>
+            <td style="background-color: #DC3535;border:1px solid #000;width:350px">nama</td>
+            <td style="background-color: #DC3535;border:1px solid #000;width:400px">kelas</td>
             <td style="background-color: #DC3535;border:1px solid #000;width:100px">status</td>
             <td style="background-color: #DC3535;border:1px solid #000;width:100px">sesi</td>
         </tr> 

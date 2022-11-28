@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,11 +62,11 @@
 <body>
     <section>
         <div class="header">
-            <div class="img">
-                <img src="{{asset('assets/images/jawaTimur.jpeg')}}" width="80px">
+            <div class="img" style="display: inline-block">
+                <img src="jawaTimur.jpeg" width="80px">
             </div>
 
-            <div class="text">
+            <div class="text" style="display: inline-block">
                 <h5>PEMERINTAH PROVINSI JAWA TIMUR<br>
                     DINAS PENDIDIKAN</h5>
                 <h4>SEKOLAH MENENGAH KEJURUAN NEGERI 1 <br>
@@ -74,10 +78,10 @@
             </div>
         </div>
         <div class="body">
-            <h4 style="text-align: center;margin-top:1rem">BERITA ACARA <br>
+            <h5 style="text-align: center; margin-top:1rem">BERITA ACARA <br>
                 PENYELENGGARAAN UJIAN AKHIR SEMESTER GANJIL <br>
                 TAHUN PELAJARAN 2022/2023
-            </h4>
+            </h5>
             <div class="content">
                 <p>Pada hari ini, pada tanggal {{ date('d-m-y') }}.</p>
                 <p>Telah diselenggarakan UJIAN AKHIR SEMESTER GANJIL (UAS GANJIL) dari pukul ...... s/d pukul .......
@@ -104,14 +108,14 @@
 
                 <p>Yang membuat Berita Acara</p><br>
 
-                <div style="display: flex;justify-content: space-between">
-                    <div class="tanda" style="text-align: center">
+                <div>
+                    <div class="tanda" style="text-align: center; float:left ;">
                         <p> pengawas,</p><br><br>
                         _____________________ <br>
                         <p>NIP. {{$guru->guru}}</p>
                     </div>
                     <br>
-                    <div class="tanda" style="text-align: center">
+                    <div class="tanda" style="text-align: center;float:right; margin-left:20px ;">
                         <p> Teknisi,</p><br><br>
                         _____________________ <br>
                         <p>NIP. {{$ruang->teknisi}}</p>
@@ -122,4 +126,4 @@
     </section>
 </body>
 
-</html>
+</html> 

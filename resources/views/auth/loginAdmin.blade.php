@@ -14,20 +14,13 @@
   </head>
   <body>
 
-    <section class="vh-100">
-      <br>
-  <div class="container-fluid h-custom">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="{{asset('assets/images/satu.jpg')}}"
-          class="img-fluid" alt="Sample image">
-      </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-
+    
+    <div id="particles-js">
         <form action="/join" method="POST" >
-            @csrf
-         <!-- Email input -->
-         <h2 class="text-center"><b>Login Admin</b></h2>
+                @csrf
+              <img src="{{asset('assets/images/satu.jpg')}}" class="gambar">
+              <div class="text">
+              <h4 class="text-center"><b>Login Admin</b></h4>
          <br>
             <label class="form-label" for="form3Example3">Username :</label>
           <div class="form-outline mb-4">
@@ -41,15 +34,15 @@
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="submit" class="btn btn-primary btn-lg"
+            <button type="submit" class="btn btn-primary btn-sm"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
           </div>
+              </div>
+              </div>
         </form>
-
       </div>
-    </div>
-  </div>
-</section>
+
+    
 
 
 

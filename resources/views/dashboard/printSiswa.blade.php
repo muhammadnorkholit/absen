@@ -94,6 +94,8 @@
                                                     <th>id</th>
                                                     <th>Nama</th>
                                                     <th>Kelas</th>
+                                                    <th>Sesi</th>
+                                                    <th>Ruang</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
