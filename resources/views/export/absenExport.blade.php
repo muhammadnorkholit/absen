@@ -51,7 +51,7 @@
     <tr>
                     <td style="border:1px solid #000">{{$nomer1++}}</td>
                     <td style="border:1px solid #000">{{$row->nisn}}</td>
-                    <td style="border:1px solid #000">{{$row->nama}}</td>
+                    <td style="border:1px solid #000">{{Str::upper($row->nama)}}</td>
                     <td style="border:1px solid #000">{{$row->kelas . ' ' . $row->jurusan . ' ' . $row->no_kelas}}</td>
                     <td style="border:1px solid #000">{{$row->status }}</td>
 
