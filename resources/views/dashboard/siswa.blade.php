@@ -16,8 +16,8 @@
                 <div class="card">
                     <div class="card-content">
                         <h5 class="card-title">Filter</h5><br>
-                        <form action="/printSiswa" method="post">
-                            @csrf
+                        <form action="/printSiswa" method="get">
+                            {{-- @csrf --}}
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col s3">
@@ -59,6 +59,28 @@
                                 </div>
                             </div>
                         </form>
+                        <h5 class="card-title "style="margin-top:2rem">Export Siswa</h5><br>
+                        <form action="/exportAbsen" method="post">
+                            @csrf
+                            <div class="col-12">
+                                <div class="row">
+
+                                    <div class="col s3">
+                                        <div class="form-group">
+                                            <label>Pilih Waktu</label>
+                                            <input type="date" name="waktu">
+                                        </div>
+                                    </div>
+
+                                    <div class="col s1 m-t-30">
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-md col-12 indigo" name="action"
+                                                value="Export Siswa">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
@@ -87,6 +109,7 @@
                                                 <th>Kelas</th>
                                                 <th>Sesi</th>
                                                 <th>Ruang</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -99,10 +122,12 @@
                                                     <td>{{ $d->kelas }} {{ $d->jurusan }} {{ $d->no_kelas }}</td>
                                                     <td>{{ $d->sesi }}</td>
                                                     <td>{{ $d->nama_ruangan }}</td>
+                                                    <td>{{ $d->status }}</td>
 
 
                                                     <td class="d-flex justify-content-evenly">
-                                                        <a class="btn waves-effect waves-light modal-trigger"
+                                                        <a {{ $d->status == 'hadir' ? 'disabled' : '' }}
+                                                            class="btn waves-effect waves-light modal-trigger"
                                                             style="color: white; background-color: skyblue"
                                                             href="#modal2 {{ $d->id_siswa }}"
                                                             style="color:rgb(56, 72, 124)"><i

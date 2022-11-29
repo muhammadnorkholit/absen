@@ -22,7 +22,23 @@ class AbsenController extends Controller
             ->get();
         $jurusan = DB::table('jurusan')->get();
 
-        
-        return view('dashboard.absen', compact('absen', 'jurusan'));
+        $ruangan = DB::table('ruangan')->get();
+        return view('dashboard.absen', compact('absen', 'jurusan','ruangan'));
+    }
+    public function store(Request $request)
+    {
+       $ruangan =  DB::table('siswa')
+        ->where('id_ruangan',$request->ruangan)
+        ->where('sesi',$request->sesi)
+        ->get();
+
+        foreach ($ruangan as $r ) {
+            DB::table('absen')->insert([
+                'id_siswa'=>$r->id,
+                'status'=>5
+            ]);
+        }
+
+        return  redirect()->back();
     }
 }
