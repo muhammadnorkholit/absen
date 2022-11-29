@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <div class="container-fluid"></div>
+            <div class="container-fluid">
                 <div class="card">
                     <div class="card-content">
                                 <h5 class="card-title">Filter</h5><br>
@@ -65,9 +65,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container-fluid">
-                 <div class="card">
+                </div>
+            
+                <div class="row">
+                    <div class="card">
                             <div class="card-content">
                                 <div class="header d-flex justify-content-between">
                                     <div class="button">
@@ -127,6 +128,8 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>
+                    </div>
+                </div>
+                
             </div>
 @endsection
