@@ -73,7 +73,7 @@
                 <!-- Button trigger modal -->
 
 
-             @if(count($data) >= 0)
+            @if(count($data) >= 0)
                 <div class="row">
                     <div class="col s12">
                         <div class="card">
