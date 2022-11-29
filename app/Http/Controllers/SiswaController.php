@@ -32,6 +32,7 @@ class SiswaController extends Controller
 
     public function filter(Request $request)
     {
+
         $absen = printsiswaModel::all();
         $siswa = DB::table('siswa')
             ->select('siswa.*', 'jurusan')
@@ -43,13 +44,14 @@ class SiswaController extends Controller
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan','siswa.id as id_siswa', 'sesi', 'nama_ruangan')
+            ->whereDate('absen.waktu',$request->waktu)
             ->where('siswa.sesi', $request->sesi)
             ->where('ruangan.nama_ruangan', $request->nama_ruangan)
             ->get();
             // dd($request);
         $jurusan = DB::table('jurusan')->get();
         $ruang = DB::table('ruangan')->get();
-        return view('dashboard.printSiswa', compact('jurusan', 'data','ruang'));
+        return view('dashboard.siswa', compact('jurusan', 'data','ruang'));
     }
 
     public function export()

@@ -100,5 +100,5 @@
                 </div>
                 
             </div>
-            <img src="{{asset('jawaTimur.png')}}" width="80px">
+            
 @endsection

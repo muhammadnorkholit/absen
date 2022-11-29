@@ -56,7 +56,7 @@
                                     <div class="dw-user-box">
                                         <div class="u-img"><img src="{{asset('assets')}}/images/users/2.jpg" alt="user"></div>
                                         <div class="u-text">
-                                            <h4>Halo, <b>Admin</b></h4>
+                                            {{-- <h4>admin <b>{{$admin->username}}</b></h4> --}}
                                         </div>
                                     </div>
                                 </li>

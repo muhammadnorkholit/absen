@@ -23,20 +23,10 @@
                                             <div class="col s3">
                                                 <div class="form-group">
                                                     <label>Pilih Waktu</label>
-                                                    <input type="date">
+                                                    <input type="date" name="waktu">
                                                 </div>
                                             </div>  
-                                            <!-- <div class="col s7">
-                                                <div class="form-group">
-                                                    <label>Jurusan</label>
-                                                    <select class="form-control" name="jurusan">
-                                                        <option value="">Pilih Disini</option>
-                                                       @foreach ($jurusan as $j)
-                                                            <option value="{{ $j->jurusan }}">  {{ $j->jurusan }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div> -->
+                                         
                                             <div class="col s1 m-t-30">
                                                 <div class="form-group">
                                                     <input type="submit" class="btn btn-md col-12 indigo" name="action" value="Filter">

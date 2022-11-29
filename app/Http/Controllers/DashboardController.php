@@ -14,6 +14,7 @@ class DashboardController extends Controller
         $jurusan = DB::table('jurusan')->get();
         $guru = DB::table('guru')->get();
         $ruangan = DB::table('ruangan')->get();
-        return view('dashboard.dashboard', compact('siswa', 'jurusan', 'guru', 'ruangan'));
+        $admin = DB::table('users')->get();
+        return view('dashboard.dashboard', compact('siswa', 'jurusan', 'guru', 'ruangan', 'admin'));
     }
 }

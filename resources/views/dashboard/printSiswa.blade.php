@@ -91,7 +91,6 @@
                                                     <th>Kelas</th>
                                                     <th>Sesi</th>
                                                     <th>Ruang</th>
-                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -105,10 +104,7 @@
                                                         <td>{{ $d->sesi }}</td>
                                                         <td>{{ $d->nama_ruangan}}</td>
 
-                                                        <td>
-                                                         
-                                                                <a href="/{{$d->id}}"><button class="btn  {{$d->status == 'hadir' ? 'btn-primary' : ($d->status == 'ijin'? 'btn-success':'btn-second') }} btn-sm">   {{$d->status == 'hadir'?'hadir':($d->status == 'ijin'?'ijin':($d->status == 'sakit'?'sakit':'belum hadir'))}}</button></a>
-                                                            </td>     
+                                                           
                                                         <td class="d-flex justify-content-evenly">
                                                             <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $d->id_siswa }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
                                                         </td>     
