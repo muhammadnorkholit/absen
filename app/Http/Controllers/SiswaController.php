@@ -26,29 +26,29 @@ class SiswaController extends Controller
             ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
             ->simplePaginate(10);
         $jurusan = DB::table('jurusan')->get();
-        $ruangan = DB::table('ruangan')->get();
-        return view('dashboard.siswa', compact('siswa', 'jurusan', 'ruangan'));
+        $ruang = DB::table('ruangan')->get();
+        $data = [];
+        return view('dashboard.siswa', compact('siswa', 'jurusan', 'ruang','data'));
     }
 
     public function filter(Request $request)
     {
-
         $absen = printsiswaModel::all();
         $siswa = DB::table('siswa')
             ->select('siswa.*', 'jurusan')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->get();
-            // dd($request);
+            
         $data = DB::table('absen')
             ->rightJoin('siswa', 'absen.id_siswa', 'siswa.id')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan','siswa.id as id_siswa', 'sesi', 'nama_ruangan')
             ->whereDate('absen.waktu',$request->waktu)
-            ->where('siswa.sesi', $request->sesi)
-            ->where('ruangan.nama_ruangan', $request->nama_ruangan)
+            ->where('ruangan.id',$request->ruangan)
+            ->where('siswa.sesi',$request->sesi)
             ->get();
-            // dd($request);
+
         $jurusan = DB::table('jurusan')->get();
         $ruang = DB::table('ruangan')->get();
         return view('dashboard.siswa', compact('jurusan', 'data','ruang'));
