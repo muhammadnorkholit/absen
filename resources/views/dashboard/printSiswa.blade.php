@@ -10,6 +10,9 @@
                     </div>
                 </div>
             </div>
+
+
+            
             <div class="container-fluid">
                 <div class="row">
                     <div class="col s12">
@@ -20,6 +23,7 @@
                                     @csrf
                                     <div class="col-12">
                                         <div class="row">
+                                            
                                             <div class="col s3">
                                                 <div class="form-group">
                                                     <label>Ruangan</label>
@@ -30,8 +34,9 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>                            
-                                            <div class="col s">
+                                            </div>    
+
+                                            <div class="col s2">
                                                 <div class="form-group">
                                                     <label>Sesi</label>
                                                     <select class="form-control" name="sesi">
@@ -43,17 +48,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <!-- <div class="col s7">
-                                                <div class="form-group">
-                                                    <label>Jurusan</label>
-                                                    <select class="form-control" name="jurusan">
-                                                        <option value="">Pilih Disini</option>
-                                                       @foreach ($jurusan as $j)
-                                                            <option value="{{ $j->jurusan }}">  {{ $j->jurusan }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div> -->
+
                                             <div class="col s1 m-t-30">
                                                 <div class="form-group">
                                                     <input type="submit" class="btn btn-md col-12 indigo" name="action" value="Filter">
@@ -110,51 +105,7 @@
                                                         </td>     
                                                     </tr>
 
-                                                     {{-- edit --}}
-                                                    {{-- <div id="modal2{{ $d->id_siswa }}" class="modal">
-                                                        <div class="modal-content">
-                                                            <form action="/printSiswa/{{ $d->id_siswa }}" method="POST">
-                                                                    @csrf
-                                                                    <h3 style="text-align: center"><b>Ubah Data</b></h3>
-                                                                    <br>
-                                                                <div class="form-group">
-                                                                    <h4>mengubah status <b>{{$d->nama}}</b></h4>
-                                                                        
-                                                                         <label class="d-block" for="kelas">Status</label>
-                                                                            <div class="form-group d-flex" style="gap:20px">
-                                                                                <div class="custom-control custom-radio">
-                                                                                    <label>
-                                                                                        <input class="with-gap" name="status" id="alpha" value="1"
-                                                                                            type="radio" checked />
-                                                                                        <span for="alpha">Alpha</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                                <div class="custom-control custom-radio">
-                                                                                    <label>
-                                                                                        <input class="with-gap" name="status" id="sakit" value="2"
-                                                                                            type="radio" />
-                                                                                        <span for="sakit">Sakit</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                                <div class="custom-control custom-radio">
-                                                                                    <label>
-                                                                                        <input class="with-gap" name="status" id="ijin" value="3"
-                                                                                            type="radio" />
-                                                                                        <span for="ijin">Ijin</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-                                                                            @error('')
-                                                                                <small class="text-danger">{{ $message }}</small>
-                                                                            @enderror
-                                                                </div>
-                                                                <br>
-                                                                <div class="modal-footer">
-                                                                    <button type="submit" class="btn btn-secondary">Ubah</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div> --}}
+                                                    
                                                     <div id="modal2 {{ $d->id_siswa }}" class="modal ">
                                                         <div class="modal-content">
                                                             <form action="/printSiswa/{{ $d->id_siswa }}" method="POST">
@@ -162,8 +113,7 @@
                                                                     <h3 style="text-align: center"><b>Ubah Data</b></h3>
                                                                     <br>
                                                                 <div class="form-group">
-                                                                    <h4>mengubah status <b>{{$d->nama}}</b></h4>
-                                                                        
+                                                                    <h4>mengubah status <b>{{$d->nama}}</b></h4>          
                                                                          <label class="d-block" for="kelas">Status</label>
                                                                             <div class="form-group d-flex" style="gap:20px">
                                                                                 <div class="custom-control custom-radio">
@@ -188,9 +138,6 @@
                                                                                     </label>
                                                                                 </div>
                                                                             </div>
-                                                                            @error('')
-                                                                                <small class="text-danger">{{ $message }}</small>
-                                                                            @enderror
                                                                 </div>
                                                                 <br>
                                                                 <div class="modal-footer">
