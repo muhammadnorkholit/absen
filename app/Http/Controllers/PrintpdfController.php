@@ -111,12 +111,11 @@ class PrintpdfController extends Controller
             ]
         );
 
-                DB::table('absen')->insert([
-                'id_siswa' =>$id,
+                DB::table('absen')->where('id_siswa',$id)->update([
                 "status" => $request->status,
             ]);
      
 
-        return redirect('/printSiswaUi')->with('success', 'status berhasil di edit');
+        return redirect()->back()->with('success', 'status berhasil di edit');
     }
 }

@@ -16,8 +16,8 @@
                 <div class="card">
                     <div class="card-content">
                         <h5 class="card-title">Filter</h5><br>
-                        <form action="/printSiswa" method="post">
-                            @csrf
+                        <form action="/printSiswa" method="get">
+                            {{-- @csrf --}}
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col s3">
