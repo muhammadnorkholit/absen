@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets')}}/images/favicon.png">
     <title>Si absen</title>
     <!-- chartist CSS -->
     <link href="{{asset('assets')}}/libs/chartist/dist/chartist.min.css" rel="stylesheet">
@@ -45,7 +44,7 @@
 
 
 
-         <footer class="center-align fixed-bottom">All Rights Reserved by Materialart. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.</footer>
+         <footer class="center-align fixed-bottom"> Support by Smakensa </footer>
     </div>
 
 

@@ -21,6 +21,8 @@ class AbsenController extends Controller
             ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
             ->get();
         $jurusan = DB::table('jurusan')->get();
+
+        
         return view('dashboard.absen', compact('absen', 'jurusan'));
     }
 }

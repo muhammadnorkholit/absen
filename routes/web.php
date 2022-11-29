@@ -13,9 +13,11 @@ use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\LainnyaController;
 use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\MapelController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PrintController;
 use App\Http\Controllers\BeritaAcaraController;
+use App\Http\Controllers\WaktuController;
 use Illuminate\Routing\RouteGroup;
 
 /*
@@ -48,7 +50,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
     Route::post('/ruanganimport', [GuruController::class, 'ImportGuruExcel']);
     Route::post('/jurusanimport', [jurusanController::class, 'ImportJurusanExcel']);
-    Route::resource('/siswa', SiswaController::class);
+    Route::resource('/siswaSemua', SiswaController::class);
 
     Route::resource('/jurusan', JurusanController::class);
 
@@ -62,12 +64,14 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('/printBeritaAcara', [BeritaAcaraController::class, 'beritaAcara']);
     Route::post('/print', [BeritaAcaraController::class, 'printBerita']);
 
-    Route::get('/printSiswaUi', [PrintpdfController::class, 'printSiswaUi']);
+    Route::get('/siswa', [PrintpdfController::class, 'printSiswaUi']);
     Route::post('/printSiswa/{id}', [PrintpdfController::class, 'printSiswa']);
-    Route::post('/printSiswa', [PrintpdfController::class, 'filter']);
+    Route::post('/printSiswa', [SiswaController::class, 'filter']);
 
     Route::resource('/lainnya', LainnyaController::class);
     Route::resource('/ruangan', RuanganController::class);
+    Route::resource('/mapel', MapelController::class);
+    Route::resource('/waktu', WaktuController::class);
 
     Route::resource('/guru', GuruController::class);
     Route::resource('/karyawan', KaryawanController::class);

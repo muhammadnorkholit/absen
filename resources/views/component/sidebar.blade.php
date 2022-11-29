@@ -11,7 +11,8 @@
                             <div class="collapsible-body">
                                 <ul>
                                     <li><a href="/printBeritaAcara"><i class="material-icons">adjust</i><span class="hide-menu">Berita Acara</span></a></li>
-                                    <li><a href="/printSiswaUi"><i class="material-icons">adjust</i><span class="hide-menu">Data Siswa</span></a></li>
+                                    <!-- <li><a href="/exportAbsen"><i class="material-icons">adjust</i><span class="hide-menu">Data Siswa</span></a></li> -->
+                                    <li><a href="/siswaSemua"><i class="material-icons">adjust</i><span class="hide-menu">Data Siswa</span></a></li>
                                 </ul>
                             </div>
                         </li>
@@ -33,6 +34,8 @@
                                 <ul>
                                     <li><a href="/lainnya"><i class="material-icons">adjust</i><span class="hide-menu">Sett Link</span></a></li>
                                     <li><a href="/ruangan"><i class="material-icons">adjust</i><span class="hide-menu">Ruangan</span></a></li>
+                                    <li><a href="/mapel"><i class="material-icons">adjust</i><span class="hide-menu">Mapel</span></a></li>
+                                    <li><a href="/waktu"><i class="material-icons">adjust</i><span class="hide-menu">Waktu</span></a></li>
                                 </ul>
                             </div>
                         </li>

@@ -38,15 +38,17 @@ class PrintpdfController extends Controller
 
     public function printSiswaUi(Request $request)
     {
-        $siswa = DB::table('siswa')
-            ->select('siswa.*', 'jurusan')
-            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-            ->get();
-        $data = [];
-        // dd($data);
+            $siswa = DB::table('siswa')
+                ->select('siswa.*', 'jurusan', 'nama_ruangan')
+                ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+                ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
+                ->get();
+            $data = [];
+            // dd($data);
             
-        $jurusan = DB::table('jurusan')->get();
-        return view('dashboard.printSiswa', compact('jurusan', 'data'));
+            $jurusan = DB::table('jurusan')->get();
+            $ruang = DB::table('ruangan')->get();
+            return view('dashboard.printSiswa', compact('jurusan', 'data', 'ruang'));
     }
 
     public function filter(Request $request)
@@ -60,7 +62,7 @@ class PrintpdfController extends Controller
         $data = DB::table('absen')
             ->rightJoin('siswa', 'absen.id_siswa', 'siswa.id')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-            ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
+            ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan','siswa.id as id_siswa', 'sesi', 'nama_ruangan')
             ->where('siswa.kelas', $request->kelas)
             ->Where('siswa.no_kelas', $request->no_kelas)
             ->Where('jurusan.jurusan', $request->jurusan)
@@ -114,6 +116,6 @@ class PrintpdfController extends Controller
             ]);
      
 
-        return redirect()->back()->with('success', 'status berhasil di edit');
+        return redirect('/printSiswaUi')->with('success', 'status berhasil di edit');
     }
 }

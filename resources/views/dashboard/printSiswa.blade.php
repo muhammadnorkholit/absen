@@ -3,7 +3,7 @@
 @section('content')
 <div class="page-titles">
                 <div class="d-flex align-items-center">
-                    <h5 class="font-medium m-b-0">Print Data Siswa</h5>
+                    <h5 class="font-medium m-b-0"> Data Siswa</h5>
                     <div class="custom-breadcrumb ml-auto">
                         <a href="#!" class="breadcrumb">Home</a>
                         <a href="#!" class="breadcrumb">Dashboard</a>
@@ -14,37 +14,36 @@
                 <div class="row">
                     <div class="col s12">
                         <div class="card">
-                            <div class="card-content">
+                        <div class="card-content">
                                 <h5 class="card-title">Filter</h5><br>
                                 <form action="/printSiswa" method="post">
                                     @csrf
                                     <div class="col-12">
                                         <div class="row">
-                                            <div class="col s1">
+                                            <div class="col s3">
                                                 <div class="form-group">
-                                                    <label>kelas</label>
-                                                    <select class="form-control" name="kelas">
-                                                        <option value="">Pilih</option>
-                                                        <option value="X">X</option>
-                                                        <option value="XI">XI</option>
-                                                        <option value="XII">XII</option>
+                                                    <label>Ruangan</label>
+                                                    <select class="form-control" name="nama_ruangan">
+                                                    <option value="">Pilih Disini</option>
+                                                        @foreach ($ruang as $r)
+                                                            <option value="{{ $r->nama_ruangan }}">  {{ $r->nama_ruangan }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>                            
-                                            <div class="col s1">
+                                            <div class="col s">
                                                 <div class="form-group">
-                                                    <label>No Kelas</label>
-                                                    <select class="form-control" name="no_kelas">
-                                                        <option value="">Pilih</option>
+                                                    <label>Sesi</label>
+                                                    <select class="form-control" name="sesi">
+                                                    <option value="">Pilih Disini</option>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
+                                                       
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col s7">
+                                            <!-- <div class="col s7">
                                                 <div class="form-group">
                                                     <label>Jurusan</label>
                                                     <select class="form-control" name="jurusan">
@@ -54,7 +53,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="col s1 m-t-30">
                                                 <div class="form-group">
                                                     <input type="submit" class="btn btn-md col-12 indigo" name="action" value="Filter">
@@ -63,11 +62,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div class="row m-t-40" style="text-align: left;">
-                                    <div class="col ">                        
-                                        <a href="/exportAbsen" class="btn teal mb-3">Export Data Siswa</a>                      
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -78,7 +73,7 @@
                 <!-- Button trigger modal -->
 
 
-            @if(count($data) >= 0)
+             @if(count($data) >= 0)
                 <div class="row">
                     <div class="col s12">
                         <div class="card">
@@ -107,22 +102,23 @@
                                                         <td>{{ $no++}}</td>
                                                         <td>{{ $d->nama}}</td>
                                                         <td>{{ $d->kelas }} {{ $d->jurusan }} {{ $d->no_kelas }}</td>
+                                                        <td>{{ $d->sesi }}</td>
+                                                        <td>{{ $d->nama_ruangan}}</td>
 
                                                         <td>
-                                                           
-                                                                <a href="/{{$d->id}}"><button class="btn  {{$d->status == 'hadir' ? 'btn-primary' : ($d->status == 'ijin'? 'btn-success':'btn-second') }} btn-sm"> {{$d->status == 'hadir'?'ini hadir':$d->status == 'ijin'?'ini ijin':$d->status == 'sakit'?'sakit':'belum hadir'}}</button></a>
+                                                         
+                                                                <a href="/{{$d->id}}"><button class="btn  {{$d->status == 'hadir' ? 'btn-primary' : ($d->status == 'ijin'? 'btn-success':'btn-second') }} btn-sm">   {{$d->status == 'hadir'?'hadir':($d->status == 'ijin'?'ijin':($d->status == 'sakit'?'sakit':'belum hadir'))}}</button></a>
                                                             </td>     
                                                         <td class="d-flex justify-content-evenly">
-                                                            <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $d->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
+                                                            <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $d->id_siswa }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
                                                         </td>     
                                                     </tr>
 
                                                      {{-- edit --}}
-                                                    {{-- <div id="modal2{{ $d->id }}" class="modal">
+                                                    {{-- <div id="modal2{{ $d->id_siswa }}" class="modal">
                                                         <div class="modal-content">
-                                                            <form action="/printSiswa/{{ $d->id }}" method="POST">
+                                                            <form action="/printSiswa/{{ $d->id_siswa }}" method="POST">
                                                                     @csrf
-                                                                    @method('PUT')
                                                                     <h3 style="text-align: center"><b>Ubah Data</b></h3>
                                                                     <br>
                                                                 <div class="form-group">
@@ -163,9 +159,9 @@
                                                             </form>
                                                         </div>
                                                     </div> --}}
-                                                    <div id="modal2 {{ $d->id }}" class="modal ">
+                                                    <div id="modal2 {{ $d->id_siswa }}" class="modal ">
                                                         <div class="modal-content">
-                                                            <form action="/printSiswa/{{ $d->id }}" method="POST">
+                                                            <form action="/printSiswa/{{ $d->id_siswa }}" method="POST">
                                                                     @csrf
                                                                     <h3 style="text-align: center"><b>Ubah Data</b></h3>
                                                                     <br>

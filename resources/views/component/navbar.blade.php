@@ -13,8 +13,7 @@
                             <img class="dark-logo" src="{{asset('assets')}}/images/logo-icon.png"> --}}
                         </span>
                         <span class="text">
-                            <img class="light-logo" src="{{asset('assets')}}/images/logo-light-text.png">
-                            <img class="dark-logo" src="{{asset('assets')}}/images/logo-text.png">
+                           <h5 style="color:white;"><b>Absen</b></h5>
                         </span>
                     </a>
                     <!-- ============================================================== -->

@@ -68,7 +68,7 @@ class AuthController extends Controller
 
             return redirect('/ujian');
         } else {
-            return redirect()->back();
+            return redirect()->back()->with('alert','NISN Tidak Terdaftar');
         }
     }
 

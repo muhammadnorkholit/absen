@@ -3,7 +3,7 @@
 @section('content')
 <div class="page-titles">
                 <div class="d-flex align-items-center">
-                    <h5 class="font-medium m-b-0">Ruangan Ujian</h5>
+                    <h5 class="font-medium m-b-0">Ruang Ujian</h5>
                     <div class="custom-breadcrumb ml-auto">
                         <a href="/dashboard" class="breadcrumb">Home</a>
                         <a href="/dashboard" class="breadcrumb">Dashboard</a>
@@ -60,15 +60,15 @@
                                                 </div>
                                             </div>
                                         </div>            
-                                    <div id="editable-datatable_filter" class="dataTables_filter"><input type="search" class="" placeholder="cari" aria-controls="editable-datatable"></div>
+                                    <!-- <div id="editable-datatable_filter" class="dataTables_filter"><input type="search" class="" placeholder="cari" aria-controls="editable-datatable"></div> -->
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table striped m-b-20" id="editable-datatable">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nama Ruangan</th>
-                                                <th>No Ruangan</th>
+                                                <th>Nama Ruang</th>
+                                                <th>No Ruang</th>
                                                 <th>Teknisi</th>
                                                 <th>Aksi</th>
                                             </tr>

@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
+use App\Models\printsiswaModel;
+
 
 class SiswaController extends Controller
 {
@@ -26,6 +28,28 @@ class SiswaController extends Controller
         $jurusan = DB::table('jurusan')->get();
         $ruangan = DB::table('ruangan')->get();
         return view('dashboard.siswa', compact('siswa', 'jurusan', 'ruangan'));
+    }
+
+    public function filter(Request $request)
+    {
+        $absen = printsiswaModel::all();
+        $siswa = DB::table('siswa')
+            ->select('siswa.*', 'jurusan')
+            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+            ->get();
+            // dd($request);
+        $data = DB::table('absen')
+            ->rightJoin('siswa', 'absen.id_siswa', 'siswa.id')
+            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+            ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
+            ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan','siswa.id as id_siswa', 'sesi', 'nama_ruangan')
+            ->where('siswa.sesi', $request->sesi)
+            ->where('ruangan.nama_ruangan', $request->nama_ruangan)
+            ->get();
+            // dd($request);
+        $jurusan = DB::table('jurusan')->get();
+        $ruang = DB::table('ruangan')->get();
+        return view('dashboard.printSiswa', compact('jurusan', 'data','ruang'));
     }
 
     public function export()

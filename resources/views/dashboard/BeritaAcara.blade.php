@@ -23,7 +23,7 @@
                                             <div class="col s2">
                                                 <div class="form-group">
                                                     <label>Ruangan</label>
-                                                    <select class="form-control" name="nama_ruangan">
+                                                    <select class="form-control" name="ruangan">
                                                         <option value="">Pilih Disini</option>
                                                         @foreach ($ruangan as $r)
                                                             <option value="{{ $r->id }}">    {{ $r->nama_ruangan }}</option>
@@ -56,42 +56,34 @@
                                                 </div>
                                             </div>
 
-
-                                            {{-- <div class="col s1">
+                                            <div class="col s3">
                                                 <div class="form-group">
-                                                    <label>kelas</label>
-                                                    <select class="form-control" name="kelas">
+                                                    <label>Mapel</label>
+                                                    <select class="form-control" name="mapel">
                                                         <option value="">Pilih</option>
-                                                        <option value="X">X</option>
-                                                        <option value="XI">XI</option>
-                                                        <option value="XII">XII</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col s5">
-                                                <div class="form-group">
-                                                    <label>Jurusan</label>
-                                                    <select class="form-control" name="jurusan">
-                                                        <option value="">Pilih Disini</option>
-                                                       @foreach ($jurusan as $j)
-                                                            <option value="{{ $j->jurusan }}">  {{ $j->jurusan }}</option>
+                                                        @foreach ($mapel as $m)
+                                                            <option value="{{ $m->id }}">    {{ $m->nama_mapel }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>                            
-                                            <div class="col s1">
+                                            </div>
+
+                                            <div class="col s3">
                                                 <div class="form-group">
-                                                    <label>No</label>
-                                                    <select class="form-control" name="no_kelas">
-                                                        <option value="">Pilih</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
+                                                    <label>Waktu Ujian</label>
+                                                    <select class="form-control" name="waktu">
+                                                        <option value="">Pilih Disini</option>
+                                                        @foreach ($waktu as $w)
+                                                            <option value="{{ $w->id }}">    {{ $w->waktu_awal }} {{ $w->waktu_akhir }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
-                                            </div> --}}
+                                            </div>
+                                            
+                                            
+
+
+                                            
 
                                             <div class="col s1 m-t-30">
                                                 <div class="form-group">
@@ -108,4 +100,5 @@
                 </div>
                 
             </div>
+            <img src="{{asset('jawaTimur.png')}}" width="80px">
 @endsection

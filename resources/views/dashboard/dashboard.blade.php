@@ -23,7 +23,7 @@
                             <div class="card-content">
                                 <div class="d-flex no-block align-items-center">
                                     <div>
-                                        <h2 class="white-text m-b-5">250</h2>
+                                        <h2 class="white-text m-b-5">{{count($siswa)}}</h2>
                                         <h6 class="white-text op-5 light-blue-text">Total Siswa</h6>
                                     </div>
                                     <div class="ml-auto">
@@ -38,7 +38,7 @@
                             <div class="card-content">
                                 <div class="d-flex no-block align-items-center">
                                     <div>
-                                        <h2 class="white-text m-b-5">520</h2>
+                                        <h2 class="white-text m-b-5">{{count($jurusan)}}</h2>
                                         <h6 class="white-text op-5">Total jurusan</h6>
                                     </div>
                                     <div class="ml-auto">
@@ -55,8 +55,8 @@
                             <div class="card-content">
                                 <div class="d-flex no-block align-items-center">
                                     <div>
-                                        <h2 class="white-text m-b-5">100</h2>
-                                        <h6 class="white-text op-5 text-darken-2">Total Sesi</h6>
+                                        <h2 class="white-text m-b-5">{{count($guru)}}</h2>
+                                        <h6 class="white-text op-5 text-darken-2">Total Guru</h6>
                                     </div>
                                     <div class="ml-auto">
                                         <span class="white-text display-6"><i class="material-icons">equalizer</i></span>
@@ -71,7 +71,7 @@
                             <div class="card-content">
                                 <div class="d-flex no-block align-items-center">
                                     <div>
-                                        <h2 class="white-text m-b-5">450</h2>
+                                        <h2 class="white-text m-b-5">{{count($ruangan)}}</h2>
                                         <h6 class="white-text op-5">total ruang</h6>
                                     </div>
                                     <div class="ml-auto">

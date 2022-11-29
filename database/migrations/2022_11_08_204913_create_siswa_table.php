@@ -26,7 +26,7 @@ class CreateSiswaTable extends Migration
             $table->timestamp('updated_at')->nullable()->useCurrentUpdate();
 
             $table->foreign('id_jurusan')->references('id')->on('jurusan')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('id_ruangan')->references('id')->on('ruangan')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('id_ruangan')->references('id')->on('ruangan')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

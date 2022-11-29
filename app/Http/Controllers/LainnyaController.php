@@ -89,7 +89,7 @@ class LainnyaController extends Controller
             ]
         );
 
-        $link = Str::upper($request->link);
+        $link = $request->link;
 
         DB::table('link')->where('id', $id)->update([
             'link' => $link
