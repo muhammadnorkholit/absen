@@ -95,7 +95,7 @@ class PrintpdfController extends Controller
         $guru = DB::table('guru')->get();
         // dd($data);
         // dd($ruang);
-        return Excel::download(new absenExport, 'absenSiswa.xlsx');
+        return Excel::download(new absenExport($request->waktu), 'absenSiswa.xlsx');
     }
 
     // update status

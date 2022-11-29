@@ -44,7 +44,7 @@ class SiswaController extends Controller
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan','siswa.id as id_siswa', 'sesi', 'nama_ruangan')
-            ->whereDate('absen.waktu',$request->waktu)
+            // ->whereDate('absen.waktu',$request->waktu)   
             ->where('ruangan.id',$request->ruangan)
             ->where('siswa.sesi',$request->sesi)
             ->get();
