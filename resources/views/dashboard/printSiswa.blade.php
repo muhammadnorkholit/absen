@@ -74,36 +74,36 @@
         <!-- Button trigger modal -->
 
 
-        @if (count($data) > 0)
-            <div class="row">
-                <div class="col s12">
-                    <div class="card">
-                        <div class="card-content">
-                            <h5 class="card-title">Data Siswa</h5><br>
-                            <div class="row m-b-20">
-                            </div>
-                            <div class="row" style="text-align: left;">
-                                <div class="table-responsive">
-                                    <table class="table striped m-b-20" id="editable-datatable">
-                                        <thead>
-                                            <tr>
-                                                <th>id</th>
-                                                <th>Nama</th>
-                                                <th>Kelas</th>
-                                                <th>Sesi</th>
-                                                <th>Ruang</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $no = 1; ?>
-                                            @foreach ($data as $d)
+             @if(count($data) >= 0)
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="card-content">
+                                <h5 class="card-title">Data Siswa</h5><br>
+                                    <div class="row m-b-20">
+                                    </div>
+                                    <div class="row" style="text-align: left;">
+                                        <div class="table-responsive">
+                                        <table class="table striped m-b-20" id="editable-datatable">
+                                            <thead>
                                                 <tr>
-                                                    <td>{{ $no++ }}</td>
-                                                    <td>{{ $d->nama }}</td>
-                                                    <td>{{ $d->kelas }} {{ $d->jurusan }} {{ $d->no_kelas }}</td>
-                                                    <td>{{ $d->sesi }}</td>
-                                                    <td>{{ $d->nama_ruangan }}</td>
+                                                    <th>id</th>
+                                                    <th>Nama</th>
+                                                    <th>Kelas</th>
+                                                    <th>Sesi</th>
+                                                    <th>Ruang</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $no = 1 ?>
+                                                 @foreach($data as $d)
+                                                    <tr>
+                                                        <td>{{ $no++}}</td>
+                                                        <td>{{ $d->nama}}</td>
+                                                        <td>{{ $d->kelas }} {{ $d->jurusan }} {{ $d->no_kelas }}</td>
+                                                        <td>{{ $d->sesi }}</td>
+                                                        <td>{{ $d->nama_ruangan}}</td>
 
 
                                                     <td class="d-flex justify-content-evenly">

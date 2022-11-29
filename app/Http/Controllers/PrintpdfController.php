@@ -44,7 +44,8 @@ class PrintpdfController extends Controller
                 ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
                 ->get();
             $data = [];
-            // dd($data);
+
+            
             
             $jurusan = DB::table('jurusan')->get();
             $ruang = DB::table('ruangan')->get();
