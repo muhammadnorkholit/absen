@@ -46,7 +46,7 @@ class BeritaAcaraController extends Controller
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan', 'nama_ruangan', 'no_ruangan', 'teknisi', 'sesi')
-            ->where('siswa.id_ruangan', $request->nama_ruangan)
+            ->where('siswa.id_ruangan', $request->ruangan)
             ->where('siswa.sesi', $request->sesi)
 
             // ->groupBy('siswa.id')
@@ -55,7 +55,7 @@ class BeritaAcaraController extends Controller
             ->join('siswa', 'absen.id_siswa', 'siswa.id')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
-            ->where('siswa.id_ruangan', $request->nama_ruangan)
+            ->where('siswa.id_ruangan', $request->ruangan)
             ->where('siswa.sesi', $request->sesi)
             // ->groupBy('siswa.id'
             ->count();
@@ -65,15 +65,16 @@ class BeritaAcaraController extends Controller
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan', 'nama_ruangan', 'no_ruangan', 'teknisi', 'sesi')
-            ->where('siswa.id_ruangan', $request->nama_ruangan)
+            ->where('siswa.id_ruangan', $request->ruangan)
             ->where('siswa.sesi', $request->sesi);
 
             $hadir1 = DB::table('absen')
             ->join('siswa', 'absen.id_siswa', 'siswa.id')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
-            ->where('siswa.id_ruangan', $request->nama_ruangan)
+            ->where('siswa.id_ruangan', $request->ruangan)
             ->where('siswa.sesi', $request->sesi);
+
 
         $jurusan = DB::table('jurusan')->get();
         $guru = DB::table('guru')->where('id',Request()->guru)->first();

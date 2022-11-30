@@ -7,14 +7,14 @@
                             <a href="/dashboard" class="collapsible-header"><i class="material-icons">dashboard</i><span class="hide-menu"> Dashboard</span></a>
                         </li>
                         <li>
-                            <a href="javascript: void(0);" class="collapsible-header has-arrow"><i class="material-icons">print</i><span class="hide-menu"> Print</span></a>
-                            <div class="collapsible-body">
+                            <a href="/printBeritaAcara" class="collapsible-header"><i class="material-icons">print</i><span class="hide-menu"> Print</span></a>
+                            {{-- <div class="collapsible-body">
                                 <ul>
                                     <li><a href="/printBeritaAcara"><i class="material-icons">adjust</i><span class="hide-menu">Berita Acara</span></a></li>
                                     <!-- <li><a href="/exportAbsen"><i class="material-icons">adjust</i><span class="hide-menu">Data Siswa</span></a></li> -->
                                     <li><a href="/siswaSemua"><i class="material-icons">adjust</i><span class="hide-menu">Data Siswa</span></a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </li>
                         <li>
                             <a href="/absen" class="collapsible-header"><i class="material-icons">timer</i><span class="hide-menu"> Absen </span></a>                
@@ -23,7 +23,7 @@
                             <a href="/jurusan" class="collapsible-header"><i class="material-icons">class</i><span class="hide-menu"> Jurusan </span></a>                
                         </li>
                         <li>
-                            <a href="/siswa" class="collapsible-header"><i class="material-icons">class</i><span class="hide-menu"> Siswa </span></a>
+                            <a href="/siswaSemua" class="collapsible-header"><i class="material-icons">class</i><span class="hide-menu"> Siswa </span></a>
                         </li>
                         <li>
                             <a href="/guru" class="collapsible-header"><i class="material-icons">class</i><span class="hide-menu"> Guru </span></a>

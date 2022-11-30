@@ -13,7 +13,7 @@
                             <img class="dark-logo" src="{{asset('assets')}}/images/logo-icon.png"> --}}
                         </span>
                         <span class="text">
-                           <h5 style="color:white;"><b>Absen</b></h5>
+                           <h5 style="color:white;"><b>Hadir Siswa</b></h5>
                         </span>
                     </a>
                     <!-- ============================================================== -->

@@ -60,9 +60,8 @@ class AuthController extends Controller
             Auth::login($data);
             $siswa = DB::table('siswa')->get();
             // dd($siswa);
-            $cek = DB::table('absen')->insert([
-                'id_siswa' => Auth::id(),
-                "status" => "hadir",
+            $cek = DB::table('absen')->where('id', Auth::id())->update([
+                "status" => 1,
             ]);
             
 

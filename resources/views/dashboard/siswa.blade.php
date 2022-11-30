@@ -106,6 +106,7 @@
                                             <tr>
                                                 <th>id</th>
                                                 <th>Nama</th>
+                                                <th>Nisn</th>
                                                 <th>Kelas</th>
                                                 <th>Sesi</th>
                                                 <th>Ruang</th>
@@ -119,6 +120,7 @@
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $d->nama }}</td>
+                                                    <td>{{ $d->nisn }}</td>
                                                     <td>{{ $d->kelas }} {{ $d->jurusan }} {{ $d->no_kelas }}</td>
                                                     <td>{{ $d->sesi }}</td>
                                                     <td>{{ $d->nama_ruangan }}</td>

@@ -3,7 +3,7 @@
 @section('content')
             <div class="page-titles">
                 <div class="d-flex align-items-center">
-                    <h5 class="font-medium m-b-0">Jurusan</h5>
+                    <h5 class="font-medium m-b-0">Waktu Ujian</h5>
                         <div class="custom-breadcrumb ml-auto">
                             <a href="#!" class="breadcrumb">Home</a>
                             <a href="#!" class="breadcrumb">Dashboard</a>
@@ -60,7 +60,7 @@
                                             @foreach ($waktu as $w)
                                                 <tr>
                                                     <td>{{$no++}}</td>
-                                                    <td>{{$w->waktu_awal}} {{$w->waktu_akhir}}</td>
+                                                    <td>{{$w->waktu_awal}} - {{$w->waktu_akhir}}</td>
                                                     <td class="d-flex justify-content-evenly">
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: red" href="#modal3 {{ $w->id }}"><i class="fa-solid fa-trash"{{ $w->id }}"></i></a>
                                                         <a class="btn waves-effect waves-light modal-trigger" style="color: white; background-color: skyblue" href="#modal2 {{ $w->id }}" style="color:rgb(56, 72, 124)"><i class="fa-solid fa-pen"></i></a>
