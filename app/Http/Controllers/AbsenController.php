@@ -10,6 +10,7 @@ class AbsenController extends Controller
 {
     public function index()
     {
+
         $siswa = DB::table('siswa')
             ->select('siswa.*', 'jurusan')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
@@ -27,27 +28,38 @@ class AbsenController extends Controller
     }
     public function store(Request $request)
     {
-       $ruangan =  DB::table('siswa')
+        $request->validate([
+            'sesi'=>'required',
+            'ruangan'=>'required',
+        ]);
+       $siswa =  DB::table('siswa')
        ->select('siswa.*')
         ->where('id_ruangan',$request->ruangan)
         ->where('sesi',$request->sesi)
         ->get();
+
         $ada = DB::table('absen')
-        ->where('absen.id_siswa',$ruangan[0]->id)
+        ->where('absen.id_siswa',$siswa[0]->id)
         ->whereDate('absen.waktu',date('Y-m-d'))
         ->count()
         ;
+        // dd($ada);
 
         if($ada == 0){
-
-        foreach ($ruangan as $r ) {
+            
+        foreach ($siswa as $r ) {
             DB::table('absen')->insert([
                 'id_siswa'=>$r->id,
                 'status'=>5
             ]);
         }
+
+        return  redirect('/siswaSemua')->with('alert', 'Ruangan berhasil di siapkan');
+        }
+        else{
+        return  redirect('/siswaSemua')->with('alert2', 'Ruangan Sudah Terdaftar');
         }
 
-        return  redirect()->back();
+      
     }
 }

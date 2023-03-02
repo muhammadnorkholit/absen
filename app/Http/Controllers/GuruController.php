@@ -116,7 +116,7 @@ class GuruController extends Controller
     public function destroy($id)
     {
         DB::table('guru')->where('id', $id)->delete();
-        return redirect()->back()->with('success');//
+        return redirect()->back()->with('success');
     }
 
     public function ImportGuruExcel(Request $request)

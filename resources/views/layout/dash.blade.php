@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @yield('meta-refresh')
     <title>Si absen</title>
     <!-- chartist CSS -->
     <link href="{{asset('assets')}}/libs/chartist/dist/chartist.min.css" rel="stylesheet">
@@ -13,6 +14,8 @@
     <!-- This page CSS -->
     <link href="{{asset('dist')}}/css/pages/dashboard1.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('icon')}}/css/all.min.css">
+
+    <link rel="stylesheet" href="{{asset('select')}}/dist/css/select2.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -69,6 +72,16 @@
     <script src="{{asset('assets')}}/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="{{asset('assets')}}/extra-libs/sparkline/sparkline.js"></script>
     <script src="{{asset('dist')}}/js/pages/dashboards/dashboard1.js"></script>
+
+    <script src="{{asset('select')}}/dist/js/select2.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+             $('.js-select').select2();
+             $('.js-select-2').select2();
+});
+    </script>
 </body>
 
 </html>

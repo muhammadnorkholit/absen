@@ -19,6 +19,7 @@ class SiswaController extends Controller
 {
     public function index()
     {
+       
         Paginator::useBootstrap();
         $siswa = DB::table('siswa')
             ->select('jurusan', 'siswa.*', 'nama_ruangan')
@@ -28,11 +29,12 @@ class SiswaController extends Controller
         $jurusan = DB::table('jurusan')->get();
         $ruang = DB::table('ruangan')->get();
         $data = [];
-        return view('dashboard.siswa', compact('siswa', 'jurusan', 'ruang','data'));
+        return view('dashboard.absensi', compact('siswa', 'jurusan', 'ruang','data'));
     }
 
     public function filter(Request $request)
     {
+     
         $absen = printsiswaModel::all();
         $siswa = DB::table('siswa')
             ->select('siswa.*', 'jurusan')
@@ -46,10 +48,32 @@ class SiswaController extends Controller
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan','siswa.id as id_siswa', 'sesi', 'nama_ruangan')
             ->where('ruangan.id',$request->ruangan)
             ->where('siswa.sesi',$request->sesi)
+            ->whereDate('absen.waktu',$request->waktu)
             ->get();
 
         $jurusan = DB::table('jurusan')->get();
         $ruang = DB::table('ruangan')->get();
+
+
+// hadirkan semua
+if (Request()->has('hadirsemua')) { 
+    try {
+        foreach ($data as $d ) {
+        
+          
+        $ds=DB::table('absen')->where('id_siswa',$d->id_siswa)->update([
+            "status" => 'hadir',
+        ]);
+            
+        }
+        return redirect()->back()->with('alert','Berhasil menghadirkan siswa');
+    } catch (\Throwable $th) {
+        dd('error');
+    }
+}
+
+
+
         return view('dashboard.siswa', compact('jurusan', 'data','ruang'));
     }
 
@@ -163,6 +187,19 @@ class SiswaController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'siswa berhasil diubah');
+    }
+
+    public function siswaUi(){
+        $siswa = DB::table('siswa')
+                ->select('siswa.*', 'jurusan', 'nama_ruangan')
+                ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+                ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id') 
+                ->get();
+            $data = [];
+            
+            $jurusan = DB::table('jurusan')->get();
+            $ruang = DB::table('ruangan')->get();
+            return view('dashboard.siswa', compact('jurusan', 'data', 'ruang'));
     }
 
     public function destroy($id)

@@ -38,7 +38,22 @@ class WaktuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'waktu_awal' => 'required',
+                'waktu_akhir' => 'required'
+            ] 
+        );
+        $waktu_awal = $request->waktu_awal;
+        $waktu_akhir = $request->waktu_akhir;
+
+        DB::table('waktu')->insert([
+            'waktu_awal' => $waktu_awal,
+            'waktu_akhir' => $waktu_akhir
+        ]);
+
+
+        return redirect()->back()->with('success');
     }
 
     /**
@@ -60,7 +75,7 @@ class WaktuController extends Controller
      */
     public function edit($id)
     {
-        //
+      
     }
 
     /**
@@ -72,7 +87,22 @@ class WaktuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            [
+                'waktu_awal' => 'required',
+                'waktu_akhir' => 'required'
+            ] 
+        );
+
+        $waktu_awal = $request->waktu_awal;
+        $waktu_akhir = $request->waktu_akhir;
+
+        DB::table('waktu')->where('id', $id)->update([
+            'waktu_awal' => $waktu_awal,
+            'waktu_akhir' => $waktu_akhir
+        ]);
+
+        return redirect()->back()->with('success', 'link berhasil di edit');
     }
 
     /**
@@ -83,6 +113,7 @@ class WaktuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('waktu')->where('id', $id)->delete();
+        return redirect()->back()->with('success');
     }
 }

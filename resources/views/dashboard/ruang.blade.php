@@ -80,14 +80,11 @@
                                     <td>{{ $r->no_ruangan }}</td>
                                     <td>{{ $r->teknisi }}</td>
                                     <td class="d-flex justify-content-evenly">
-                                        <a class="btn waves-effect waves-light modal-trigger"
-                                            style="color: white; background-color: red"
+                                        <a class="btn waves-effect waves-light modal-trigger red"
                                             href="#modal3 {{ $r->id }}"><i
                                                 class="fa-solid fa-trash"{{ $r->id }}"></i></a>
-                                        <a class="btn waves-effect waves-light modal-trigger"
-                                            style="color: white; background-color: skyblue"
-                                            href="#modal2 {{ $r->id }}" style="color:rgb(56, 72, 124)"><i
-                                                class="fa-solid fa-pen"></i></a>
+                                        <a class="btn waves-effect waves-light modal-trigger green"
+                                            href="#modal2 {{ $r->id }}"><i class="fa-solid fa-pen"></i></a>
                                     </td>
 
                                     {{-- edit --}}
@@ -106,8 +103,7 @@
                                                 <div class="form-group">
                                                     <label for="jurusan">No Ruangan</label>
                                                     <input value="{{ $r->no_ruangan }}" class="form-control"
-                                                        name="no_ruangan" id="no_ruangan" type="number"
-                                                        placeholder="" />
+                                                        name="no_ruangan" id="no_ruangan" type="number" placeholder="" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jurusan">Nama Teknisi</label>

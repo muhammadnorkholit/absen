@@ -55,7 +55,7 @@
                                             </div>
                                         </div>
                                     </div>          
-                                    <div id="editable-datatable_filter" class="dataTables_filter"><input type="search" class="" placeholder="cari" aria-controls="editable-datatable"></div>
+                                    <!-- <div id="editable-datatable_filter" class="dataTables_filter"><input type="search" class="" placeholder="cari" aria-controls="editable-datatable"></div> -->
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table striped m-b-20" id="editable-datatable">

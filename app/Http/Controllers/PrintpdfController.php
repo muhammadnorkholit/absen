@@ -36,20 +36,6 @@ class PrintpdfController extends Controller
         // return view('dashboard.printpdf');
     }
 
-    public function printSiswaUi(Request $request)
-    {
-            $siswa = DB::table('siswa')
-                ->select('siswa.*', 'jurusan', 'nama_ruangan')
-                ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-                ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
-                ->get();
-            $data = [];
-            // dd($data);s
-            
-            $jurusan = DB::table('jurusan')->get();
-            $ruang = DB::table('ruangan')->get();
-            return view('dashboard.printSiswa', compact('jurusan', 'data', 'ruang'));
-    }
 
     public function filter(Request $request)
     {
@@ -76,6 +62,10 @@ class PrintpdfController extends Controller
     // export siswa
     public function export(Request $request)
     {
+        $request->validate([
+            'waktu'=>'required'
+        ]);
+        
         $siswa = DB::table('siswa')
             ->select('siswa.*', 'jurusan')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')

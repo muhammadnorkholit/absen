@@ -87,7 +87,20 @@ class MapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            [
+                'mapel' => 'required'
+            ],
+            [
+                'mapel.required' => 'nama mapel wajib di isi'
+            ]
+        );
+
+        $nama_mapel = Str::upper($request->mapel);
+        DB::table('mapel')->where('id',$id)->update([
+            'nama_mapel' => $nama_mapel
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -98,6 +111,7 @@ class MapelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('mapel')->where('id', $id)->delete();
+        return redirect()->back()->with('success', 'jurusan berhasil di hapus');
     }
 }

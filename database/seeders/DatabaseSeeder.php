@@ -28,74 +28,78 @@ class DatabaseSeeder extends Seeder
         //     "password" => Hash::make('bismillah123'),
         //     "role" => "admin"
         // ]);
+  UsersModel::create([
+            "username" => "tamu",
+            "password" => Hash::make('bismillahtamu'),
+            "role" => "tamu"
+        ]);
 
 
-
-//         UsersModel::create([
-//             "username" => "labkkpi2",
-//             "password" => Hash::make('bismillahlabkkpi2'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "labkkpi3",
-//             "password" => Hash::make('bismillahlabkkpi3'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "labkkpi4",
-//             "password" => Hash::make('bismillahlabkkpi4'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "labakl",
-//             "password" => Hash::make('bismillahlabakl'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "labotkp",
-//             "password" => Hash::make('bismillahlabotkp'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "labrpl",
-//             "password" => Hash::make('bismillahlabrpl'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "labmm",
-//             "password" => Hash::make('bismillahlabmm'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "lablan",
-//             "password" => Hash::make('bismillahlablan'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "labwan",
-//             "password" => Hash::make('bismillahlabwan'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "labkkpi5",
-//             "password" => Hash::make('bismillahlabkkpi5'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "labkkpi6",
-//             "password" => Hash::make('bismillahlabkkpi6'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "labpkm",
-//             "password" => Hash::make('bismillahlabpkm'),
-//             "role" => "teknisi"
-//         ]);
-//         UsersModel::create([
-//             "username" => "labbdp",
-//             "password" => Hash::make('bismillahlabbdp'),
-//             "role" => "teknisi"
-//         ]);
+        // UsersModel::create([
+        //     "username" => "labkkpi2",
+        //     "password" => Hash::make('bismillahlabkkpi2'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "labkkpi3",
+        //     "password" => Hash::make('bismillahlabkkpi3'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "labkkpi4",
+        //     "password" => Hash::make('bismillahlabkkpi4'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "labakl",
+        //     "password" => Hash::make('bismillahlabakl'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "labotkp",
+        //     "password" => Hash::make('bismillahlabotkp'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "labrpl",
+        //     "password" => Hash::make('bismillahlabrpl'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "labmm",
+        //     "password" => Hash::make('bismillahlabmm'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "lablan",
+        //     "password" => Hash::make('bismillahlablan'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "labwan",
+        //     "password" => Hash::make('bismillahlabwan'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "labkkpi5",
+        //     "password" => Hash::make('bismillahlabkkpi5'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "labkkpi6",
+        //     "password" => Hash::make('bismillahlabkkpi6'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "labpkm",
+        //     "password" => Hash::make('bismillahlabpkm'),
+        //     "role" => "teknisi"
+        // ]);
+        // UsersModel::create([
+        //     "username" => "labbdp",
+        //     "password" => Hash::make('bismillahlabbdp'),
+        //     "role" => "teknisi"
+        // ]);
 
 
 
@@ -492,231 +496,243 @@ class DatabaseSeeder extends Seeder
 	//   GuruModel::create([
     //         "guru" => "RICO ARDANANDA, S.Ds."
     //     ]);
-    MapelModel::create([
-           "nama_mapel" => "Administrasi Infrastruktur Jaringan	"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Administrasi Pajak"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Administrasi Sistem jaringan	"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Administrasi Transaksi	s"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Administrasi Umum	"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Akuntansi Dasar"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Akuntansi Keuangan"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Akuntansi Perbankan dan Keuangan Mikro"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Animasi"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => ""
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Aplikasi Pengolah Angka/Spreadsheet"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Bahasa Indonesia"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Bahasa Inggris"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Bahasa Jawa	"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Bahasa Madura"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Basis Data"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Bisnis Online"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Dasar Desain Grafis"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Dasar Seni Audio Visual"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Dasar – dasar Kreatifitas"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Desain Grafis Percetakan"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Editing"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Editing Audio dan Video	"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Ekonomi Bisnis"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Etika Profesi"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Fisika"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "IPA"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Kearsipan "
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Kimia"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Komputer Akuntansi"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Komputer dan Jaringan Dasar	"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Komunikasi bisnis"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Komunikasi Massa"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Korespondensi"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Layanan Lembaga Perbankan dan Keuangan Mikro"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Manajemen Produksi, Naskah dan Penyutradaraan"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Marketing"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Matematika"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Otomatisasi Tata Kelola Humas dan Keprotokolan"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Otomatisasi Tata Kelola Kepegawaian"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Otomatisasi Tata Kelola Keuangan"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Otomatisasi Tata Kelola Sarana dan Prasarana"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "P. Akuntansi Per Jasa Dagang dan Manufaktur"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Pemodelan Perangkat Lunak"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Pemrograman Berorientasi Obyek"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Pemrograman Dasar"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Pemrograman Web dan Perangkat Bergerak"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Penataan Produk"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Pendidikan Agama dan Budi Pekerti"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Pendidikan Agama Katolik"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Pendidikan Agama Kristen"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Pendidikan Jasmani, Olah Raga, dan Kesehatan"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Pendidikan Pancasila dan Kewarganegaraan"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Pengelolaan Bisnis Ritel"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Pengelolaan Kas"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Perbankan Dasar"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Perencanaan Bisnis"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Praktikum Akuntansi Lembaga/Instansi Pemerintah"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Produk Kreatif dan Kewirausahaan"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Produksi Audio Visual"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Sejarah Indonesia"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Seni Budaya"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Simulasi dan Komunikasi Digital"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Sistem Komputer"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Tata Artistik"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Tata Kamera"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Tata Kamera, Pencahayaan dan Tata Suara"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Tata Suara"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Teknik animasi 2D dan 3D"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Teknologi jaringan Berbasis Luas (WAN)"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Teknologi layanan Jaringan"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Teknologi Perkantoran"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Tinjauan Seni"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Visual Effect"
-         ]);
-    MapelModel::create([
-           "nama_mapel" => "Permodelan Perangkat Lunak dan Game"
-         ]);
+
+
+
+
+
+
+
+
+
+
+
+
+    // MapelModel::create([
+    //        "nama_mapel" => "Administrasi Infrastruktur Jaringan	"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Administrasi Pajak"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Administrasi Sistem jaringan	"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Administrasi Transaksi	s"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Administrasi Umum	"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Akuntansi Dasar"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Akuntansi Keuangan"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Akuntansi Perbankan dan Keuangan Mikro"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Animasi"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => ""
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Aplikasi Pengolah Angka/Spreadsheet"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Bahasa Indonesia"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Bahasa Inggris"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Bahasa Jawa	"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Bahasa Madura"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Basis Data"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Bisnis Online"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Dasar Desain Grafis"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Dasar Seni Audio Visual"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Dasar – dasar Kreatifitas"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Desain Grafis Percetakan"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Editing"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Editing Audio dan Video	"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Ekonomi Bisnis"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Etika Profesi"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Fisika"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "IPA"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Kearsipan "
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Kimia"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Komputer Akuntansi"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Komputer dan Jaringan Dasar	"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Komunikasi bisnis"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Komunikasi Massa"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Korespondensi"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Layanan Lembaga Perbankan dan Keuangan Mikro"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Manajemen Produksi, Naskah dan Penyutradaraan"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Marketing"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Matematika"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Otomatisasi Tata Kelola Humas dan Keprotokolan"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Otomatisasi Tata Kelola Kepegawaian"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Otomatisasi Tata Kelola Keuangan"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Otomatisasi Tata Kelola Sarana dan Prasarana"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "P. Akuntansi Per Jasa Dagang dan Manufaktur"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Pemodelan Perangkat Lunak"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Pemrograman Berorientasi Obyek"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Pemrograman Dasar"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Pemrograman Web dan Perangkat Bergerak"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Penataan Produk"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Pendidikan Agama dan Budi Pekerti"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Pendidikan Agama Katolik"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Pendidikan Agama Kristen"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Pendidikan Jasmani, Olah Raga, dan Kesehatan"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Pendidikan Pancasila dan Kewarganegaraan"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Pengelolaan Bisnis Ritel"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Pengelolaan Kas"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Perbankan Dasar"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Perencanaan Bisnis"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Praktikum Akuntansi Lembaga/Instansi Pemerintah"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Produk Kreatif dan Kewirausahaan"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Produksi Audio Visual"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Sejarah Indonesia"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Seni Budaya"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Simulasi dan Komunikasi Digital"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Sistem Komputer"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Tata Artistik"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Tata Kamera"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Tata Kamera, Pencahayaan dan Tata Suara"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Tata Suara"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Teknik animasi 2D dan 3D"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Teknologi jaringan Berbasis Luas (WAN)"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Teknologi layanan Jaringan"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Teknologi Perkantoran"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Tinjauan Seni"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Visual Effect"
+    //      ]);
+    // MapelModel::create([
+    //        "nama_mapel" => "Permodelan Perangkat Lunak dan Game"
+    //      ]);
 
 
 

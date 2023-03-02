@@ -56,17 +56,26 @@ class AuthController extends Controller
         $data = siswa::where('nisn', $request->nisn)->first();
 
         if ($data) {
+            $count = DB::table('absen')
+            ->where('absen.id_siswa',$data->id)
+            ->whereDate('absen.waktu',date('Y-m-d'))
+            ->count();
 
-            Auth::login($data);
-            $siswa = DB::table('siswa')->get();
-            // dd($siswa);
-            $cek = DB::table('absen')->where('id', Auth::id())->update([
-                "status" => 1,
-            ]);
-            
+            if($count > 0){
+                Auth::login($data);
+                $siswa = DB::table('siswa')->get();
+                // dd($siswa);
+                $cek = DB::table('absen')->where('id_siswa', Auth::id())->update([
+                    "status" => 1,
+                ]);
+                return redirect('/ujian');
+            }else{
+            return redirect()->back()->with('alert','Ruangan Belum Terdaftar');
 
-            return redirect('/ujian');
-        } else {
+            }
+           
+        } 
+        else {
             return redirect()->back()->with('alert','NISN Tidak Terdaftar');
         }
     }

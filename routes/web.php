@@ -36,16 +36,16 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::middleware(['auth:web'])->group(function () {
     Route::resource('/dashboard', DashboardController::class);
+    Route::get('/siswa', [SiswaController::class, 'siswaUi']);
     Route::resource('/siswaSemua', SiswaController::class);
     Route::get('/printBeritaAcara', [BeritaAcaraController::class, 'beritaAcara']);
     Route::post('/print', [BeritaAcaraController::class, 'printBerita']);
     Route::post('/exportAbsen', [PrintpdfController::class, 'export']);
-    Route::get('/siswa', [PrintpdfController::class, 'printSiswaUi']);
     Route::post('/printSiswa/{id}', [PrintpdfController::class, 'printSiswa']);
     Route::get('/printSiswa', [SiswaController::class, 'filter']);
     Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
-
-    Route::post('/jurusanimport', [jurusanController::class, 'ImportJurusanExcel']);
+    
+    // Route::post('/printSiswa/hadirkansemua',  [SiswaController::class, 'hadirsemua']);
 
     Route::resource('/jurusan', JurusanController::class);
 
