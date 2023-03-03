@@ -97,7 +97,9 @@ class BeritaAcaraController extends Controller
             ->select('absen.*','nama', 'nisn', 'no_kelas', 'kelas', 'jurusan')
             ->where('siswa.id_ruangan', $request->ruangan)
             ->where('siswa.sesi', $request->sesi);
-
+        if(count($all1) == 0){
+            return redirect()->back()->with('error',"Data Yang Sesuai Tidak Ditemukan");
+        }
 
         $jurusan = DB::table('jurusan')->get();
         $guru = DB::table('guru')->where('id',Request()->guru)->first();

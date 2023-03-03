@@ -126,6 +126,9 @@
     margin-right: 5px;
 }
 
+.alert {
+    border-radius: 15px;
+}
 .red.lighten-5,
 .topbar
     nav
