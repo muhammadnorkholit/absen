@@ -21,18 +21,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
 
-        // UsersModel::create([
-        //     "username" => "admin123",
-        //     "password" => Hash::make('bismillah123'),
-        //     "role" => "admin"
-        // ]);
-  UsersModel::create([
-            "username" => "tamu",
-            "password" => Hash::make('bismillahtamu'),
-            "role" => "tamu"
+
+        UsersModel::create([
+            "username" => "admin123",
+            "password" => Hash::make('bismillah123'),
+            "role" => "admin"
         ]);
+//   UsersModel::create([
+//             "username" => "tamu",
+//             "password" => Hash::make('bismillahtamu'),
+//             "role" => "tamu"
+//         ]);
 
 
         // UsersModel::create([
