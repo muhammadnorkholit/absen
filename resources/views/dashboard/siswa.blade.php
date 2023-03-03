@@ -46,8 +46,8 @@
                                 <div class="row">
                                     <div class="col s3">
                                         <div class="form-group">
-                                            <label>Kelas</label>
-                                            <select class="form-control  js-select" name="kelas">
+                                            <label>Kelas </label>
+                                            <select class="form-control    js-select" name="kelas">
                                                 <option value="">Pilih Disini</option>
                                                 <option value="X">X</option>
                                                 <option value="XI">XI</option>
@@ -55,29 +55,29 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col s5">
+                                    <div class="col s6">
                                         <div class="form-group">
-                                            <label>Pengawas Ujian</label>
+                                            <label>Jurusan</label>
                                             <select class="form-control    js-select" name="jurusan">
                                                 <option value="">Pilih Disini</option>
                                                 @foreach ($jurusan as $j)
                                                     <option {{ old('jurusan') == $j->id ? 'selected' : '' }}
-                                                        value="{{ $j->id }}"> {{ $j->jurusan }}</option Required>
+                                                        value="{{ $j->id }}"> {{ $j->jurusan }}
+                                                    </option Required>
                                                 @endforeach
                                             </select>
-
                                         </div>
                                     </div>
                                     <div class="col s3">
                                         <div class="form-group">
                                             <label>No Kelas</label>
-                                            <select class="form-control js-select" name="sesi">
+                                            <select class="form-control    js-select" name="no_kelas">
                                                 <option value="">Pilih Disini</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
-                                                <option value="3">4</option>
-                                                <option value="3">5</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
                                             </select>
                                         </div>
                                     </div>
@@ -107,8 +107,7 @@
                     <div class="card">
                         <div class="card-content">
                             <h5 class="card-title">Data Siswa</h5><br>
-                            <a class="btn btn-primary" href="{{ url()->full() }}&hadirsemua" type="submit">Hadirkan
-                                Semua</a>
+                            <a class="btn indigo" href="" type="submit">Tambah Data</a>
                             <div class="row m-b-20">
                             </div>
                             <div class="row" style="text-align: left;">
@@ -133,23 +132,23 @@
                                                     <td>{{ $d->nisn }}</td>
                                                     <td>{{ $d->kelas }} {{ $d->jurusan }} {{ $d->no_kelas }}</td>
                                                     <td>{{ $d->nama_ruangan }}</td>
-                                                    <td><b
-                                                            style="color: rebeccapurple;font-weight: 900">{{ $d->status }}</b>
-                                                    </td>
-
 
                                                     <td class="d-flex justify-content-evenly">
                                                         <a class="btn waves-effect waves-light modal-trigger"
-                                                            style="color: white; background-color: skyblue"
-                                                            href="#modal2 {{ $d->id_siswa }}"
+                                                            style="color: white; background-color: rgb(219, 219, 0)"
+                                                            href="#modal2 {{ $d->id }}"
                                                             style="color:rgb(56, 72, 124)"><i
                                                                 class="fa-solid fa-pen"></i></a>
+                                                        <a class="btn waves-effect waves-light modal-trigger"
+                                                            style="color: white; background-color: rgb(203, 109, 0)"
+                                                            href="#modal2 {{ $d->id }}"><i
+                                                                class="fa-solid fa-trash"></i></a>
                                                     </td>
                                                 </tr>
 
-                                                <div id="modal2 {{ $d->id_siswa }}" class="modal ">
+                                                <div id="modal2 {{ $d->id }}" class="modal ">
                                                     <div class="modal-content">
-                                                        <form action="/printSiswa/{{ $d->id_siswa }}" method="POST">
+                                                        <form action="/printSiswa/{{ $d->id }}" method="POST">
                                                             @csrf
                                                             <h3 style="text-align: center"><b>Ubah Data</b></h3>
                                                             <br>

@@ -23,11 +23,11 @@ class DatabaseSeeder extends Seeder
     {
 
 
-        UsersModel::create([
-            "username" => "admin123",
-            "password" => Hash::make('bismillah123'),
-            "role" => "admin"
-        ]);
+        // UsersModel::create([
+        //     "username" => "admin123",
+        //     "password" => Hash::make('bismillah123'),
+        //     "role" => "admin"
+        // ]);
 //   UsersModel::create([
 //             "username" => "tamu",
 //             "password" => Hash::make('bismillahtamu'),
@@ -163,71 +163,71 @@ class DatabaseSeeder extends Seeder
 //             "jurusan" => "DESAIN KOMUNIKASI VISUAL"
 //         ]);
 
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB KKPI2",
-//             "no_ruangan" => "1",
-//             "teknisi" => "ILHAM"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB KKPI3",
-//             "no_ruangan" => "2",
-//             "teknisi" => "ANDI"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB KKPI4",
-//             "no_ruangan" => "3",
-//             "teknisi" => "RENDI"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB AKL",
-//             "no_ruangan" => "4",
-//             "teknisi" => "MU'ID"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB OTKP",
-//             "no_ruangan" => "5",
-//             "teknisi" => "YESI"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB RPL",
-//             "no_ruangan" => "6",
-//             "teknisi" => "DENI"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB MM",
-//             "no_ruangan" => "7",
-//             "teknisi" => "JUNED"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB LAN",
-//             "no_ruangan" => "8",
-//             "teknisi" => "BAGUS"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB WAN",
-//             "no_ruangan" => "9",
-//             "teknisi" => "TIO"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB KKPI5",
-//             "no_ruangan" => "10",
-//             "teknisi" => "SAMSUL"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB KKPI6",
-//             "no_ruangan" => "11",
-//             "teknisi" => "SALEH"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB PKM",
-//             "no_ruangan" => "12",
-//             "teknisi" => "YUNI"
-//         ]);
-//         RuanganModel::create([
-//             "nama_ruangan" => "LAB BDP",
-//             "no_ruangan" => "13",
-//             "teknisi" => "SULE"
-//         ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB KKPI2",
+            "no_ruangan" => "1",
+            "teknisi" => "ILHAM"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB KKPI3",
+            "no_ruangan" => "2",
+            "teknisi" => "ANDI"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB KKPI4",
+            "no_ruangan" => "3",
+            "teknisi" => "RENDI"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB AKL",
+            "no_ruangan" => "4",
+            "teknisi" => "MU'ID"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB OTKP",
+            "no_ruangan" => "5",
+            "teknisi" => "YESI"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB RPL",
+            "no_ruangan" => "6",
+            "teknisi" => "DENI"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB MM",
+            "no_ruangan" => "7",
+            "teknisi" => "JUNED"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB LAN",
+            "no_ruangan" => "8",
+            "teknisi" => "BAGUS"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB WAN",
+            "no_ruangan" => "9",
+            "teknisi" => "TIO"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB KKPI5",
+            "no_ruangan" => "10",
+            "teknisi" => "SAMSUL"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB KKPI6",
+            "no_ruangan" => "11",
+            "teknisi" => "SALEH"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB PKM",
+            "no_ruangan" => "12",
+            "teknisi" => "YUNI"
+        ]);
+        RuanganModel::create([
+            "nama_ruangan" => "LAB BDP",
+            "no_ruangan" => "13",
+            "teknisi" => "SULE"
+        ]);
 //         GuruModel::create([
 //             "guru" => "Drs. MALIK, M.Pd"
 //         ]);

@@ -42,9 +42,10 @@ Route::middleware(['auth:web'])->group(function () {
     Route::post('/print', [BeritaAcaraController::class, 'printBerita']);
     Route::post('/exportAbsen', [PrintpdfController::class, 'export']);
     Route::post('/printSiswa/{id}', [PrintpdfController::class, 'printSiswa']);
-    Route::get('/printSiswa', [SiswaController::class, 'filter']);
+    Route::get('/filterAbsen', [SiswaController::class, 'filterAbsen']);
+    Route::get('/filterSiswa', [SiswaController::class, 'filterSiswa']);
     Route::post('/siswaimport', [SiswaController::class, 'ImportSiswaExcel']);
-    
+
     // Route::post('/printSiswa/hadirkansemua',  [SiswaController::class, 'hadirsemua']);
 
     Route::resource('/jurusan', JurusanController::class);
@@ -61,5 +62,5 @@ Route::middleware(['auth:web'])->group(function () {
 });
 
 // Route::middleware(['roles:teknisi','auth:web'])->group(function () {
-  
+
 // });

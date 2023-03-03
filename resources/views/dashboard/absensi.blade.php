@@ -57,7 +57,7 @@
                 <div class="card">
                     <div class="card-content">
                         <h5 class="card-title">Filter Absensi</h5><br>
-                        <form action="/printSiswa" method="get">
+                        <form action="/filterAbsen" method="get">
                             {{-- @csrf --}}
                             <div class="col-12">
                                 <div class="row">
@@ -91,7 +91,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col s1 m-t-30">
+                                    <div class="col s1 ">
                                         <div class="form-group">
                                             <input type="submit" class="btn btn-md col-12 indigo" name="action"
                                                 value="Filter">
@@ -102,11 +102,11 @@
                         </form>
 
                         <!-- <form action="/siswaimport" method="post" enctype="multipart/form-data">
-                                                                            @csrf
-                                                                            <input type="file"  name="file" id="">
-                                                                        <input type="submit" class="btn btn-md col-12 indigo" name="action"
-                                                                                                                        value="import Siswa">
-                                                                        </form> -->
+                                                                                    @csrf
+                                                                                    <input type="file"  name="file" id="">
+                                                                                <input type="submit" class="btn btn-md col-12 indigo" name="action"
+                                                                                                                                value="import Siswa">
+                                                                                </form> -->
                     </div>
                 </div>
 

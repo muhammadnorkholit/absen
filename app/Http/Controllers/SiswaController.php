@@ -31,15 +31,15 @@ class SiswaController extends Controller
         return view('dashboard.absensi', compact('siswa', 'jurusan', 'ruang','data'));
     }
 
-    public function filter(Request $request)
+    public function filterAbsen(Request $request)
     {
-     
+
         $absen = printsiswaModel::all();
         $siswa = DB::table('siswa')
             ->select('siswa.*', 'jurusan')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
             ->get();
-            
+
         $data = DB::table('absen')
             ->rightJoin('siswa', 'absen.id_siswa', 'siswa.id')
             ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
@@ -55,20 +55,20 @@ class SiswaController extends Controller
 
 
 // hadirkan semua
-if (Request()->has('hadirsemua')) { 
-    try {
-        foreach ($data as $d ) {
-        
-          
-        $ds=DB::table('absen')->where('id_siswa',$d->id_siswa)->update([
-            "status" => 'hadir',
-        ]);
-            
+    if (Request()->has('hadirsemua')) {
+        try {
+            foreach ($data as $d ) {
+
+
+            $ds=DB::table('absen')->where('id_siswa',$d->id_siswa)->update([
+                "status" => 'hadir',
+            ]);
+
+            }
+            return redirect()->back()->with('alert','Berhasil menghadirkan siswa');
+        } catch (\Throwable $th) {
+            dd('error');
         }
-        return redirect()->back()->with('alert','Berhasil menghadirkan siswa');
-    } catch (\Throwable $th) {
-        dd('error');
-    }
 }
 
 
@@ -189,16 +189,28 @@ if (Request()->has('hadirsemua')) {
     }
 
     public function siswaUi(){
+        // dd('s');
         $siswa = DB::table('siswa')
                 ->select('siswa.*', 'jurusan', 'nama_ruangan')
                 ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
-                ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id') 
+                ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
                 ->get();
             $data = [];
-            
+
             $jurusan = DB::table('jurusan')->get();
             $ruang = DB::table('ruangan')->get();
-            return view('dashboard.siswa', compact('jurusan', 'data', 'ruang'));
+            return view('dashboard.siswa', compact('jurusan', 'siswa', 'data', 'ruang'));
+    }
+
+    public function filterSiswa(){
+        $data = DB::table('siswa')
+            ->select('siswa.*', 'jurusan', 'nama_ruangan')
+            ->join('jurusan', 'siswa.id_jurusan', 'jurusan.id')
+            ->join('ruangan', 'siswa.id_ruangan', 'ruangan.id')
+            ->get();
+        $jurusan = DB::table('jurusan')->get();
+
+        return view('dashboard.siswa', compact('jurusan', 'data'));
     }
 
     public function destroy($id)

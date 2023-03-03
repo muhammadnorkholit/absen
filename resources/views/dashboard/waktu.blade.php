@@ -63,10 +63,12 @@
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $w->waktu_awal }} - {{ $w->waktu_akhir }}</td>
                                     <td class="d-flex justify-content-evenly">
-                                        <a class="btn waves-effect waves-light modal-trigger red"
+                                        <a class="btn waves-effect waves-light modal-trigger"
+                                            style="color: white; background-color: rgb(219, 219, 0)"
                                             href="#modal3 {{ $w->id }}"><i
                                                 class="fa-solid fa-trash"{{ $w->id }}"></i></a>
-                                        <a class="btn waves-effect waves-light modal-trigger green"
+                                        <a class="btn waves-effect waves-light modal-trigger"
+                                            style="color: white; background-color: rgb(203, 109, 0)"
                                             href="#modal2 {{ $w->id }}"><i class="fa-solid fa-pen"></i></a>
                                     </td>
 
