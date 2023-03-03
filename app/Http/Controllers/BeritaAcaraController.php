@@ -106,7 +106,7 @@ class BeritaAcaraController extends Controller
         $waktu = DB::table('waktu')->where('id',Request()->waktu)->first();
         $ruang = DB::table('ruangan')->where('id',Request()->ruangan)->first();
         // return view('dashboard.printpdf',compact('ruang','guru','all','hadir', 'all1', 'mapel1', 'mapel2', 'waktu','nohadir'));
-        $pdf = Pdf::loadview('dashboard.printpdf',compact('ruang','guru','all','hadir', 'all1', 'mapel1', 'mapel2', 'waktu','nohadir'));
+        $pdf = Pdf::loadview('dashboard.PrintBeritaAcara',compact('ruang','guru','all','hadir', 'all1', 'mapel1', 'mapel2', 'waktu','nohadir'));
         $pdf->setPaper('A4','portrait');
         // return $pdf->download($ruang->nama_ruangan .'_sesi'.$all1[0]->sesi.'.pdf');s
         return $pdf->download($ruang->nama_ruangan . '_R_'.($ruang->no_ruangan). '_sesi'.$all1[0]->sesi.  '.pdf');

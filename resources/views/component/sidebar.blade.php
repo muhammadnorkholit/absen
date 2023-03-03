@@ -33,15 +33,13 @@
                                     class="material-icons">class</i><span class="hide-menu"> Data Master</span></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="/siswa" class="collapsible-header"><i
-                                                class="material-icons">adjust</i><span class="hide-menu"> Siswa
-                                            </span></a></li>
-                                    <li><a href="/guru" class="collapsible-header"><i
-                                                class="material-icons">adjust</i><span class="hide-menu"> Guru
-                                            </span></a></li>
-                                    <li><a href="/jurusan" class="collapsible-header"><i
-                                                class="material-icons">adjust</i><span class="hide-menu"> Jurusan
-                                            </span></a></li>
+                                    <li><a href="/siswa"><i class="material-icons">adjust</i><span
+                                                class="hide-menu">Siswa</span></a></li>
+                                    <li><a href="/guru"><i class="material-icons">adjust</i><span
+                                                class="hide-menu">Guru</span></a></li>
+
+                                    <li><a href="/jurusan"><i class="material-icons">adjust</i><span
+                                                class="hide-menu">Jurusan</span></a></li>
                                 </ul>
                             </div>
                         </li>
@@ -50,7 +48,7 @@
                     @if (auth()->user()->role == 'admin')
                         <li>
                             <a href="javascript: void(0);" class="collapsible-header has-arrow"><i
-                                    class="material-icons">s</i><span class="hide-menu"> Setting</span></a>
+                                    class="material-icons">settings</i><span class="hide-menu"> Setting</span></a>
                             <div class="collapsible-body">
                                 <ul>
                                     <li><a href="/lainnya"><i class="material-icons">adjust</i><span

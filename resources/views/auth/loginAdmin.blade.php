@@ -28,12 +28,18 @@
 
     <div class="row min-vh-100 justify-content-end"
         style="background-repeat: no-repeat;background-size: cover;background-image:linear-gradient(#000000ad,#000000ad), url({{ asset('bg.jpeg') }}) ">
-        <div class="col-md-8 p-5 d-flex flex-column ">
+        <div class="col-md-8 p-md-5 d-flex flex-column align-items-center justify-content-center ">
             {{-- <h1 class="text-white mt-5 pt-5 text-md-start text-center">Selamat datang <br> di aplikasi Absen Siswa --}}
+            <h1 class="text-white mt-md-5 pt-md-5 display-3 font-weight-bold fw-bold p-3 text-md-start text-center">
+                USPBK
+                <b>
+                    {{ date('Y') }}
+                </b>
             </h1>
+
         </div>
         <div class="col-md-4 bg-white ">
-            <form action="/join" class="p-2 pt-5 mt-5" method="POST">
+            <form action="/join" class="p-md-2 px-3 pt-md-5 mt-5" method="POST">
                 @csrf
                 {{-- <img src="{{ asset('assets/images/satu.jpg') }}" class="gambar" style="width:40%;"> --}}
                 <div class="text">

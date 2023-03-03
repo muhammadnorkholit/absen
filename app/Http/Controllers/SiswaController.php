@@ -19,7 +19,6 @@ class SiswaController extends Controller
 {
     public function index()
     {
-       
         Paginator::useBootstrap();
         $siswa = DB::table('siswa')
             ->select('jurusan', 'siswa.*', 'nama_ruangan')
