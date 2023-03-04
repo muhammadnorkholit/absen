@@ -54,9 +54,9 @@ class SiswaController extends Controller
         $ruang = DB::table('ruangan')->get();
 
 
-// hadirkan semua
-    if (Request()->has('hadirsemua')) {
-        try {
+        // hadirkan semua
+        if (Request()->has('hadirsemua')) {
+            try {
             foreach ($data as $d ) {
 
 
@@ -69,7 +69,7 @@ class SiswaController extends Controller
         } catch (\Throwable $th) {
             dd('error');
         }
-}
+        }
 
 
 

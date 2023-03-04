@@ -102,11 +102,11 @@
                         </form>
 
                         <!-- <form action="/siswaimport" method="post" enctype="multipart/form-data">
-                                                                                    @csrf
-                                                                                    <input type="file"  name="file" id="">
-                                                                                <input type="submit" class="btn btn-md col-12 indigo" name="action"
-                                                                                                                                value="import Siswa">
-                                                                                </form> -->
+                                                                                                        @csrf
+                                                                                                        <input type="file"  name="file" id="">
+                                                                                                    <input type="submit" class="btn btn-md col-12 indigo" name="action"
+                                                                                                                                                    value="import Siswa">
+                                                                                                    </form> -->
                     </div>
                 </div>
 

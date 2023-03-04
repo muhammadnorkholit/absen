@@ -34,12 +34,12 @@
                                             </select>
                                         </div>
                                         @error('ruangan')
-                                        <small style="color:red;">ruangan belum dipilih</small>
+                                            <small style="color:red;">ruangan belum dipilih</small>
                                         @enderror
                                     </div>
                                     <div class="col s3">
                                         <div class="form-group">
-                                                <label>Sesi</label>
+                                            <label>Sesi</label>
                                             <select class="form-control" name="sesi">
                                                 <option value="">Pilih Disini</option>
                                                 <option value="1">1</option>
@@ -48,7 +48,7 @@
                                             </select>
                                         </div>
                                         @error('sesi')
-                                        <small style="color:red;">sesi belum dipilih</small>
+                                            <small style="color:red;">sesi belum dipilih</small>
                                         @enderror
                                     </div>
 
@@ -56,17 +56,17 @@
 
                                     <div class="col s1 m-t-30">
                                         <div class="form-group">
-                                            <input  type="submit" class="btn btn-md col-12 indigo" name="action"
+                                            <input type="submit" class="btn btn-md col-12 indigo" name="action"
                                                 value="Siapkan Ruangan">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
-                        @if(Session::has('alert'))
-                        <small class="alert alert-danger">{{Session::get('alert')}}</small>
+                        @if (Session::has('alert'))
+                            <small class="alert alert-danger">{{ Session::get('alert') }}</small>
                         @endif
-                        
+
 
                     </div>
                 </div>
@@ -74,7 +74,7 @@
             </div>
         </div>
 
-        
+
 
 
     </div>

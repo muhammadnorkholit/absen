@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\hash; 
+use Illuminate\Support\Facades\hash;
 use PDF;
 
 class BeritaAcaraController extends Controller
@@ -35,7 +35,8 @@ class BeritaAcaraController extends Controller
         return view('dashboard.BeritaAcara', compact('jurusan', 'data', 'guru', 'ruangan', 'mapel1','mapel2' ,'waktu'));
     }
 
-    public function printBerita(Request $request){
+    public function printBerita(Request $request)
+    {
 
         $request->validate([
             'ruangan'=>'required',

@@ -28,38 +28,38 @@ class AbsenController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'sesi'=>'required',
-            'ruangan'=>'required',
-        ]);
-       $siswa =  DB::table('siswa')
-       ->select('siswa.*')
-        ->where('id_ruangan',$request->ruangan)
-        ->where('sesi',$request->sesi)
-        ->get();
-
-        $ada = DB::table('absen')
-        ->where('absen.id_siswa',$siswa[0]->id)
-        ->whereDate('absen.waktu',date('Y-m-d'))
-        ->count()
-        ;
-        // dd($ada);
-
-        if($ada == 0){
-            
-        foreach ($siswa as $r ) {
-            DB::table('absen')->insert([
-                'id_siswa'=>$r->id,
-                'status'=>5
+            $request->validate([
+                'sesi'=>'required',
+                'ruangan'=>'required',
             ]);
-        }
+        $siswa =  DB::table('siswa')
+        ->select('siswa.*')
+            ->where('id_ruangan',$request->ruangan)
+            ->where('sesi',$request->sesi)
+            ->get();
 
-        return  redirect('/siswaSemua')->with('alert', 'Ruangan berhasil di siapkan');
-        }
-        else{
-        return  redirect('/siswaSemua')->with('alert2', 'Ruangan Sudah Terdaftar');
-        }
+            $ada = DB::table('absen')
+            ->where('absen.id_siswa',$siswa[0]->id)
+            ->whereDate('absen.waktu',date('Y-m-d'))
+            ->count()
+            ;
+            // dd($ada);
 
-      
+            if($ada == 0){
+
+            foreach ($siswa as $r ) {
+                DB::table('absen')->insert([
+                    'id_siswa'=>$r->id,
+                    'status'=>5
+                ]);
+            }
+
+            return  redirect('/siswaSemua')->with('alert', 'Ruangan berhasil di siapkan');
+            }
+            else{
+            return  redirect('/siswaSemua')->with('alert2', 'Ruangan Sudah Terdaftar');
+            }
+
+
     }
 }
