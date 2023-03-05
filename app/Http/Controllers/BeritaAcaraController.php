@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\hash;
 use PDF;
 
+
 class BeritaAcaraController extends Controller
 {
     public function beritaAcara(Request $request){
